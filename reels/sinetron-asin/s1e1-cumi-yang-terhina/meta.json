@@ -1,0 +1,17 @@
+{
+  "account": "@ikanasinaflah",
+  "type": "reel",
+  "series": "Sinetron Asin Universe — Seri 1: Cumi yang Terhina",
+  "episode": 1,
+  "title": "Dihina di Pasar",
+  "video": "video.mp4",
+  "cover": "cover.jpg",
+  "caption": "caption.md",
+  "duration_sec": 61.7,
+  "resolution": "1080x1920",
+  "voice": "draft (espeak-ng offline) — re-render audio with neural voice when available",
+  "status": "ready",
+  "scheduled_at": null,
+  "posted_at": null,
+  "instagram_media_id": null
+}

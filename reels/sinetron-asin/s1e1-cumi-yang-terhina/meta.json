@@ -10,8 +10,10 @@
   "duration_sec": 61.7,
   "resolution": "1080x1920",
   "voice": "draft (espeak-ng offline) — re-render audio with neural voice when available",
-  "status": "ready",
+  "status": "posted",
   "scheduled_at": null,
-  "posted_at": null,
-  "instagram_media_id": null
+  "posted_at": "2026-10-28T11:30:00+07:00",
+  "instagram_media_id": "18097222991238993",
+  "share_to_feed": false,
+  "posted_via": "Windsor.ai create_video_post"
 }

@@ -285,6 +285,77 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Mandor belum tahu... juragan yang dia tunggu, sudah dia tendang hari ini.",
       "status": "fallback"
+    },
+    {
+      "id": "S3E1_01",
+      "spk": "cj",
+      "prompt": "[membentak, marah] Berapa yang kamu mau? Tinggalkan anak saya!",
+      "status": "fallback",
+      "session_id": "K7V39Q8CpzXkxW381DqM"
+    },
+    {
+      "id": "S3E1_02",
+      "spk": "teri",
+      "prompt": "[gugup, pelan] Maaf, Om... saya nggak butuh uang.",
+      "status": "fallback",
+      "session_id": "czxHgIU3OJ5vl4NLQyIX"
+    },
+    {
+      "id": "S3E1_03",
+      "spk": "cj",
+      "prompt": "[meremehkan] Kamu itu cuma teri nasi. Kecil, kering, nggak ada harganya!",
+      "status": "fallback",
+      "session_id": "Lo0tn8NNiWdVllhHu0Pp"
+    },
+    {
+      "id": "S3E1_04",
+      "spk": "cb",
+      "prompt": "[membela, kesal] Papa! Mas Teri itu jago masak!",
+      "status": "fallback",
+      "session_id": "AosaH0X35alidRJEEDUp"
+    },
+    {
+      "id": "S3E1_05",
+      "spk": "cj",
+      "prompt": "[ketawa sinis] Masak? Paling cuma bisa goreng kerupuk.",
+      "status": "fallback",
+      "session_id": "XZ4q0f9M0xk6EKLfs6kF"
+    },
+    {
+      "id": "S3E1_06",
+      "spk": "teri",
+      "prompt": "[tenang] Kalau begitu, Om cicipi dulu. Nasi goreng teri.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E1_07",
+      "spk": "cj",
+      "prompt": "[mengendus, lalu terdiam] ...Loh. [pelan, kaget] Kok enak?",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E1_08",
+      "spk": "cb",
+      "prompt": "[kaget] Papa?! Piringnya kok sudah habis?",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E1_09",
+      "spk": "cj",
+      "prompt": "[gugup, cepat] Itu... dimakan kucing!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E1_10",
+      "spk": "cj",
+      "prompt": "[berdeham, serius] Ya wis. Kamu boleh dekati anak saya... kalau bisa kalahkan chef pribadi saya. Besok.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E1_11",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Masalahnya... chef pribadi Papa, belum pernah kalah sekali pun.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

@@ -26,4 +26,4 @@ npm i @resvg/resvg-js
 node render.js batch 0 99999 && ffmpeg -framerate 24 -i frames/%05d.png -i audio.wav -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest ../video.mp4
 ```
 
-Posting otomatis membaca `meta.json` dengan `status: ready`, lalu mengubahnya menjadi `posted` beserta `posted_at`.
+Posting otomatis (tugas terjadwal harian 19:00 WIB) mengikuti `reels/POSTING.md`; prompt tugasnya ada di `reels/TUGAS_OTOMATIS.md`.

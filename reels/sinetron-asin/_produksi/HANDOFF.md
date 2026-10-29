@@ -17,7 +17,7 @@ Guidebook editing: `~/Downloads/AI Editor/GUIDEBOOK_Editing_Video_Aflah.md` (v2.
 - Paket siap: `reels/sinetron-asin/s1e2-chef-misterius/` dan `s1e3-bos-oren/` (video.mp4, cover.jpg, caption.md, meta.json `status: ready`).
 
 ## Yang tersisa
-1. Posting lewat Windsor `create_video_post` ke @ikanasinaflah dengan `share_to_feed: false` — hanya setelah Aflah menyetujui. Setelah posting, isi `posted_at`, `instagram_media_id`, `posted_via` dan ubah `status: posted`.
+1. Disetujui Aflah 29 Okt: Ep 2 tayang 30 Okt 19:00 WIB, Ep 3 tayang 31 Okt 19:00 WIB, diposting otomatis oleh tugas terjadwal sesuai `reels/POSTING.md`.
 
 ## Prompt untuk sesi baru
 > Lanjutkan produksi Cumi yang Terhina Ep 2 dan Ep 3. Baca `reels/sinetron-asin/_produksi/HANDOFF.md` di repo aflahermantoo-claude/ikanasinaflahig dan ikuti langkah "Yang tersisa".

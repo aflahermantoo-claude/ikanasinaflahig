@@ -48,7 +48,8 @@ Kalau push gagal, tetap laporkan id posting ke Aflah supaya besok tidak terposti
 ## Laporan ke Aflah
 Kirim lewat `SendUserMessage` + `PushNotification` (supaya masuk ke HP). Satu pesan singkat dalam Bahasa Indonesia, tanpa tips/saran langkah berikutnya:
 - Berhasil: judul episode + jam posting + sisa antrean (berapa episode `ready`, dan tanggal antrean habis).
-- Antrean kosong: bilang antrean kosong dan perlu episode baru.
+- Tidak ada jadwal hari ini tapi masih ada episode terjadwal di tanggal berikutnya: bilang "hari ini tidak ada jadwal" + judul & tanggal episode berikutnya (bukan "antrean kosong").
+- Antrean benar-benar kosong (tidak ada episode ready/scheduled sama sekali): bilang antrean kosong dan perlu episode baru.
 - Gagal: apa yang gagal dan apa yang perlu Aflah lakukan.
 - Selalu sebutkan perkiraan jumlah token yang dipakai.
 

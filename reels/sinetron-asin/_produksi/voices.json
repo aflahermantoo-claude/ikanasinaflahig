@@ -2,34 +2,179 @@
   "elevenlabs_flow_id": "vPf78XLPMQwAE6mZ7aqB",
   "model_id": "eleven_v4",
   "voices": {
-    "nar": { "name": "Hendro Atmoko", "voice_id": "F414PgPuQGviai32J141" },
-    "cb": { "name": "Mutia", "voice_id": "eRyKqfgsJAedPgBBSuqA" },
-    "teri": { "name": "Wibowo", "voice_id": "401JBh3qavLxL2CJfqvZ" },
-    "kakap": { "name": "Maliq Nganjuk", "voice_id": "EIcz16yo4q5hJFhNay0n" },
-    "ko": { "name": "Bambangg", "voice_id": "IMaRqUzeNVCT6ks9SI4Y" }
+    "nar": {
+      "name": "Hendro Atmoko",
+      "voice_id": "F414PgPuQGviai32J141"
+    },
+    "cb": {
+      "name": "Mutia",
+      "voice_id": "eRyKqfgsJAedPgBBSuqA"
+    },
+    "teri": {
+      "name": "Wibowo",
+      "voice_id": "401JBh3qavLxL2CJfqvZ"
+    },
+    "kakap": {
+      "name": "Maliq Nganjuk",
+      "voice_id": "EIcz16yo4q5hJFhNay0n"
+    },
+    "ko": {
+      "name": "Bambangg",
+      "voice_id": "IMaRqUzeNVCT6ks9SI4Y"
+    }
   },
   "lines": [
-    { "id": "E2_01", "spk": "nar", "prompt": "[dramatis, seperti narator sinetron] Sebelumnya... seorang chef misterius mencium aroma Cumi Baby.", "status": "ok", "session_id": "ZxhzpxR3unvfonuDszUp" },
-    { "id": "E2_02", "spk": "cb", "prompt": "[datar, tanpa ekspresi] Oh.", "status": "ok", "session_id": "iwvDuDUvcAxd43unOlGL" },
-    { "id": "E2_03", "spk": "teri", "prompt": "[bangga, serius] Kami chef Restoran Bintang Lima. Kami cari cumi asin paling wangi se-Jawa.", "status": "ok", "session_id": "NLvfIjHFKzxcQiXPhlli" },
-    { "id": "E2_04", "spk": "kakap", "prompt": "[heboh, sok akrab] Chef! Chef! Saya lebih segar! Saya ndak bau!", "status": "belum" },
-    { "id": "E2_05", "spk": "teri", "prompt": "[mengendus] Hmm... [jijik] Amis.", "status": "ok", "session_id": "mOKk6aj6P38TPxgo6zTu" },
-    { "id": "E2_06", "spk": "teri", "prompt": "[sopan] Mbak Cumi, mau kerja di dapur kami?", "status": "belum" },
-    { "id": "E2_07", "spk": "cb", "prompt": "[datar, curiga] Gajinya berapa?", "status": "belum" },
-    { "id": "E2_08", "spk": "teri", "prompt": "[yakin] Nasi hangat. Tiap hari.", "status": "ok", "session_id": "jgcxs3kwq9bLLupiQ1vC" },
-    { "id": "E2_09", "spk": "cb", "prompt": "[jeda sebentar, lalu datar] ...Deal.", "status": "ok", "session_id": "f1vW2ZGZY09DfYv4Os4l" },
-    { "id": "E2_10", "spk": "kakap", "prompt": "[berbisik panik, di telepon] Bos... cumi asin itu mau masuk restoran.", "status": "ok", "session_id": "KYKnifJSgFAj2ufJIfHz" },
-    { "id": "E2_11", "spk": "nar", "prompt": "[dramatis, seperti narator sinetron] Bersambung.", "status": "ok", "session_id": "JujHJLXNMmIc0eQfy4Li" },
-    { "id": "E3_01", "spk": "kakap", "prompt": "[panik, di telepon] Bos, gawat. Cumi asin itu mau kerja di restoran bintang lima.", "status": "ok", "session_id": "iktjMMywAuh6Z4APhR6E" },
-    { "id": "E3_02", "spk": "ko", "prompt": "[datar, santai] Terus?", "status": "ok", "session_id": "OD1KWzO4k2dnbMPgiLLF" },
-    { "id": "E3_03", "spk": "kakap", "prompt": "[merengek] Kalau dia terkenal, lapak es saya sepi, Bos!", "status": "ok", "session_id": "89uGpZUlGrfOKvaXkpgI" },
-    { "id": "E3_04", "spk": "ko", "prompt": "[datar] Kamu mau saya ngapain?", "status": "ok", "session_id": "sGXNOiXNwzGhpfLegWGn" },
-    { "id": "E3_05", "spk": "kakap", "prompt": "[berbisik] Culik, Bos! [cepat, gugup] Eh... maksudnya, ajak ngobrol.", "status": "ok", "session_id": "YCl3X4YI34RALZBTuKMW" },
-    { "id": "E3_06", "spk": "ko", "prompt": "[menghela napas] Yo wis. Kirim alamatnya.", "status": "ok", "session_id": "mMtFC0tNdXO8TY9SGF2s" },
-    { "id": "E3_07", "spk": "cb", "prompt": "[ramah] Monggo, Mas. Cari apa?", "status": "belum" },
-    { "id": "E3_08", "spk": "ko", "prompt": "[mengendus, lalu terdiam] ...Mbak. Saya pesan sepuluh kilo.", "status": "ok", "session_id": "QIaWikMogbvd0Y9TYan3" },
-    { "id": "E3_09", "spk": "kakap", "prompt": "[di telepon, panik] Bos? Bos?! Gimana?", "status": "belum" },
-    { "id": "E3_10", "spk": "ko", "prompt": "[mulut penuh, datar] Sibuk. Lagi makan.", "status": "belum" },
-    { "id": "E3_11", "spk": "ko", "prompt": "[datar, pelan] Ternyata enak.", "status": "belum" }
+    {
+      "id": "E2_01",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Sebelumnya... seorang chef misterius mencium aroma Cumi Baby.",
+      "status": "ok",
+      "session_id": "ZxhzpxR3unvfonuDszUp"
+    },
+    {
+      "id": "E2_02",
+      "spk": "cb",
+      "prompt": "[datar, tanpa ekspresi] Oh.",
+      "status": "ok",
+      "session_id": "iwvDuDUvcAxd43unOlGL"
+    },
+    {
+      "id": "E2_03",
+      "spk": "teri",
+      "prompt": "[bangga, serius] Kami chef Restoran Bintang Lima. Kami cari cumi asin paling wangi se-Jawa.",
+      "status": "ok",
+      "session_id": "NLvfIjHFKzxcQiXPhlli"
+    },
+    {
+      "id": "E2_04",
+      "spk": "kakap",
+      "prompt": "[heboh, sok akrab] Chef! Chef! Saya lebih segar! Saya ndak bau!",
+      "status": "ok",
+      "session_id": "5i4YzdIlJtdQ8UVPyQAa"
+    },
+    {
+      "id": "E2_05",
+      "spk": "teri",
+      "prompt": "[mengendus] Hmm... [jijik] Amis.",
+      "status": "ok",
+      "session_id": "mOKk6aj6P38TPxgo6zTu"
+    },
+    {
+      "id": "E2_06",
+      "spk": "teri",
+      "prompt": "[sopan] Mbak Cumi, mau kerja di dapur kami?",
+      "status": "ok",
+      "session_id": "JK4gCpPhucG0L7mbUxpH"
+    },
+    {
+      "id": "E2_07",
+      "spk": "cb",
+      "prompt": "[datar, curiga] Gajinya berapa?",
+      "status": "ok",
+      "session_id": "mSyENdNFNnVo8mGEnBns"
+    },
+    {
+      "id": "E2_08",
+      "spk": "teri",
+      "prompt": "[yakin] Nasi hangat. Tiap hari.",
+      "status": "ok",
+      "session_id": "jgcxs3kwq9bLLupiQ1vC"
+    },
+    {
+      "id": "E2_09",
+      "spk": "cb",
+      "prompt": "[jeda sebentar, lalu datar] ...Deal.",
+      "status": "ok",
+      "session_id": "f1vW2ZGZY09DfYv4Os4l"
+    },
+    {
+      "id": "E2_10",
+      "spk": "kakap",
+      "prompt": "[berbisik panik, di telepon] Bos... cumi asin itu mau masuk restoran.",
+      "status": "ok",
+      "session_id": "KYKnifJSgFAj2ufJIfHz"
+    },
+    {
+      "id": "E2_11",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Bersambung.",
+      "status": "ok",
+      "session_id": "JujHJLXNMmIc0eQfy4Li"
+    },
+    {
+      "id": "E3_01",
+      "spk": "kakap",
+      "prompt": "[panik, di telepon] Bos, gawat. Cumi asin itu mau kerja di restoran bintang lima.",
+      "status": "ok",
+      "session_id": "iktjMMywAuh6Z4APhR6E"
+    },
+    {
+      "id": "E3_02",
+      "spk": "ko",
+      "prompt": "[datar, santai] Terus?",
+      "status": "ok",
+      "session_id": "OD1KWzO4k2dnbMPgiLLF"
+    },
+    {
+      "id": "E3_03",
+      "spk": "kakap",
+      "prompt": "[merengek] Kalau dia terkenal, lapak es saya sepi, Bos!",
+      "status": "ok",
+      "session_id": "89uGpZUlGrfOKvaXkpgI"
+    },
+    {
+      "id": "E3_04",
+      "spk": "ko",
+      "prompt": "[datar] Kamu mau saya ngapain?",
+      "status": "ok",
+      "session_id": "sGXNOiXNwzGhpfLegWGn"
+    },
+    {
+      "id": "E3_05",
+      "spk": "kakap",
+      "prompt": "[berbisik] Culik, Bos! [cepat, gugup] Eh... maksudnya, ajak ngobrol.",
+      "status": "ok",
+      "session_id": "YCl3X4YI34RALZBTuKMW"
+    },
+    {
+      "id": "E3_06",
+      "spk": "ko",
+      "prompt": "[menghela napas] Yo wis. Kirim alamatnya.",
+      "status": "ok",
+      "session_id": "mMtFC0tNdXO8TY9SGF2s"
+    },
+    {
+      "id": "E3_07",
+      "spk": "cb",
+      "prompt": "[ramah] Monggo, Mas. Cari apa?",
+      "status": "ok",
+      "session_id": "bmbcrtKKOzHDK15BVbF5"
+    },
+    {
+      "id": "E3_08",
+      "spk": "ko",
+      "prompt": "[mengendus, lalu terdiam] ...Mbak. Saya pesan sepuluh kilo.",
+      "status": "ok",
+      "session_id": "QIaWikMogbvd0Y9TYan3"
+    },
+    {
+      "id": "E3_09",
+      "spk": "kakap",
+      "prompt": "[di telepon, panik] Bos? Bos?! Gimana?",
+      "status": "ok",
+      "session_id": "HloxnV6SMjPFauX3nTAp"
+    },
+    {
+      "id": "E3_10",
+      "spk": "ko",
+      "prompt": "[mulut penuh, datar] Sibuk. Lagi makan.",
+      "status": "belum"
+    },
+    {
+      "id": "E3_11",
+      "spk": "ko",
+      "prompt": "[datar, pelan] Ternyata enak.",
+      "status": "belum"
+    }
   ]
 }

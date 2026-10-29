@@ -13,11 +13,11 @@ Guidebook editing: `~/Downloads/AI Editor/GUIDEBOOK_Editing_Video_Aflah.md` (v2.
 ## Sudah selesai
 - Naskah + timeline semua adegan (`audio.py` → `SPECS`, `LINES`).
 - Animasi per frame, lip-sync dari amplitudo suara, kata per kata (Ep 2), bar judul + subtitle (Ep 3), SFX, musik (Ep 2), ambience (Ep 3) — `render_ep.js`. Sudah diuji dengan suara pengganti.
-- 15 dari 22 dialog sudah dibuat di ElevenLabs (lihat `voices.json`, `status: ok` + `session_id`).
+- 20 dari 22 dialog sudah dibuat di ElevenLabs (lihat `voices.json`, `status: ok` + `session_id`). Update 29 Okt siang: akun tidak lagi diblokir, tapi masih Free — 2 dialog terakhir (E3_10, E3_11) gagal karena "Free generations are busy".
 
 ## Yang tersisa
-1. **ElevenLabs:** akun Free Tier diblokir ("Unusual activity…"). Upgrade ke paket berbayar, lalu buat 7 dialog `status: belum` di `voices.json` (voice_id + prompt sudah tercantum, model `eleven_v4`, flow `vPf78XLPMQwAE6mZ7aqB`). Buat satu per satu, jangan paralel.
-2. **Unduh suara:** pastikan domain `storage.googleapis.com` diizinkan (claude.ai → Settings → Capabilities) sebelum sesi baru dimulai. Ambil URL segar dengan `creative_get_flow_run_status(flow_id, [session_id])`, unduh take pertama ke `vo/<ID>.mp3`.
+1. **ElevenLabs:** buat 2 dialog `status: belum` yang tersisa (E3_10, E3_11) — coba lagi beberapa menit kemudian atau upgrade ke paket berbayar di `voices.json` (voice_id + prompt sudah tercantum, model `eleven_v4`, flow `vPf78XLPMQwAE6mZ7aqB`). Buat satu per satu, jangan paralel.
+2. **Unduh suara:** (29 Okt: masih diblokir proxy — `CONNECT tunnel failed, 403`) pastikan domain `storage.googleapis.com` diizinkan (claude.ai → Settings → Capabilities) sebelum sesi baru dimulai. Ambil URL segar dengan `creative_get_flow_run_status(flow_id, [session_id])`, unduh take pertama ke `vo/<ID>.mp3`.
 3. **Render:**
    ```
    cd reels/sinetron-asin/_produksi

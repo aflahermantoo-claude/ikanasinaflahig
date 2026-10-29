@@ -27,3 +27,8 @@ node render.js batch 0 99999 && ffmpeg -framerate 24 -i frames/%05d.png -i audio
 ```
 
 Posting otomatis (tugas terjadwal harian, mulai 18:50, tayang 19:00 WIB) mengikuti `reels/POSTING.md`; prompt tugasnya ada di `reels/TUGAS_OTOMATIS.md`.
+
+## Otomatis
+- Produksi: tugas terjadwal "Produksi Reels @ikanasinaflah" (3x sehari) — aturan `reels/PRODUKSI.md`, prompt `reels/TUGAS_PRODUKSI_OTOMATIS.md`.
+- Posting: tugas terjadwal "Posting Reels @ikanasinaflah" (tayang 19:00 WIB) — aturan `reels/POSTING.md`, prompt `reels/TUGAS_OTOMATIS.md`.
+- Gaya, struktur 5 babak, footer, caption GEO: `reels/sinetron-asin/ATURAN_SERI.md`. Seri, rotasi, tokoh: `reels/sinetron-asin/SERI.md`.

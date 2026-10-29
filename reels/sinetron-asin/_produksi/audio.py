@@ -197,7 +197,7 @@ for sh, spc in zip(shots, spec):
     for cid in [l['id'] for l in sh['lines']]:
         l = next(l for l in sh['lines'] if l['id'] == cid)
         x = clips[cid]
-        if l['spk'] in ('kakap',) and sh['id'] in ('boss', 'k1', 'k2', 'k3', 'k4'):  # phone-ish voice
+        if (l['spk'] in ('kakap',) and sh['id'] in ('boss', 'k1', 'k2', 'k3', 'k4')) or l['spk'] in spc.get('phone', ()):  # phone-ish voice
             x = bp(x, 300, 3400) * 1.3
         put(voice, x, l['start'], 0.95)
     for name, off in spc.get('sfx', []):
@@ -223,8 +223,8 @@ if EP == 'ep2':
     put(mix, mus * duck[:len(mus)], 0, 0.55)
 else:
     amb = {'k': 'night', 'o': 'office', 'shop': 'morning', 'sniff': 'morning', 'eat': 'morning', 'end': 'morning'}
-    for sh in shots:
-        kind = amb.get(sh['id'], amb.get(sh['id'][0], 'night'))
+    for sh, spc in zip(shots, spec):
+        kind = spc.get('amb') or amb.get(sh['id'], amb.get(sh['id'][0], 'night'))  # episode baru: isi 'amb' per shot (night/office/morning)
         put(mix, ambience(kind, sh['dur']), sh['start'], 1.0)
 
 mix += voice

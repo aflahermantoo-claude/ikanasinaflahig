@@ -4,23 +4,57 @@
   "voices": {
     "nar": {
       "name": "Hendro Atmoko",
-      "voice_id": "F414PgPuQGviai32J141"
+      "voice_id": "F414PgPuQGviai32J141",
+      "fallback": {
+        "voice": "jv-ID-DimasNeural",
+        "rate": "-5%",
+        "pitch": "-4Hz"
+      }
     },
     "cb": {
       "name": "Mutia",
-      "voice_id": "eRyKqfgsJAedPgBBSuqA"
+      "voice_id": "eRyKqfgsJAedPgBBSuqA",
+      "fallback": {
+        "voice": "jv-ID-SitiNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz"
+      }
     },
     "teri": {
       "name": "Wibowo",
-      "voice_id": "401JBh3qavLxL2CJfqvZ"
+      "voice_id": "401JBh3qavLxL2CJfqvZ",
+      "fallback": {
+        "voice": "id-ID-ArdiNeural",
+        "rate": "+5%",
+        "pitch": "+2Hz"
+      }
     },
     "kakap": {
       "name": "Maliq Nganjuk",
-      "voice_id": "EIcz16yo4q5hJFhNay0n"
+      "voice_id": "EIcz16yo4q5hJFhNay0n",
+      "fallback": {
+        "voice": "jv-ID-DimasNeural",
+        "rate": "+10%",
+        "pitch": "+6Hz"
+      }
     },
     "ko": {
       "name": "Bambangg",
-      "voice_id": "IMaRqUzeNVCT6ks9SI4Y"
+      "voice_id": "IMaRqUzeNVCT6ks9SI4Y",
+      "fallback": {
+        "voice": "jv-ID-DimasNeural",
+        "rate": "-10%",
+        "pitch": "-10Hz"
+      }
+    },
+    "cj": {
+      "name": "BELUM DIPILIH — pilih dari creative_list_voices (pria Indonesia/Jawa, suara berat)",
+      "voice_id": null,
+      "fallback": {
+        "voice": "jv-ID-DimasNeural",
+        "rate": "-12%",
+        "pitch": "-14Hz"
+      }
     }
   },
   "lines": [
@@ -178,5 +212,6 @@
       "status": "ok",
       "session_id": "D5UagKOkc1yaaRceXGSK"
     }
-  ]
+  ],
+  "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."
 }

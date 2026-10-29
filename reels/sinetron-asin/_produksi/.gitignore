@@ -2,3 +2,4 @@ engine/node_modules/
 vo/*.wav
 ep2/
 ep3/
+s[0-9]*e[0-9]*/

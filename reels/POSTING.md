@@ -9,7 +9,7 @@ Kalau aturan berubah, cukup ubah file ini — prompt tugas terjadwal membaca fil
 - Maksimal **1 posting per hari**. Kalau sudah ada episode dengan `posted_at` di tanggal hari ini (WIB), jangan posting lagi.
 
 ## Memilih episode
-1. Cari semua `reels/**/meta.json` dengan `"status": "ready"` atau `"status": "scheduled"`.
+1. Cari semua `reels/**/meta.json` dengan `"status": "ready"` atau `"status": "scheduled"`. Status `draft` (masih diproduksi) dan `hold` (ditahan Aflah) dilewati.
 2. Hanya yang `scheduled_at` kosong (`null`) atau **tanggal**-nya (WIB) hari ini atau sebelumnya. Jamnya tidak dipakai untuk memilih — jam tayang selalu 19:00 WIB.
 3. Urutkan: `scheduled_at` paling awal dulu (yang `null` paling belakang), lalu nomor `episode` terkecil.
 4. Ambil **satu** saja. Kalau tidak ada → antrean kosong, jangan posting apa pun.
@@ -49,7 +49,7 @@ Kalau push gagal, tetap laporkan id posting ke Aflah supaya besok tidak terposti
 Kirim lewat `SendUserMessage` + `PushNotification` (supaya masuk ke HP). Satu pesan singkat dalam Bahasa Indonesia, tanpa tips/saran langkah berikutnya:
 - Berhasil: judul episode + jam posting + sisa antrean (berapa episode `ready`, dan tanggal antrean habis).
 - Tidak ada jadwal hari ini tapi masih ada episode terjadwal di tanggal berikutnya: bilang "hari ini tidak ada jadwal" + judul & tanggal episode berikutnya (bukan "antrean kosong").
-- Antrean benar-benar kosong (tidak ada episode ready/scheduled sama sekali): bilang antrean kosong dan perlu episode baru.
+- Antrean benar-benar kosong (tidak ada episode ready/scheduled sama sekali): bilang antrean kosong — tugas "Produksi Reels @ikanasinaflah" seharusnya sudah mengisinya, jadi sebutkan kalau ada episode yang masih `draft` (produksinya belum selesai).
 - Gagal: apa yang gagal dan apa yang perlu Aflah lakukan.
 - Selalu sebutkan perkiraan jumlah token yang dipakai.
 

@@ -196,7 +196,8 @@ function wrap(text, max = 26) {
   if (cur) out.push(cur); return out;
 }
 function ep3Overlay(sh, t, T) {
-  let o = `<rect x="16" y="68" width="${'Bos Oren..'.length * 8.1 + 18}" height="24" rx="4" fill="#FFFFFF"/><text x="25" y="85" font-family="Liberation Sans" font-weight="bold" font-size="14.5" fill="#111">Bos Oren..</text>`;
+  const ttl = TITLES[EP] || 'Bos Oren..';
+  let o = `<rect x="16" y="68" width="${ttl.length * 8.1 + 18}" height="24" rx="4" fill="#FFFFFF"/><text x="25" y="85" font-family="Liberation Sans" font-weight="bold" font-size="14.5" fill="#111">${esc(ttl)}</text>`;
   const l = curLine(sh, T);
   if (l) { const ls = wrap(l.text); o += subRef(ls, ls.length > 1 ? 384 - (ls.length - 1) * 19 : 380); }
   o += footer();
@@ -207,11 +208,18 @@ function ep3Overlay(sh, t, T) {
   return o;
 }
 
+// ---------- daftar episode ----------
+// Episode baru (gaya Ep 3 / sitcom deadpan): tulis fungsi <ep>Scene(sh, t, T) dengan karakter gaya A,
+// lalu daftarkan di sini: SCENES.<ep> = [<ep>Scene, ep3Overlay]; TITLES.<ep> = 'Judul bar..';
+const SCENES = { ep2: [ep2Scene, ep2Overlay], ep3: [ep3Scene, ep3Overlay] };
+const TITLES = { ep3: 'Bos Oren..' };
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;
   const sh = TL.shots[i], t = T - sh.start;
-  const body = EP === 'ep2' ? ep2Scene(sh, t, T) + ep2Overlay(sh, t, T) : ep3Scene(sh, t, T) + ep3Overlay(sh, t, T);
+  const [scene, overlay] = SCENES[EP] || [ep3Scene, ep3Overlay];
+  const body = scene(sh, t, T) + overlay(sh, t, T);
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 480" width="270" height="480"><defs><filter id="hblur" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur stdDeviation="9 0"/></filter><filter id="b6"><feGaussianBlur stdDeviation="6"/></filter><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7EC8F0"/><stop offset="1" stop-color="#FCE7B0"/></linearGradient></defs><rect width="270" height="480" fill="#000"/>${body}</svg>`;
 }
 const F = ['LiberationSans-Bold.ttf', 'DejaVuSerif.ttf', 'fonts/InterXB.ttf', 'fonts/InterSB.ttf', 'fonts/InterBlackIt.ttf', 'fonts/NewsR.ttf', 'fonts/NewsIt.ttf', 'fonts/BodoniM.ttf', 'fonts/BodoniIt.ttf'].map(f => path.join(SB, f));

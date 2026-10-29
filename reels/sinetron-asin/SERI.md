@@ -21,7 +21,7 @@ Premis: Cumi Baby (cumi asin kecil, kering, sering diejek) ternyata punya aroma 
 
 ## Seri 2 — Juragan Menyamar
 Premis: Cumi Jumbo, pemilik 100 gudang ikan asin, menyamar jadi kuli di gudangnya sendiri (pakai caping). Mandor galak (Kakap berhelm kuning) meremehkannya tanpa tahu dia juragan. Soft sell: kualitas & ketelitian gudang ikan asin.
-- Ep 1 "Hari Pertama Jadi Kuli" — mandor menendang caping Cumi Jumbo ("Kuli kayak kamu nggak akan pernah jadi apa-apa!"); Cumi Jumbo diam-diam membuktikan dia paling paham ikan asin; mandor mengumumkan "Besok Juragan Besar datang inspeksi!" — Cumi Jumbo mengedip ke kamera.
+- Ep 1 "Hari Pertama Jadi Kuli" — mandor menendang caping Cumi Jumbo ("Kuli kayak kamu nggak akan pernah jadi apa-apa!"); Cumi Jumbo diam-diam membuktikan dia paling paham ikan asin; mandor mengumumkan "Besok Juragan Besar datang inspeksi!" — Cumi Jumbo mengedip ke kamera. ✅ Diproduksi (tayang 1 Nov 2026): Teri (kuli) membuktikan ikan asinnya memang masih lembab; mandor menyuruh "kuli caping" menyambut Juragan di gerbang besok.
 
 ## Seri 3 — Mertua Cumi Jumbo
 Premis: Cumi Baby, putri juragan terkaya (Papa Cumi Jumbo), jatuh cinta pada Teri Nasi yang sederhana. Papa menolak keras — sampai diam-diam mencicipi masakan Teri. Soft sell: nasi goreng teri / masakan ikan asin.
@@ -35,6 +35,6 @@ Premis: Cumi Baby, putri juragan terkaya (Papa Cumi Jumbo), jatuh cinta pada Ter
 | teri | Teri / Teri Nasi (pria muda) | Wibowo `401JBh3qavLxL2CJfqvZ` | id-ID-ArdiNeural |
 | kakap | Kakap Segar / Mandor | Maliq Nganjuk `EIcz16yo4q5hJFhNay0n` | jv-ID-DimasNeural |
 | ko | Bos Oren | Bambangg `IMaRqUzeNVCT6ks9SI4Y` | jv-ID-DimasNeural (pitch rendah) |
-| cj | Cumi Jumbo / Papa (pria tua berwibawa) | belum dipilih — pilih dari `creative_list_voices` (pria Indonesia/Jawa, berat), lalu catat di voices.json dan tabel ini | jv-ID-DimasNeural (pitch rendah) |
+| cj | Cumi Jumbo / Papa (pria tua berwibawa) | Bambang (Grounded and authoritative) `j7n5yC6BN3oA2ZIWImty` | jv-ID-DimasNeural (pitch rendah) |
 
 Tokoh baru: tambahkan baris di tabel ini + voices.json, dan gambar dalam gaya Ep 3.

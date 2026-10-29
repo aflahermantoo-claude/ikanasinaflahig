@@ -48,8 +48,8 @@
       }
     },
     "cj": {
-      "name": "BELUM DIPILIH — pilih dari creative_list_voices (pria Indonesia/Jawa, suara berat)",
-      "voice_id": null,
+      "name": "Bambang - Grounded and authoritative",
+      "voice_id": "j7n5yC6BN3oA2ZIWImty",
       "fallback": {
         "voice": "jv-ID-DimasNeural",
         "rate": "-12%",
@@ -211,6 +211,80 @@
       "prompt": "[datar, pelan] Ternyata enak.",
       "status": "ok",
       "session_id": "D5UagKOkc1yaaRceXGSK"
+    },
+    {
+      "id": "S2E1_01",
+      "spk": "kakap",
+      "prompt": "[teriak galak] Heh, kuli baru! Jalan kok kayak siput!",
+      "status": "fallback",
+      "session_id": "xzfXazYhMMumRyYqSkw2"
+    },
+    {
+      "id": "S2E1_02",
+      "spk": "cj",
+      "prompt": "[datar, tenang] Maaf, Pak Mandor.",
+      "status": "fallback",
+      "session_id": "mFlIEThjlY9Thk0wObuv"
+    },
+    {
+      "id": "S2E1_03",
+      "spk": "kakap",
+      "prompt": "[meremehkan] Kuli kayak kamu nggak akan pernah jadi apa-apa!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_04",
+      "spk": "teri",
+      "prompt": "[berbisik] Sabar, Pak. Mandor memang begitu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_05",
+      "spk": "cj",
+      "prompt": "[mengendus, datar] Ikan asin di karung ini... belum kering betul. Jemur sehari lagi.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_06",
+      "spk": "kakap",
+      "prompt": "[ketawa sinis] Halah! Kuli kok ngajari mandor!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_07",
+      "spk": "teri",
+      "prompt": "[kaget] Loh... iya, Mandor. Masih lembab!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_08",
+      "spk": "kakap",
+      "prompt": "[gengsi, pelan] ...Ya wis, jemur ulang. Diam kamu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_09",
+      "spk": "kakap",
+      "prompt": "[panik, teriak] Semua dengar! Besok Juragan Besar datang inspeksi!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_10",
+      "spk": "kakap",
+      "prompt": "[menunjuk, galak] Dan kamu, kuli caping... kamu yang nyambut beliau di gerbang!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_11",
+      "spk": "cj",
+      "prompt": "[pelan, datar] Siap... Pak Mandor.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E1_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Mandor belum tahu... juragan yang dia tunggu, sudah dia tendang hari ini.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

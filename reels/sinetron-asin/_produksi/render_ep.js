@@ -208,11 +208,90 @@ function ep3Overlay(sh, t, T) {
   return o;
 }
 
+
+// ================= S2E1 — Juragan Menyamar: Hari Pertama Jadi Kuli (gaya A, sitcom deadpan) =================
+const CJ = L.cumiJumbo;
+function gudangA() { // gudang ikan asin siang, gaya sitcom datar
+  let s = `<rect width="270" height="480" fill="#E9D3A6"/>${Array.from({ length: 10 }, (_, i) => `<path d="M${i * 30 + 8} 40 L${i * 30 + 8} 340" stroke="#D6BC8A" stroke-width="2"/>`).join('')}`;
+  s += `<path d="M0 40 L270 40" stroke="#161616" stroke-width="3"/><rect y="0" width="270" height="40" fill="#8E5D36" stroke="#161616" stroke-width="2.2"/>`;
+  // jendela besar + rak jemur ikan asin
+  s += `<rect x="150" y="150" width="96" height="104" fill="#BFE3F0" stroke="#161616" stroke-width="2.4"/><circle cx="226" cy="172" r="10" fill="#FFE07A"/>`;
+  s += `<path d="M154 196 L242 196 M154 226 L242 226" stroke="#7A4A2A" stroke-width="2.2"/>${[0, 1].map(r => [0, 1, 2, 3, 4].map(k => `<path d="M${162 + k * 17} ${198 + r * 30} q5 4 0 16 q-5 -12 0 -16 Z" fill="#C9A46A" stroke="#7A5A30" stroke-width="1"/>`).join('')).join('')}`;
+  s += `<rect x="30" y="100" width="110" height="26" rx="5" fill="#7A4A2A" stroke="#161616" stroke-width="2"/><text x="85" y="117.5" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="10.5" fill="#FFF4E6">GUDANG No. 37</text>`;
+  s += `<rect y="340" width="270" height="140" fill="#A88458" stroke="#161616" stroke-width="2.2"/>`;
+  return s;
+}
+const karungA = (x, y, label, sc = 1) => `<g transform="translate(${x} ${y}) scale(${sc})"><path d="M0 6 Q0 -6 16 -4 L54 -4 Q70 -6 70 6 L68 40 Q35 48 2 40 Z" fill="#D8C49A" stroke="#161616" stroke-width="2"/><path d="M14 -4 Q20 -12 26 -4 M44 -4 Q50 -12 56 -4" stroke="#161616" stroke-width="1.6" fill="none"/>${label ? `<text x="35" y="24" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="8.5" fill="#6B4A22">${label}</text>` : ''}</g>`;
+const stacks = () => karungA(-14, 300, 'TERI') + karungA(-6, 262, 'IKAN ASIN') + karungA(206, 300, 'CUMI') + karungA(214, 262, '');
+// caping kuli (lokal: sama dengan kotak Cumi Jumbo 100 x 150)
+const capingSvg = `<path d="M6 20 L50 -24 L94 20 Q50 30 6 20 Z" fill="#D9B26A" stroke="#161616" stroke-width="2.2" stroke-linejoin="round"/><path d="M28 -2 L72 -2 M18 9 L82 9 M50 -24 L50 26" stroke="#A8803E" stroke-width="1.3"/>`;
+// handuk kuli menutupi kalung emas juragan
+const handuk = (peek = false) => `<path d="M16 82 Q50 100 84 82 L82 94 Q50 110 18 94 Z" fill="#F4EBDD" stroke="#161616" stroke-width="2"/><path d="M24 90 Q50 102 76 90" stroke="#C8553D" stroke-width="2" fill="none"/>${peek ? `<circle cx="50" cy="104" r="4.5" fill="#F5C542" stroke="#161616" stroke-width="1.2"/>` : ''}`;
+function kuli(o = {}, { caping = true, peek = false, wink = false } = {}) {
+  let s = CJ({ hat: false, ...o }) + handuk(peek);
+  if (wink) s += `<circle cx="63" cy="55" r="14.6" fill="#D99A5E"/><path d="M53 57 Q63 63 73 57" stroke="#161616" stroke-width="${S.LW}" fill="none" stroke-linecap="round"/>`;
+  if (caping) s += capingSvg;
+  return s;
+}
+// Mandor Kakap: helm proyek kuning, tanpa kalung
+const mandor = o => KK({ chain: false, ...o }) + `<path d="M34 24 Q36 -8 66 -8 Q96 -8 98 24 Z" fill="#F5C542" stroke="#161616" stroke-width="2.2"/><ellipse cx="66" cy="24" rx="38" ry="5" fill="#F2B520" stroke="#161616" stroke-width="2"/><path d="M66 -8 L66 22" stroke="#D99A10" stroke-width="3"/>`;
+const ikanAsin = (x, y, s = 1, rot = 0) => `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><path d="M-30 0 Q-10 -12 18 -6 L32 -14 L28 0 L32 14 L18 6 Q-10 12 -30 0 Z" fill="#C9A46A" stroke="#161616" stroke-width="1.8"/><circle cx="-20" cy="-2" r="2" fill="#161616"/><path d="M-6 -6 L-6 6 M4 -6 L4 6" stroke="#9A7A44" stroke-width="1.2"/></g>`;
+
+function s2e1Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  if (id === 'kick') {
+    const lunge = Math.sin(Math.PI * prog(t, 0.0, 0.45)) * 26;
+    const fly = prog(t, 0.3, 0.9), fe = easeOut(fly);
+    const cap = fly > 0 ? place(capingSvg, 150 + fe * 70, 196 - Math.sin(fly * Math.PI) * 120 + fe * 40, 1.0, { rot: fe * 300, cx: 50, cy: 0 }) : '';
+    return gudangA() + stacks() + place(kuli({ lid: blink(T) ? 1 : (fly > 0 ? 0.3 : 0.45), px: -0.8, m: 'flat' }, { caping: fly <= 0 }), 140, 196, 1.0) +
+      place(mandor({ lid: blink(T) ? 1 : 0.1, px: -0.3, m: mouthOf(sh, T, 'kakap', 'grit'), brow: 'angry' }), 4 + lunge, 236 + bob('kakap'), 1.05, { w: 140, flip: true }) + cap;
+  }
+  if (id === 'maaf') return gudangA() + place(kuli({ lid: blink(T) ? 1 : 0.5, m: mouthOf(sh, T, 'cj', 'flat') }, { caping: false }), 35, 130 + bob('cj'), 2.0);
+  if (id === 'hina' || id === 'ketawa' || id === 'gengsi') {
+    const laugh = id === 'ketawa' ? Math.abs(Math.sin(T * 16)) * 3 : 0;
+    const o = id === 'hina' ? { lid: 0.45, px: 0.4, m: 'smirk' } : id === 'ketawa' ? { lid: 0.98, m: 'grin' } : { lid: 0.3, px: -0.8, m: 'frown', sweat: true };
+    const lineEnd = sh.lines[0].end - sh.start, ring = id === 'gengsi' && t > lineEnd + 0.15;
+    const buzz = ring ? Math.sin(T * 50) * 1.4 : 0;
+    return gudangA() + place(mandor({ ...o, lid: blink(T) && o.lid < 0.9 ? 1 : o.lid, m: mouthOf(sh, T, 'kakap', o.m), px: ring ? 0.9 : o.px }), -30, 150 - laugh + bob('kakap'), 1.95, { w: 140, flip: true }) +
+      (ring ? L.phone(212 + buzz, 300, 1.6, 12) + `<path d="M232 280 l8 -6 M234 292 l10 0 M232 304 l8 6" stroke="#161616" stroke-width="2" stroke-linecap="round"/>` : '') + `<rect y="402" width="270" height="78" fill="#A88458" stroke="#161616" stroke-width="2"/>`;
+  }
+  if (id === 'bisik') {
+    return gudangA() + stacks() + place(kuli({ lid: blink(T) ? 1 : 0.5, px: -0.9, m: 'flat' }), 130, 180, 1.05) +
+      place(TN({ lid: blink(T, 1) ? 1 : 0.35, px: -0.6, m: mouthOf(sh, T, 'teri', 'flat'), brow: 'sad' }), 20, 252 + bob('teri'), 1.15, { w: 120, flip: true });
+  }
+  if (id === 'sniff') {
+    const narrow = t > 0.9, z = 1 + 0.05 * easeOut(prog(t, 0.9, 0.3));
+    const sn = [0, 1].map(k => { const o = ((t * 1.4 + k * 0.5) % 1); return t < 0.9 ? `<path d="M${100 + o * 20} ${226 - k * 14} q10 -6 18 0 q8 6 18 0" stroke="#7A5A30" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="${(1 - o).toFixed(2)}"/>` : ''; }).join('');
+    return cam(z, 135, 260, gudangA() + karungA(16, 222, 'IKAN ASIN', 1.45) + place(kuli({ lid: blink(T) ? 1 : (narrow ? 0.6 : 0.3), px: -0.8, py: 0.3, m: mouthOf(sh, T, 'cj', 'flat') }), 110, 120 + bob('cj'), 1.55) + sn);
+  }
+  if (id === 'cek') {
+    const shock = t > 0.2, sp = shock ? Math.min(1, (t - 0.2) * 4) : 0;
+    const stars = shock ? star(40, 150, 7 * sp) + star(200, 170, 6 * sp) + star(60, 300, 5 * sp) : '';
+    return gudangA() + place(TN({ lid: shock ? 0 : 0.4, pr: shock ? 2 : undefined, px: 0.6, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up' }), 15, 170 + bob('teri'), 1.75, { w: 120, flip: true }) +
+      ikanAsin(150, 320, 1.6, -10 + Math.sin(T * 10) * 3) + `<path d="M176 352 q4 8 0 14 M190 350 q4 8 0 14" stroke="#7FC0D8" stroke-width="2.4" fill="none" stroke-linecap="round"/>` + stars;
+  }
+  if (id === 'umum') {
+    const l2 = sh.lines[1], point = T >= l2.start - 0.1;
+    return gudangA() + `<g stroke="#161616" stroke-width="2"><rect x="70" y="276" width="110" height="60" fill="#8E5D36"/><path d="M70 296 L180 296 M70 316 L180 316" stroke-width="1.4"/></g>` +
+      place(mandor({ lid: blink(T) ? 1 : 0.1, px: point ? 0.8 : -0.2, m: mouthOf(sh, T, 'kakap', 'grit'), brow: 'angry', sweat: !point }), 60, 196 + bob('kakap'), 1.05, { w: 140, flip: point }) + (point ? '' : L.phone(70, 236, 1.2, -10)) +
+      place(TN({ lid: 0.3, m: 'o' }), -10, 352, 1.0, { w: 120, flip: true }) + place(kuli({ lid: point ? 0.5 : 0.35, px: point ? -0.5 : -0.2, m: 'flat' }), 168, 300, 0.9);
+  }
+  if (id === 'siap') return gudangA() + place(kuli({ lid: blink(T) ? 1 : 0.55, px: 0, m: mouthOf(sh, T, 'cj', 'flat') }), 35, 130 + bob('cj'), 2.0);
+  if (id === 'end') {
+    const wink = t > 0.25 && t < 1.4, z = 1 + 0.08 * easeOut(prog(t, 0.2, 0.3));
+    const gleam = t > 1.4 ? star(135, 345, 7 * (0.6 + 0.4 * Math.sin(T * 8))) : '';
+    return cam(z, 135, 250, gudangA() + place(kuli({ lid: 0.3, px: 0.2, py: 0.2, m: wink ? 'smirk' : 'flat' }, { wink, peek: t > 1.4 }), 35, 130, 2.0) + gleam);
+  }
+  return '';
+}
+
 // ---------- daftar episode ----------
 // Episode baru (gaya Ep 3 / sitcom deadpan): tulis fungsi <ep>Scene(sh, t, T) dengan karakter gaya A,
 // lalu daftarkan di sini: SCENES.<ep> = [<ep>Scene, ep3Overlay]; TITLES.<ep> = 'Judul bar..';
 const SCENES = { ep2: [ep2Scene, ep2Overlay], ep3: [ep3Scene, ep3Overlay] };
 const TITLES = { ep3: 'Bos Oren..' };
+SCENES.s2e1 = [s2e1Scene, ep3Overlay]; TITLES.s2e1 = 'Juragan Menyamar..';
 
 // ---------- frame ----------
 function frameSvg(T) {

@@ -35,8 +35,22 @@ LINES = {
  'E3_09': ('kakap', 'Bos? Bos?! Gimana?'),
  'E3_10': ('ko', 'Sibuk. Lagi makan.'),
  'E3_11': ('ko', 'Ternyata enak.'),
+ 'S2E1_01': ('kakap', 'Heh, kuli baru! Jalan kok kayak siput!'),
+ 'S2E1_02': ('cj', 'Maaf, Pak Mandor.'),
+ 'S2E1_03': ('kakap', 'Kuli kayak kamu nggak akan pernah jadi apa-apa!'),
+ 'S2E1_04': ('teri', 'Sabar, Pak. Mandor memang begitu.'),
+ 'S2E1_05': ('cj', 'Ikan asin di karung ini... belum kering betul. Jemur sehari lagi.'),
+ 'S2E1_06': ('kakap', 'Halah! Kuli kok ngajari mandor!'),
+ 'S2E1_07': ('teri', 'Loh... iya, Mandor. Masih lembab!'),
+ 'S2E1_08': ('kakap', '...Ya wis, jemur ulang. Diam kamu.'),
+ 'S2E1_09': ('kakap', 'Semua dengar! Besok Juragan Besar datang inspeksi!'),
+ 'S2E1_10': ('kakap', 'Dan kamu, kuli caping... kamu yang nyambut beliau di gerbang!'),
+ 'S2E1_11': ('cj', 'Siap... Pak Mandor.'),
+ 'S2E1_12': ('nar', 'Mandor belum tahu... juragan yang dia tunggu, sudah dia tendang hari ini.'),
 }
-ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125)}
+ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120)}
+
+TEMPO = {'s2e1': 1.2}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -64,6 +78,19 @@ SPECS = {
   dict(id='k4', lines=['E3_09'], pre=0.2, post=0.3),
   dict(id='eat', lines=['E3_10'], pre=0.6, post=0.5, sfx=[('chew', 0.0)]),
   dict(id='end', lines=['E3_11'], pre=0.7, post=1.8),
+ ],
+ 's2e1': [  # babak: 1 Drama (kick, maaf) · 2 Diremehkan (hina, bisik) · 3 Penemuan (sniff, ketawa, cek) · 4 Drama lagi (gengsi, umum) · 5 Cliffhanger (siap, end)
+  dict(id='kick', lines=['S2E1_01'], pre=0.15, post=0.4, sfx=[('whoosh', 0.05), ('thud', 0.3)], amb='office'),
+  dict(id='maaf', lines=['S2E1_02'], pre=0.45, post=0.5, amb='office'),
+  dict(id='hina', lines=['S2E1_03'], pre=0.2, post=0.6, amb='office'),
+  dict(id='bisik', lines=['S2E1_04'], pre=0.3, post=0.4, amb='office'),
+  dict(id='sniff', lines=['S2E1_05'], pre=0.9, post=0.6, sfx=[('sniff', 0.15)], amb='office'),
+  dict(id='ketawa', lines=['S2E1_06'], pre=0.2, post=0.4, amb='office'),
+  dict(id='cek', lines=['S2E1_07'], pre=0.6, post=0.6, sfx=[('ting', 0.2)], amb='office'),
+  dict(id='gengsi', lines=['S2E1_08'], pre=0.5, post=0.3, sfx_after=[('ring', 0.2)], amb='office'),
+  dict(id='umum', lines=['S2E1_09', 'S2E1_10'], gap=0.35, pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='office'),
+  dict(id='siap', lines=['S2E1_11'], pre=0.6, post=0.5, amb='office'),
+  dict(id='end', lines=['S2E1_12'], pre=0.7, post=1.8, sfx=[('ting', 0.3)], amb='office'),
  ],
 }
 
@@ -110,7 +137,8 @@ def load_clip(cid):
     mp3 = f'vo/{cid}.mp3'
     path = f'vo/{cid}.wav'
     if os.path.exists(mp3):
-        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', mp3, '-ac', '1', '-ar', str(SR), path], check=True)
+        af = ['-af', f'atempo={TEMPO[EP]}'] if EP in TEMPO else []  # tempo per episode (suara cadangan lebih lambat)
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', mp3, *af, '-ac', '1', '-ar', str(SR), path], check=True)
         src = 'elevenlabs'
     else:
         v, p, s = ESPEAK[spk]

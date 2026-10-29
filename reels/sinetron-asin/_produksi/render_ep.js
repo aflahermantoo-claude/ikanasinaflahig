@@ -172,7 +172,7 @@ function ep3Scene(sh, t, T) {
     const chew = Math.floor(T * 5) % 2 ? 'flat' : 'smile';
     const buzz = Math.sin(T * 50) * 1.2;
     return marketDayA() + place(CB({ lid: blink(T) ? 1 : 0.2, m: 'smile' }), 160, 196, 0.85) + counterA() + place(KO({ lid: blink(T, 1) ? 1 : 0.55, m: mouthOf(sh, T, 'ko', chew) }), 20, 170, 1.25) +
-      X.plate(90, 330, 0.75) + L.phone(196 + buzz, 330, 1.2, 80) + `<text x="210" y="312" font-family="Liberation Sans" font-weight="bold" font-size="9" fill="#C8553D">Kakap ☎</text>`;
+      X.plate(90, 330, 0.75) + L.phone(196 + buzz, 330, 1.2, 80) + `<text x="210" y="312" font-family="Liberation Sans" font-weight="bold" font-size="9" fill="#C8553D">Kakap</text>`;
   }
   if (id === 'end') {
     const chew = Math.floor(T * 5) % 2 ? 'flat' : 'smile';
@@ -193,7 +193,7 @@ function wrap(text, max = 26) {
 function ep3Overlay(sh, t, T) {
   let o = `<rect x="16" y="68" width="${'Bos Oren..'.length * 8.1 + 18}" height="24" rx="4" fill="#FFFFFF"/><text x="25" y="85" font-family="Liberation Sans" font-weight="bold" font-size="14.5" fill="#111">Bos Oren..</text>`;
   const l = curLine(sh, T);
-  if (l) { const ls = wrap(l.text); o += subRef(ls, ls.length > 1 ? 384 : 398); }
+  if (l) { const ls = wrap(l.text); o += subRef(ls, ls.length > 1 ? 403 - (ls.length - 1) * 19 : 398); }
   if (sh.id === 'end' && t > sh.dur - 1.6) {
     const p = easeOutBack(prog(t, sh.dur - 1.6, 0.3));
     o += cam(p, 120, 145, `<text x="120" y="150" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="24" fill="#F5C542" stroke="#111" stroke-width="3" paint-order="stroke">BERSAMBUNG...</text>`) + `<rect x="45" y="${330}" width="150" height="26" rx="13" fill="#FFFFFF" stroke="#161616" stroke-width="1.6"/><text x="120" y="347.5" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="12.5" fill="#111">@ikanasinaflah</text>`;

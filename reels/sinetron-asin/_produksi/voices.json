@@ -168,13 +168,15 @@
       "id": "E3_10",
       "spk": "ko",
       "prompt": "[mulut penuh, datar] Sibuk. Lagi makan.",
-      "status": "belum"
+      "status": "ok",
+      "session_id": "wsOhgslRhXFKcoaD8DFQ"
     },
     {
       "id": "E3_11",
       "spk": "ko",
       "prompt": "[datar, pelan] Ternyata enak.",
-      "status": "belum"
+      "status": "ok",
+      "session_id": "D5UagKOkc1yaaRceXGSK"
     }
   ]
 }

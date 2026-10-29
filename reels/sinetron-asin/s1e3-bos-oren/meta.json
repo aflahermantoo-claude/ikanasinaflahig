@@ -1,0 +1,22 @@
+{
+  "account": "@ikanasinaflah",
+  "type": "reel",
+  "series": "Sinetron Asin Universe — Seri 1: Cumi yang Terhina",
+  "episode": 3,
+  "title": "Bos Oren",
+  "video": "video.mp4",
+  "cover": "cover.jpg",
+  "caption": "caption.md",
+  "duration_sec": 41.8,
+  "resolution": "1080x1920",
+  "editing": "Sitcom Polos",
+  "animation": "A — Sitcom deadpan",
+  "voice": "ElevenLabs eleven_v4 (flow vPf78XLPMQwAE6mZ7aqB)",
+  "loudness_lufs": -14,
+  "status": "ready",
+  "scheduled_at": null,
+  "posted_at": null,
+  "instagram_media_id": null,
+  "share_to_feed": false,
+  "posted_via": null
+}

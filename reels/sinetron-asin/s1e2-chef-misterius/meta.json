@@ -1,0 +1,22 @@
+{
+  "account": "@ikanasinaflah",
+  "type": "reel",
+  "series": "Sinetron Asin Universe — Seri 1: Cumi yang Terhina",
+  "episode": 2,
+  "title": "Chef Misterius",
+  "video": "video.mp4",
+  "cover": "cover.jpg",
+  "caption": "caption.md",
+  "duration_sec": 43.9,
+  "resolution": "1080x1920",
+  "editing": "Kata Meledak (ala Philipsinema)",
+  "animation": "B — Reallife cartoon",
+  "voice": "ElevenLabs eleven_v4 (flow vPf78XLPMQwAE6mZ7aqB)",
+  "loudness_lufs": -14,
+  "status": "ready",
+  "scheduled_at": null,
+  "posted_at": null,
+  "instagram_media_id": null,
+  "share_to_feed": false,
+  "posted_via": null
+}

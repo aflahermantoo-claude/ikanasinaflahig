@@ -47,10 +47,21 @@ LINES = {
  'S2E1_10': ('kakap', 'Dan kamu, kuli caping... kamu yang nyambut beliau di gerbang!'),
  'S2E1_11': ('cj', 'Siap... Pak Mandor.'),
  'S2E1_12': ('nar', 'Mandor belum tahu... juragan yang dia tunggu, sudah dia tendang hari ini.'),
+ 'S3E1_01': ('cj', 'Berapa yang kamu mau? Tinggalkan anak saya!'),
+ 'S3E1_02': ('teri', 'Maaf, Om... saya nggak butuh uang.'),
+ 'S3E1_03': ('cj', 'Kamu itu cuma teri nasi. Kecil, kering, nggak ada harganya!'),
+ 'S3E1_04': ('cb', 'Papa! Mas Teri itu jago masak!'),
+ 'S3E1_05': ('cj', 'Masak? Paling cuma bisa goreng kerupuk.'),
+ 'S3E1_06': ('teri', 'Kalau begitu, Om cicipi dulu. Nasi goreng teri.'),
+ 'S3E1_07': ('cj', '...Loh. Kok enak?'),
+ 'S3E1_08': ('cb', 'Papa?! Piringnya kok sudah habis?'),
+ 'S3E1_09': ('cj', 'Itu... dimakan kucing!'),
+ 'S3E1_10': ('cj', 'Ya wis. Kamu boleh dekati anak saya... kalau bisa kalahkan chef pribadi saya. Besok.'),
+ 'S3E1_11': ('nar', 'Masalahnya... chef pribadi Papa, belum pernah kalah sekali pun.'),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120)}
 
-TEMPO = {'s2e1': 1.2}
+TEMPO = {'s2e1': 1.2, 's3e1': 1.2}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -91,6 +102,18 @@ SPECS = {
   dict(id='umum', lines=['S2E1_09', 'S2E1_10'], gap=0.35, pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='office'),
   dict(id='siap', lines=['S2E1_11'], pre=0.6, post=0.5, amb='office'),
   dict(id='end', lines=['S2E1_12'], pre=0.7, post=1.8, sfx=[('ting', 0.3)], amb='office'),
+ ],
+ 's3e1': [  # babak: 1 Drama (banting, tolak) · 2 Diremehkan (hina, bela, sinis) · 3 Penemuan (saji, cicip) · 4 Drama lagi (habis, syarat) · 5 Cliffhanger (end)
+  dict(id='banting', lines=['S3E1_01'], pre=0.35, post=0.35, sfx=[('thud', 0.15)], amb='office'),
+  dict(id='tolak', lines=['S3E1_02'], pre=0.35, post=0.35, amb='office'),
+  dict(id='hina', lines=['S3E1_03'], pre=0.2, post=0.35, amb='office'),
+  dict(id='bela', lines=['S3E1_04'], pre=0.25, post=0.3, sfx=[('whoosh', 0.0)], amb='office'),
+  dict(id='sinis', lines=['S3E1_05'], pre=0.2, post=0.4, amb='office'),
+  dict(id='saji', lines=['S3E1_06'], pre=0.4, post=0.4, sfx=[('ting', 0.1)], amb='office'),
+  dict(id='cicip', lines=['S3E1_07'], pre=1.4, post=0.8, sfx=[('sniff', 0.15), ('ting', 1.1)], amb='office'),
+  dict(id='habis', lines=['S3E1_08', 'S3E1_09'], gap=0.35, pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='office'),
+  dict(id='syarat', lines=['S3E1_10'], pre=0.3, post=0.4, sfx_after=[('dun', 0.05)], amb='office'),
+  dict(id='end', lines=['S3E1_11'], pre=0.5, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
  ],
 }
 

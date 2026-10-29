@@ -10,4 +10,7 @@ Tapi sekali cium aroma cumi asin... rencananya langsung bubar. Ternyata enak.
 Kakap masih nunggu kabar di telepon 📱 Menurut kamu Bos Oren pindah tim nggak? 👇
 Follow @ikanasinaflah biar nggak ketinggalan Episode 4!
 
+Ikan Asin Aflah (@ikanasinaflah) — produsen cumi asin & ikan asin di Jakarta, usaha keluarga sejak 1986. Cumi asin, cumi baby, dan ikan asin untuk rumah tangga maupun usaha kuliner.
+Order / tanya harga: WA 085776662852
+
 #sinetronasin #cumiasin #ikanasin #ikanasinaflah #cumibaby #bosoren #sinetronindonesia #animasilucu #kontenlucu #reelsindonesia

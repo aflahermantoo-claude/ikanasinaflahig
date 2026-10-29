@@ -113,6 +113,11 @@ function ep2Scene(sh, t, T) {
   }
   return '';
 }
+// Tanda kecil brand (pengganti watermark kredit) — aturan Aflah 29 Okt 2026
+const BRAND_LINE = 'Produsen Cumi Asin & Ikan Asin', BRAND_PHONE = '085776662852';
+function footer() {
+  return `<rect x="66" y="394" width="108" height="21" rx="10.5" fill="#141418" fill-opacity="0.55"/><text x="120" y="403" text-anchor="middle" font-family="Inter SB" font-size="6.6" fill="#FFFFFF">${esc(BRAND_LINE)}</text><text x="120" y="411.5" text-anchor="middle" font-family="Inter SB" font-size="6.6" fill="#FFFFFF">${BRAND_PHONE}</text>`;
+}
 function ep2Overlay(sh, t, T) {
   let o = '';
   const w = curWord(sh, T);
@@ -124,7 +129,7 @@ function ep2Overlay(sh, t, T) {
   }
   if (sh.id === 'faint') { const le = sh.lines[0].end; const p = easeOutBack(prog(T, le + 0.35, 0.2)); if (p > 0 && !w) o += `<g transform="translate(120 236) rotate(-3) scale(${p.toFixed(3)})"><text text-anchor="middle" font-family="Inter BlackIt" font-size="28" fill="#FFFFFF" stroke="#111" stroke-width="5" paint-order="stroke">PINGSAN</text></g>`; }
   if (sh.id === 'boss') { const nar = sh.lines[1]; const p = easeOutBack(prog(T, nar.start, 0.3)); if (p > 0) o += `<g transform="translate(120 120) scale(${p.toFixed(3)})"><text text-anchor="middle" font-family="Inter BlackIt" font-size="22" fill="#F2C94C" stroke="#111" stroke-width="4.5" paint-order="stroke">BERSAMBUNG...</text></g>`; }
-  o += `<rect x="18" y="384" width="118" height="28" rx="4" fill="#141418" fill-opacity="0.55" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.8"/><text x="26" y="395" font-family="Inter SB" font-size="7.2" fill="#FFFFFF">Voice by ♪ ElevenLabs · logat Jawa</text><text x="26" y="406" font-family="Inter SB" font-size="7.2" fill="#FFFFFF">Animation by ♪ @ikanasinaflah</text>`;
+  o += footer();
   return o;
 }
 
@@ -193,7 +198,8 @@ function wrap(text, max = 26) {
 function ep3Overlay(sh, t, T) {
   let o = `<rect x="16" y="68" width="${'Bos Oren..'.length * 8.1 + 18}" height="24" rx="4" fill="#FFFFFF"/><text x="25" y="85" font-family="Liberation Sans" font-weight="bold" font-size="14.5" fill="#111">Bos Oren..</text>`;
   const l = curLine(sh, T);
-  if (l) { const ls = wrap(l.text); o += subRef(ls, ls.length > 1 ? 403 - (ls.length - 1) * 19 : 398); }
+  if (l) { const ls = wrap(l.text); o += subRef(ls, ls.length > 1 ? 384 - (ls.length - 1) * 19 : 380); }
+  o += footer();
   if (sh.id === 'end' && t > sh.dur - 1.6) {
     const p = easeOutBack(prog(t, sh.dur - 1.6, 0.3));
     o += cam(p, 120, 145, `<text x="120" y="150" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="24" fill="#F5C542" stroke="#111" stroke-width="3" paint-order="stroke">BERSAMBUNG...</text>`) + `<rect x="45" y="${330}" width="150" height="26" rx="13" fill="#FFFFFF" stroke="#161616" stroke-width="1.6"/><text x="120" y="347.5" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="12.5" fill="#111">@ikanasinaflah</text>`;

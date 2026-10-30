@@ -58,10 +58,22 @@ LINES = {
  'S3E1_09': ('cj', 'Itu... dimakan kucing!'),
  'S3E1_10': ('cj', 'Ya wis. Kamu boleh dekati anak saya... kalau bisa kalahkan chef pribadi saya. Besok.'),
  'S3E1_11': ('nar', 'Masalahnya... chef pribadi Papa, belum pernah kalah sekali pun.'),
+ 'S1E4_01': ('kakap', 'Bos? Bos! Kok teleponnya ditutup?!'),
+ 'S1E4_02': ('nar', 'Sejak Bos Oren mencicipi cumi asin... lapak es Kakap sepi.'),
+ 'S1E4_03': ('kakap', 'Heh, cumi kering! Bos Oren itu cuma kasihan sama kamu.'),
+ 'S1E4_04': ('kakap', 'Cumi asin kayak kamu, lakunya sehari doang!'),
+ 'S1E4_05': ('cb', 'Oh.'),
+ 'S1E4_06': ('teri', 'Mbak Cumi! Restoran penuh! Semua tamu pesan cumi asin!'),
+ 'S1E4_07': ('kakap', 'Loh... antre sepanjang ini... cuma buat cumi asin?'),
+ 'S1E4_08': ('ko', 'Kakap. Mulai besok, lapakmu jadi gudang cumi asin.'),
+ 'S1E4_09': ('kakap', 'Bos?! Terus saya jualan di mana?'),
+ 'S1E4_10': ('ko', 'Terserah. Saya sibuk makan.'),
+ 'S1E4_11': ('kakap', 'Halo... Juragan Hiu? Saya butuh bantuan.'),
+ 'S1E4_12': ('nar', 'Kakap baru saja menelepon... satu-satunya yang ditakuti Bos Oren.'),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120)}
 
-TEMPO = {'s2e1': 1.2, 's3e1': 1.2}
+TEMPO = {'s2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -114,6 +126,19 @@ SPECS = {
   dict(id='habis', lines=['S3E1_08', 'S3E1_09'], gap=0.35, pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='office'),
   dict(id='syarat', lines=['S3E1_10'], pre=0.3, post=0.4, sfx_after=[('dun', 0.05)], amb='office'),
   dict(id='end', lines=['S3E1_11'], pre=0.5, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
+ ],
+ 's1e4': [  # babak: 1 Drama (tutup, sepi) · 2 Diremehkan (hina, oh) · 3 Penemuan (teri, antre) · 4 Drama lagi (bos, panik, makan) · 5 Cliffhanger (telp, end)
+  dict(id='tutup', lines=['S1E4_01'], pre=0.3, post=0.3, sfx=[('hangup', 0.05)], amb='night'),
+  dict(id='sepi', lines=['S1E4_02'], pre=0.3, post=0.5, amb='morning'),
+  dict(id='hina', lines=['S1E4_03', 'S1E4_04'], gap=0.3, pre=0.2, post=0.3, amb='morning'),
+  dict(id='oh', lines=['S1E4_05'], pre=0.6, post=0.9, min=2.0, amb='morning'),
+  dict(id='teri', lines=['S1E4_06'], pre=0.3, post=0.3, sfx=[('whoosh', 0.0)], amb='morning'),
+  dict(id='antre', lines=['S1E4_07'], pre=0.9, post=0.6, sfx=[('ting', 0.3)], amb='morning'),
+  dict(id='bos', lines=['S1E4_08'], pre=0.6, post=0.3, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='panik', lines=['S1E4_09'], pre=0.2, post=0.3, amb='morning'),
+  dict(id='makan', lines=['S1E4_10'], pre=0.5, post=0.5, sfx=[('chew', 0.0)], amb='morning'),
+  dict(id='telp', lines=['S1E4_11'], pre=0.6, post=0.4, sfx=[('ring', 0.0)], amb='night'),
+  dict(id='end', lines=['S1E4_12'], pre=0.5, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
  ],
 }
 

@@ -359,6 +359,69 @@ function s3e1Scene(sh, t, T) {
   return '';
 }
 
+// ================= S1E4 — Cumi yang Terhina: Kakap Ditinggal Bos (gaya A, sitcom deadpan) =================
+const chefHat = `<path d="M14 19 Q2 6 16 3 Q20 -8 32 -4 Q44 -8 47 4 Q58 7 50 19 Z" fill="#FFFFFF" stroke="#161616" stroke-width="2.2" stroke-linejoin="round"/><rect x="15" y="15" width="34" height="6" fill="#F2F2F2" stroke="#161616" stroke-width="1.6"/>`;
+const teriChef = o => TN({ blangkon: false, ...o }) + chefHat;
+const lapakEs = () => `<rect x="70" y="104" width="130" height="28" rx="6" fill="#2F6FB0" stroke="#161616" stroke-width="2"/><text x="135" y="123" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="12" fill="#FFFFFF">ES KAKAP SEGAR</text>`;
+const flies = T => [0, 1, 2].map(k => { const a = T * (3 + k) + k * 2.1, x = 150 + Math.cos(a) * (26 + k * 8), y = 210 + Math.sin(a * 1.3) * 14 - k * 10; return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.2" fill="#161616"/><path d="M${(x - 3).toFixed(1)} ${(y - 3).toFixed(1)} l2 2 M${(x + 3).toFixed(1)} ${(y - 3).toFixed(1)} l-2 2" stroke="#161616" stroke-width="0.8"/>`; }).join('');
+function s1e4Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const kakapBig = (bg, o, ground, ph = false) => bg + place(KK({ chain: true, ...o, lid: blink(T) && (o.lid ?? 0.3) < 0.9 ? 1 : (o.lid ?? 0.3), m: mouthOf(sh, T, 'kakap', o.m || 'frown') }), -30, 150 + bob('kakap'), 1.95, { w: 140, flip: true }) + (ph ? L.phone(232, 236, 1.6, 15) : '') + `<rect y="380" width="270" height="100" fill="${ground}"/>`;
+  if (id === 'tutup') {
+    const shake = talking(sh, T, 'kakap') ? Math.sin(T * 40) * 1.4 : 0;
+    const tut = t < 0.55 ? `<path d="M240 196 l10 -8 M244 208 l14 0 M240 220 l10 8" stroke="#FFE14D" stroke-width="2.4" stroke-linecap="round"/>` : '';
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + kakapBig(X.marketA(), { lid: 0, px: 0.5, m: 'grit', sweat: true, brow: 'sad' }, '#3A3048', true) + tut + `</g>`;
+  }
+  if (id === 'sepi') {
+    return marketDayA() + lapakEs() + place(KK({ lid: blink(T) ? 1 : 0.75, px: -0.2, m: mouthOf(sh, T, 'kakap', 'frown'), chain: true }), 70, 232, 1.0, { w: 140, flip: true }) + X.ice(296) + flies(T) +
+      `<path d="M${(40 + (t * 40) % 220).toFixed(1)} 330 m-10 0 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0" fill="none" stroke="#9A7A44" stroke-width="2" transform="rotate(${(t * 200).toFixed(0)} ${(40 + (t * 40) % 220).toFixed(1)} 330)"/>`;
+  }
+  if (id === 'hina') {
+    const second = T >= sh.lines[1].start - 0.1, laugh = second ? Math.abs(Math.sin(T * 16)) * 3 : 0;
+    return kakapBig(marketDayA(), second ? { lid: 0.98, m: 'grin' } : { lid: 0.45, px: 0.4, m: 'smirk' }, '#B48A5E').replace('translate(', `translate(0 ${(-laugh).toFixed(2)}) translate(`);
+  }
+  if (id === 'oh') return marketDayA() + place(CB({ lid: blink(T) ? 1 : 0.62, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 35, 118 + bob('cb'), 2.0);
+  if (id === 'teri') {
+    const slide = 1 - easeOut(prog(t, 0, 0.35));
+    const speed = slide > 0.05 ? [0, 1, 2].map(k => `<path d="M${200 + k * 12} ${200 + k * 34} L${262} ${200 + k * 34}" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="${slide.toFixed(2)}"/>`).join('') : '';
+    const pant = Math.abs(Math.sin(T * 9)) * 3;
+    return marketDayA() + speed + place(teriChef({ lid: blink(T) ? 1 : 0.15, px: -0.2, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up' }), 15 + slide * 220, 170 - pant + bob('teri'), 1.75, { w: 120, flip: true }) +
+      L.sweatDrop(40, 180, 1.4) + L.sweatDrop(214, 196, 1.2);
+  }
+  if (id === 'antre') {
+    const z = 1.45 - 0.45 * easeOut(prog(t, 0.2, 0.7)), shock = t > 0.3, sp = shock ? Math.min(1, (t - 0.3) * 4) : 0;
+    let q = '';
+    for (let k = 7; k >= 0; k--) { const x = 250 - k * 22 + (k % 2) * 4, y = 268 - k * 13; q += place(TN({ lid: blink(T, k * 0.4) ? 1 : 0.35, px: -0.6, m: 'smile' }), x, y, 0.42 + k * -0.015, { w: 120 }); }
+    const inner = marketDayA() + `<rect x="0" y="200" width="270" height="140" fill="#E7C68D"/>` + q + place(CB({ lid: blink(T) ? 1 : 0.2, m: 'smile' }), 32, 196, 0.62) + counterA().replace(/<rect x="0" y="300" width="270"/, '<rect x="0" y="300" width="140"').replace(/<rect x="0" y="316" width="270"/, '<rect x="0" y="316" width="140"') +
+      place(KK({ lid: shock ? 0 : 0.4, pr: shock ? 2 : undefined, px: 0.5, m: mouthOf(sh, T, 'kakap', 'o'), brow: 'up', chain: true }), 132, 300 + bob('kakap'), 0.95);
+    return cam(z, 200, 260, inner) + (shock ? star(150, 286, 7 * sp) + star(244, 300, 6 * sp) : '');
+  }
+  if (id === 'bos') {
+    const walk = easeOut(prog(t, 0, 0.6));
+    return marketDayA() + place(KO({ lid: 0.5, m: mouthOf(sh, T, 'ko', 'flat') }), 35 + (1 - walk) * 200, 140, 2.0) + shades(35 + (1 - walk) * 200, 140, 2.0);
+  }
+  if (id === 'panik') return kakapBig(marketDayA(), { lid: 0, px: 0.8, m: 'grit', sweat: true, brow: 'sad' }, '#B48A5E');
+  if (id === 'makan') {
+    const chew = Math.floor(T * 5) % 2 ? 'flat' : 'smile';
+    return marketDayA() + place(CB({ lid: blink(T) ? 1 : 0.2, m: 'smile' }), 160, 196, 0.85) + counterA() + place(KO({ lid: blink(T, 1) ? 1 : 0.55, m: talking(sh, T, 'ko') ? mouthOf(sh, T, 'ko', 'flat') : chew }), 20, 170, 1.25) + shades(20, 170, 1.25) + X.plate(90, 330, 0.75);
+  }
+  if (id === 'telp') {
+    const sly = Math.sin(T * 5) > 0 ? -0.9 : 0.9;
+    return kakapBig(X.marketA(), { lid: 0.55, px: talking(sh, T, 'kakap') ? 0.4 : sly, m: 'smirk' }, '#1A1626', true) + `<rect width="270" height="480" fill="#0A0814" opacity="0.38"/>`;
+  }
+  if (id === 'end') {
+    const rise = easeOut(prog(t, 0.2, 1.6)), z = 1 + 0.07 * easeOut(prog(t, 0, sh.dur)), glow = 0.6 + 0.4 * Math.sin(T * 6);
+    let s = `<rect width="270" height="480" fill="#06121E"/><rect y="250" width="270" height="230" fill="#0B2236"/>`;
+    s += [0, 1, 2].map(k => `<path d="M0 ${252 + k * 26} ${Array.from({ length: 10 }, (_, j) => `q13.5 ${j % 2 ? 6 : -6} 27 0`).join(' ')}" transform="translate(${(-((T * 14 + k * 9) % 27)).toFixed(1)} 0)" stroke="#1D4A6B" stroke-width="2" fill="none"/>`).join('');
+    const fy = 252 - rise * 120;
+    s += `<path d="M86 252 L${150} ${fy.toFixed(1)} Q166 ${(fy + 40).toFixed(1)} 178 252 Z" fill="#3A4A58" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/>`;
+    s += `<circle cx="112" cy="312" r="5.5" fill="#FF3B2F" opacity="${(glow * rise).toFixed(2)}"/><circle cx="160" cy="312" r="5.5" fill="#FF3B2F" opacity="${(glow * rise).toFixed(2)}"/>`;
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+
 // ---------- daftar episode ----------
 // Episode baru (gaya Ep 3 / sitcom deadpan): tulis fungsi <ep>Scene(sh, t, T) dengan karakter gaya A,
 // lalu daftarkan di sini: SCENES.<ep> = [<ep>Scene, ep3Overlay]; TITLES.<ep> = 'Judul bar..';
@@ -366,6 +429,7 @@ const SCENES = { ep2: [ep2Scene, ep2Overlay], ep3: [ep3Scene, ep3Overlay] };
 const TITLES = { ep3: 'Bos Oren..' };
 SCENES.s2e1 = [s2e1Scene, ep3Overlay]; TITLES.s2e1 = 'Juragan Menyamar..';
 SCENES.s3e1 = [s3e1Scene, ep3Overlay]; TITLES.s3e1 = 'Mertua Cumi Jumbo..';
+SCENES.s1e4 = [s1e4Scene, ep3Overlay]; TITLES.s1e4 = 'Kakap Ditinggal Bos..';
 
 // ---------- frame ----------
 function frameSvg(T) {

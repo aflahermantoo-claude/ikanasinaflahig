@@ -356,6 +356,84 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Masalahnya... chef pribadi Papa, belum pernah kalah sekali pun.",
       "status": "fallback"
+    },
+    {
+      "id": "S1E4_01",
+      "spk": "kakap",
+      "prompt": "[panik, berteriak ke telepon] Bos? Bos! Kok teleponnya ditutup?!",
+      "status": "fallback",
+      "session_id": "iBAAvbqWHfSxliCALAks"
+    },
+    {
+      "id": "S1E4_02",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Sejak Bos Oren mencicipi cumi asin... lapak es Kakap sepi.",
+      "status": "fallback",
+      "session_id": "hNELSd4i4dUDDdIU4yUW"
+    },
+    {
+      "id": "S1E4_03",
+      "spk": "kakap",
+      "prompt": "[sinis, meremehkan] Heh, cumi kering! Bos Oren itu cuma kasihan sama kamu.",
+      "status": "fallback",
+      "session_id": "KftG5HGNkpWvLunhvSVN"
+    },
+    {
+      "id": "S1E4_04",
+      "spk": "kakap",
+      "prompt": "[mengejek] Cumi asin kayak kamu, lakunya sehari doang!",
+      "status": "fallback",
+      "session_id": "ldnaVMHZIcZMG8G23oVY"
+    },
+    {
+      "id": "S1E4_05",
+      "spk": "cb",
+      "prompt": "[datar] Oh.",
+      "status": "fallback",
+      "session_id": "KstBt9hmR2mF8ncC6lKD"
+    },
+    {
+      "id": "S1E4_06",
+      "spk": "teri",
+      "prompt": "[terengah-engah, terburu-buru] Mbak Cumi! Restoran penuh! Semua tamu pesan cumi asin!",
+      "status": "fallback",
+      "session_id": "lOMw4uEpAIi6aEZkTerD"
+    },
+    {
+      "id": "S1E4_07",
+      "spk": "kakap",
+      "prompt": "[kaget, terbata] Loh... antre sepanjang ini... cuma buat cumi asin?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E4_08",
+      "spk": "ko",
+      "prompt": "[datar, berwibawa] Kakap. Mulai besok, lapakmu jadi gudang cumi asin.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E4_09",
+      "spk": "kakap",
+      "prompt": "[panik] Bos?! Terus saya jualan di mana?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E4_10",
+      "spk": "ko",
+      "prompt": "[datar, sambil mengunyah] Terserah. Saya sibuk makan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E4_11",
+      "spk": "kakap",
+      "prompt": "[berbisik, licik] Halo... Juragan Hiu? Saya butuh bantuan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E4_12",
+      "spk": "nar",
+      "prompt": "[dramatis, pelan] Kakap baru saja menelepon... satu-satunya yang ditakuti Bos Oren.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

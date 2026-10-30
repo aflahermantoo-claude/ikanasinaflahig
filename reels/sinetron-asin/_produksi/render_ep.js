@@ -394,8 +394,8 @@ function s1e4Scene(sh, t, T) {
     let q = '';
     for (let k = 7; k >= 0; k--) { const x = 250 - k * 22 + (k % 2) * 4, y = 268 - k * 13; q += place(TN({ lid: blink(T, k * 0.4) ? 1 : 0.35, px: -0.6, m: 'smile' }), x, y, 0.42 + k * -0.015, { w: 120 }); }
     const inner = marketDayA() + `<rect x="0" y="200" width="270" height="140" fill="#E7C68D"/>` + q + place(CB({ lid: blink(T) ? 1 : 0.2, m: 'smile' }), 32, 196, 0.62) + counterA().replace(/<rect x="0" y="300" width="270"/, '<rect x="0" y="300" width="140"').replace(/<rect x="0" y="316" width="270"/, '<rect x="0" y="316" width="140"') +
-      place(KK({ lid: shock ? 0 : 0.4, pr: shock ? 2 : undefined, px: 0.5, m: mouthOf(sh, T, 'kakap', 'o'), brow: 'up', chain: true }), 132, 300 + bob('kakap'), 0.95);
-    return cam(z, 200, 260, inner) + (shock ? star(150, 286, 7 * sp) + star(244, 300, 6 * sp) : '');
+      place(KK({ lid: shock ? 0 : 0.4, pr: shock ? 2 : undefined, px: 0.5, m: mouthOf(sh, T, 'kakap', 'o'), brow: 'up', chain: true }), 96, 236 + bob('kakap'), 0.9, { w: 140 });
+    return cam(z, 200, 260, inner) + (shock ? star(96, 236, 7 * sp) + star(232, 250, 6 * sp) : '');
   }
   if (id === 'bos') {
     const walk = easeOut(prog(t, 0, 0.6));

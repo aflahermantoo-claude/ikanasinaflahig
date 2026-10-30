@@ -18,6 +18,7 @@ Premis: Cumi Baby (cumi asin kecil, kering, sering diejek) ternyata punya aroma 
 - Ep 2 "Chef Misterius" — trio chef Teri (Restoran Bintang Lima) menawari Cumi Baby kerja, gajinya nasi hangat tiap hari; Kakap menelepon "Bos".
 - Ep 3 "Bos Oren" — Kakap minta Bos Oren (kucing oren, bos pasar) "mengajak ngobrol" Cumi Baby; Bos Oren malah pesan 10 kilo: "Ternyata enak." Kakap masih menunggu di telepon.
 - Ep 4 dst: lanjutkan dari sini (Kakap kehilangan dukungan Bos Oren, Cumi Baby mulai kerja di restoran, dsb.).
+- Ep 4 "Kakap Ditinggal Bos" — ✅ Diproduksi (tayang 3 Nov 2026): telepon Kakap ditutup Bos Oren, lapak esnya sepi; Kakap menghina Cumi Baby ("lakunya sehari doang!"), lalu kaget melihat antrean tamu restoran Teri yang semuanya pesan cumi asin; Bos Oren menjadikan lapak es Kakap gudang cumi asin; malamnya Kakap menelepon "Juragan Hiu" — satu-satunya yang ditakuti Bos Oren.
 
 ## Seri 2 — Juragan Menyamar
 Premis: Cumi Jumbo, pemilik 100 gudang ikan asin, menyamar jadi kuli di gudangnya sendiri (pakai caping). Mandor galak (Kakap berhelm kuning) meremehkannya tanpa tahu dia juragan. Soft sell: kualitas & ketelitian gudang ikan asin.

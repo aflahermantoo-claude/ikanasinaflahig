@@ -434,6 +434,90 @@
       "spk": "nar",
       "prompt": "[dramatis, pelan] Kakap baru saja menelepon... satu-satunya yang ditakuti Bos Oren.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E2_01",
+      "spk": "kakap",
+      "prompt": "[teriak galak] Heh, kuli caping! Berdiri yang tegak! Juragan Besar datang jam tujuh!",
+      "status": "ok",
+      "session_id": "ytW57lNXZZllmbfe1HMY"
+    },
+    {
+      "id": "S2E2_02",
+      "spk": "cj",
+      "prompt": "[datar, tenang] Siap, Pak Mandor.",
+      "status": "ok",
+      "session_id": "cWKlfu0B6PKf8jjF5oal"
+    },
+    {
+      "id": "S2E2_03",
+      "spk": "kakap",
+      "prompt": "[meremehkan] Kamu itu cuma pajangan. Kuli bau ikan kayak kamu jangan sampai ngomong sama beliau!",
+      "status": "ok",
+      "session_id": "D4dj6GrIwVzr2h4CMbpy"
+    },
+    {
+      "id": "S2E2_04",
+      "spk": "teri",
+      "prompt": "[berbisik] Sabar, Pak... nanti Mandor kena batunya.",
+      "status": "ok",
+      "session_id": "M28C4kgK561f0LRDbiY3"
+    },
+    {
+      "id": "S2E2_05",
+      "spk": "cj",
+      "prompt": "[datar, menunjuk] Pak, karung teri itu jangan di lantai. Taruh di rak, biar tetap kering.",
+      "status": "ok",
+      "session_id": "w5aaebSXOo2c4OALBDCA"
+    },
+    {
+      "id": "S2E2_06",
+      "spk": "kakap",
+      "prompt": "[ketawa sinis] Halah! Juragan nggak bakal ngecek sampai lantai!",
+      "status": "ok",
+      "session_id": "PETncgcivJz5CVgaB7Ss"
+    },
+    {
+      "id": "S2E2_07",
+      "spk": "cb",
+      "prompt": "[sopan, resmi, seperti di telepon] Pak Mandor? Saya sekretaris Juragan. Beliau sudah di gudang sejak kemarin... dan sudah ngecek semuanya.",
+      "status": "ok",
+      "session_id": "5UQbhaPsEzaotFrzeCrp"
+    },
+    {
+      "id": "S2E2_08",
+      "spk": "kakap",
+      "prompt": "[kaget] Loh?! Sejak kemarin?!",
+      "status": "ok",
+      "session_id": "5mqciAtuOIaq7VABzb0g"
+    },
+    {
+      "id": "S2E2_09",
+      "spk": "kakap",
+      "prompt": "[panik, berbisik] Berarti Juragan... nyamar jadi salah satu kuli di sini...",
+      "status": "ok",
+      "session_id": "nLJdTkYAckktyAASaN1T"
+    },
+    {
+      "id": "S2E2_10",
+      "spk": "kakap",
+      "prompt": "[gemetar, memohon] Juragan! Ampun, Juragan! Silakan duduk!",
+      "status": "ok",
+      "session_id": "DvuXHvAtsroY1Pw40X4y"
+    },
+    {
+      "id": "S2E2_11",
+      "spk": "teri",
+      "prompt": "[bingung] Loh... saya?",
+      "status": "ok",
+      "session_id": "BqnryiKVx85EL20GHf3j"
+    },
+    {
+      "id": "S2E2_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Mandor salah sembah... dan juragan yang asli, masih berdiri di gerbang, membawa karung teri.",
+      "status": "ok",
+      "session_id": "4er75pDbj0mkFR6c4WjR"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

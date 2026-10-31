@@ -424,12 +424,78 @@ function s1e4Scene(sh, t, T) {
 
 // ---------- daftar episode ----------
 // Episode baru (gaya Ep 3 / sitcom deadpan): tulis fungsi <ep>Scene(sh, t, T) dengan karakter gaya A,
+// ================= S2E2 — Juragan Menyamar: Salah Sembah (gaya A, sitcom deadpan) =================
+function gerbangA() { // gerbang gudang ikan asin, pagi
+  let s = `<rect width="270" height="340" fill="url(#sky)"/><circle cx="214" cy="150" r="16" fill="#FFE07A" stroke="#161616" stroke-width="1.6"/>`;
+  s += `<rect x="40" y="170" width="190" height="170" fill="#E9D3A6" stroke="#161616" stroke-width="2.4"/><path d="M30 172 L135 118 L240 172 Z" fill="#8E5D36" stroke="#161616" stroke-width="2.4" stroke-linejoin="round"/>`;
+  s += `<rect x="96" y="232" width="78" height="108" fill="#6B4A2A" stroke="#161616" stroke-width="2.2"/><path d="M135 232 L135 340" stroke="#161616" stroke-width="1.8"/>`;
+  s += `<rect x="60" y="184" width="150" height="26" rx="5" fill="#7A4A2A" stroke="#161616" stroke-width="2"/><text x="135" y="201.5" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="10" fill="#FFF4E6">GUDANG IKAN ASIN No. 37</text>`;
+  s += `<g stroke="#161616" stroke-width="2.2"><rect x="4" y="150" width="22" height="190" fill="#B9B2A6"/><rect x="244" y="150" width="22" height="190" fill="#B9B2A6"/></g>`;
+  s += `<rect y="340" width="270" height="140" fill="#C9B48A" stroke="#161616" stroke-width="2.2"/>`;
+  return s;
+};
+const rakA = (x, y) => `<g stroke="#161616" stroke-width="2"><rect x="${x}" y="${y}" width="80" height="8" fill="#8E5D36"/><rect x="${x}" y="${y + 44}" width="80" height="8" fill="#8E5D36"/><rect x="${x + 2}" y="${y}" width="6" height="74" fill="#7A4A2A"/><rect x="${x + 72}" y="${y}" width="6" height="74" fill="#7A4A2A"/></g>`;
+function s2e2Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const ground = `<rect y="402" width="270" height="78" fill="#C9B48A" stroke="#161616" stroke-width="2"/>`;
+  const mandorClose = (o, extra = '') => gerbangA() + place(mandor({ ...o, lid: blink(T) && o.lid < 0.9 ? 1 : o.lid, m: mouthOf(sh, T, 'kakap', o.m) }), -30, 150 + (o.dy || 0) + bob('kakap'), 1.95, { w: 140, flip: true }) + extra + ground;
+  if (id === 'siaga') {
+    const lunge = Math.sin(Math.PI * prog(t, 0.0, 0.4)) * 18;
+    return gerbangA() + place(kuli({ lid: blink(T) ? 1 : 0.45, px: -0.8, m: 'flat' }), 150, 200, 1.0) +
+      place(mandor({ lid: blink(T) ? 1 : 0.1, px: -0.3, m: mouthOf(sh, T, 'kakap', 'grit'), brow: 'angry' }), 4 + lunge, 236 + bob('kakap'), 1.05, { w: 140, flip: true });
+  }
+  if (id === 'siap') return gerbangA() + place(kuli({ lid: blink(T) ? 1 : 0.5, m: mouthOf(sh, T, 'cj', 'flat') }), 35, 130 + bob('cj'), 2.0);
+  if (id === 'hina') return mandorClose({ lid: 0.45, px: 0.4, m: 'smirk' });
+  if (id === 'ketawa') return mandorClose({ lid: 0.98, m: 'grin', dy: -Math.abs(Math.sin(T * 16)) * 3 });
+  if (id === 'bisik') {
+    return gerbangA() + karungA(-10, 300, 'IKAN ASIN') + karungA(200, 300, 'CUMI') + place(kuli({ lid: blink(T) ? 1 : 0.5, px: -0.9, m: 'flat' }), 130, 180, 1.05) +
+      place(TN({ lid: blink(T, 1) ? 1 : 0.35, px: -0.6, m: mouthOf(sh, T, 'teri', 'flat'), brow: 'sad' }), 20, 252 + bob('teri'), 1.15, { w: 120, flip: true });
+  }
+  if (id === 'tunjuk') {
+    const z = 1 + 0.04 * easeOut(prog(t, 0.2, 0.5));
+    const arrow = `<g transform="translate(${104 + Math.sin(T * 8) * 3} 262) rotate(35) scale(1.6)"><path d="M0 0 l-18 10 l4 -6 l-14 -4 l14 -4 l-4 -6 Z" fill="#F5C542" stroke="#161616" stroke-width="1.4"/></g>`;
+    return cam(z, 135, 260, gerbangA() + rakA(176, 214) + place(kuli({ lid: blink(T) ? 1 : 0.4, px: -0.8, py: 0.5, m: mouthOf(sh, T, 'cj', 'flat') }), 120, 120 + bob('cj'), 1.3) + karungA(14, 290, 'TERI', 1.0) + arrow);
+  }
+  if (id === 'telp') {
+    const ringing = t < 0.8, buzz = ringing ? Math.sin(T * 50) * 1.4 : 0;
+    const waves = ringing ? `<path d="M232 280 l8 -6 M234 292 l10 0 M232 304 l8 6" stroke="#161616" stroke-width="2" stroke-linecap="round"/>` : '';
+    const lid = t < 0.8 ? 0.3 : t > 3.0 ? 0 : 0.2;
+    return mandorClose({ lid, px: t < 0.8 ? 0.9 : 0.6, m: t > 3.0 ? 'o' : 'frown', sweat: t > 3.0, brow: t > 3.0 ? 'up' : undefined }, L.phone(212 + buzz, 300, 1.6, ringing ? 12 : -8) + waves);
+  }
+  if (id === 'loh') {
+    const sp = Math.min(1, t * 4), z = 1 + 0.1 * easeOutBack(prog(t, 0.0, 0.3));
+    const stars = star(40, 140, 7 * sp) + star(214, 160, 6 * sp) + star(50, 300, 5 * sp);
+    return cam(z, 120, 240, mandorClose({ lid: 0, pr: 2, px: 0, m: 'o', brow: 'up', sweat: true }, L.phone(212, 300, 1.6, -8))) + stars;
+  }
+  if (id === 'curiga') {
+    const shifty = Math.sin(T * 5) > 0 ? -0.9 : 0.9;
+    return gerbangA() + place(TN({ lid: 0.35, px: 0.2, m: 'flat' }), -14, 236, 1.0, { w: 120, flip: true }) + place(kuli({ lid: 0.5, px: 0, m: 'flat' }), 176, 206, 0.85) +
+      place(mandor({ lid: 0.55, px: shifty, m: mouthOf(sh, T, 'kakap', 'frown'), sweat: true }), 72, 196 + bob('kakap'), 0.95, { w: 140, flip: true });
+  }
+  if (id === 'sembah') {
+    const l2 = sh.lines[1], bow = easeOut(prog(t, 0.0, 0.35));
+    const teriTalk = T >= l2.start - 0.05;
+    return gerbangA() + place(kuli({ lid: blink(T) ? 1 : 0.55, px: -0.6, m: 'flat' }), 186, 206, 0.8) +
+      place(TN({ lid: teriTalk ? 0 : 0.3, pr: teriTalk ? 2 : undefined, px: 0.6, m: mouthOf(sh, T, 'teri', teriTalk ? 'o' : 'flat'), brow: 'up' }), -6, 176 + bob('teri'), 1.1, { w: 120, flip: true }) +
+      place(mandor({ lid: 0.6, px: 0.9, py: 0.6, m: mouthOf(sh, T, 'kakap', 'frown'), sweat: true }), 62, 196 + bow * 14 + bob('kakap'), 0.95, { w: 140, rot: 35 * bow, cx: 70, cy: 120 }) +
+      (teriTalk ? `<text x="56" y="176" font-family="Liberation Sans" font-weight="bold" font-size="28" fill="#161616" stroke="#FFFFFF" stroke-width="2" paint-order="stroke">?</text>` : '');
+  }
+  if (id === 'end') {
+    const z = 1 + 0.09 * easeOut(prog(t, 0.2, 2.5));
+    const gleam = t > 1.2 ? star(232, 280, 7 * (0.6 + 0.4 * Math.sin(T * 8))) : '';
+    return cam(z, 135, 250, gerbangA() + place(kuli({ lid: 0.3, px: 0.2, py: 0.2, m: t > 1.2 ? 'smirk' : 'flat' }, { peek: t > 1.2 }), 35, 130, 2.0) + karungA(176, 284, 'TERI', 1.1) + gleam);
+  }
+  return '';
+}
+
 // lalu daftarkan di sini: SCENES.<ep> = [<ep>Scene, ep3Overlay]; TITLES.<ep> = 'Judul bar..';
 const SCENES = { ep2: [ep2Scene, ep2Overlay], ep3: [ep3Scene, ep3Overlay] };
 const TITLES = { ep3: 'Bos Oren..' };
 SCENES.s2e1 = [s2e1Scene, ep3Overlay]; TITLES.s2e1 = 'Juragan Menyamar..';
 SCENES.s3e1 = [s3e1Scene, ep3Overlay]; TITLES.s3e1 = 'Mertua Cumi Jumbo..';
 SCENES.s1e4 = [s1e4Scene, ep3Overlay]; TITLES.s1e4 = 'Kakap Ditinggal Bos..';
+SCENES.s2e2 = [s2e2Scene, ep3Overlay]; TITLES.s2e2 = 'Juragan Menyamar..';
 
 // ---------- frame ----------
 function frameSvg(T) {

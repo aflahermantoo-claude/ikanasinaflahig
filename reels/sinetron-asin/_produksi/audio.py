@@ -70,10 +70,22 @@ LINES = {
  'S1E4_10': ('ko', 'Terserah. Saya sibuk makan.'),
  'S1E4_11': ('kakap', 'Halo... Juragan Hiu? Saya butuh bantuan.'),
  'S1E4_12': ('nar', 'Kakap baru saja menelepon... satu-satunya yang ditakuti Bos Oren.'),
+ 'S2E2_01': ('kakap', 'Heh, kuli caping! Berdiri yang tegak! Juragan Besar datang jam tujuh!'),
+ 'S2E2_02': ('cj', 'Siap, Pak Mandor.'),
+ 'S2E2_03': ('kakap', 'Kamu itu cuma pajangan. Kuli bau ikan kayak kamu jangan sampai ngomong sama beliau!'),
+ 'S2E2_04': ('teri', 'Sabar, Pak... nanti Mandor kena batunya.'),
+ 'S2E2_05': ('cj', 'Pak, karung teri itu jangan di lantai. Taruh di rak, biar tetap kering.'),
+ 'S2E2_06': ('kakap', 'Halah! Juragan nggak bakal ngecek sampai lantai!'),
+ 'S2E2_07': ('cb', 'Pak Mandor? Saya sekretaris Juragan. Beliau sudah di gudang sejak kemarin... dan sudah ngecek semuanya.'),
+ 'S2E2_08': ('kakap', 'Loh?! Sejak kemarin?!'),
+ 'S2E2_09': ('kakap', 'Berarti Juragan... nyamar jadi salah satu kuli di sini...'),
+ 'S2E2_10': ('kakap', 'Juragan! Ampun, Juragan! Silakan duduk!'),
+ 'S2E2_11': ('teri', 'Loh... saya?'),
+ 'S2E2_12': ('nar', 'Mandor salah sembah... dan juragan yang asli, masih berdiri di gerbang, membawa karung teri.'),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120)}
 
-TEMPO = {'s2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25}
+TEMPO = {'s2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -139,6 +151,19 @@ SPECS = {
   dict(id='makan', lines=['S1E4_10'], pre=0.5, post=0.5, sfx=[('chew', 0.0)], amb='morning'),
   dict(id='telp', lines=['S1E4_11'], pre=0.6, post=0.4, sfx=[('ring', 0.0)], amb='night'),
   dict(id='end', lines=['S1E4_12'], pre=0.5, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
+ ],
+ 's2e2': [  # babak: 1 Drama (siaga, siap) · 2 Diremehkan (hina, bisik) · 3 Penemuan (tunjuk, ketawa, telp, loh) · 4 Drama lagi (curiga, sembah) · 5 Cliffhanger (end)
+  dict(id='siaga', lines=['S2E2_01'], pre=0.15, post=0.3, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='siap', lines=['S2E2_02'], pre=0.3, post=0.4, amb='morning'),
+  dict(id='hina', lines=['S2E2_03'], pre=0.2, post=0.4, amb='morning'),
+  dict(id='bisik', lines=['S2E2_04'], pre=0.3, post=0.3, amb='morning'),
+  dict(id='tunjuk', lines=['S2E2_05'], pre=0.3, post=0.3, amb='morning'),
+  dict(id='ketawa', lines=['S2E2_06'], pre=0.2, post=0.3, amb='morning'),
+  dict(id='telp', lines=['S2E2_07'], pre=0.8, post=0.2, sfx=[('ring', 0.0)], phone=['cb'], amb='morning'),
+  dict(id='loh', lines=['S2E2_08'], pre=0.2, post=0.5, sfx=[('ting', 0.1)], amb='morning'),
+  dict(id='curiga', lines=['S2E2_09'], pre=0.4, post=0.4, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='sembah', lines=['S2E2_10', 'S2E2_11'], gap=0.5, pre=0.3, post=0.5, sfx=[('thud', 0.15)], amb='morning'),
+  dict(id='end', lines=['S2E2_12'], pre=0.4, post=1.8, sfx=[('dunn', 0.0)], amb='morning'),
  ],
 }
 

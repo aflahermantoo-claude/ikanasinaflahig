@@ -13,10 +13,10 @@
   "animation": "A — Sitcom deadpan",
   "voice": "ElevenLabs eleven_v4 (flow vPf78XLPMQwAE6mZ7aqB)",
   "loudness_lufs": -14,
-  "status": "scheduled",
+  "status": "posted",
   "scheduled_at": "2026-10-31T19:00:00+07:00",
-  "posted_at": null,
-  "instagram_media_id": null,
+  "posted_at": "2026-10-31T19:01:23+07:00",
+  "instagram_media_id": "17960324211015366",
   "share_to_feed": false,
-  "posted_via": null
+  "posted_via": "Windsor.ai create_video_post"
 }

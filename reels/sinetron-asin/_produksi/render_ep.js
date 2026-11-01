@@ -497,6 +497,87 @@ SCENES.s3e1 = [s3e1Scene, ep3Overlay]; TITLES.s3e1 = 'Mertua Cumi Jumbo..';
 SCENES.s1e4 = [s1e4Scene, ep3Overlay]; TITLES.s1e4 = 'Kakap Ditinggal Bos..';
 SCENES.s2e2 = [s2e2Scene, ep3Overlay]; TITLES.s2e2 = 'Juragan Menyamar..';
 
+// ================= S3E2 — Mertua Cumi Jumbo: Chef Tak Terkalahkan (gaya A, sitcom deadpan) =================
+function dapurA(dark = false) { // dapur rumah juragan, malam
+  let s = `<rect width="270" height="480" fill="#CFE3DD"/>`;
+  for (let y = 0; y < 330; y += 22) for (let x = (y / 22) % 2 ? -11 : 0; x < 270; x += 22) s += `<rect x="${x}" y="${y}" width="22" height="22" fill="none" stroke="#B3CCC5" stroke-width="1.2"/>`;
+  s += `<rect x="170" y="70" width="80" height="90" fill="#12203A" stroke="#161616" stroke-width="2.4"/><path d="M210 70 L210 160 M170 115 L250 115" stroke="#161616" stroke-width="2.4"/><circle cx="230" cy="88" r="7" fill="#FFF1B8"/>`;
+  s += `<rect x="16" y="96" width="120" height="7" fill="#8E5D36" stroke="#161616" stroke-width="1.8"/>`;
+  s += [[34, 0], [70, 1], [106, 0]].map(([x, k]) => `<path d="M${x} 103 L${x} 112" stroke="#161616" stroke-width="1.6"/><circle cx="${x}" cy="${126 + k * 4}" r="${13 + k * 3}" fill="#5A5F66" stroke="#161616" stroke-width="2"/><rect x="${x - 2}" y="${108}" width="4" height="${6 + k * 2}" fill="#3A2A22"/>`).join('');
+  s += `<rect y="330" width="270" height="150" fill="#8E5D36" stroke="#161616" stroke-width="2.4"/><rect y="330" width="270" height="12" fill="#E9DFC6" stroke="#161616" stroke-width="2"/>${[50, 135, 220].map(x => `<rect x="${x - 30}" y="360" width="60" height="80" rx="3" fill="#7A4A2A" stroke="#161616" stroke-width="1.8"/><circle cx="${x + 20}" cy="400" r="3" fill="#F5C542" stroke="#161616" stroke-width="1"/>`).join('')}`;
+  if (dark) s += `<rect width="270" height="480" fill="#0A0814" opacity="0.55"/>`;
+  return s;
+}
+const chefKakap = o => KK({ chain: false, ...o }) + `<g transform="translate(31 -12) scale(1.15)">${chefHat}</g>`;
+const menuMewah = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><ellipse cx="0" cy="0" rx="46" ry="12" fill="#FFFFFF" stroke="#161616" stroke-width="2"/><ellipse cx="0" cy="-1" rx="34" ry="7" fill="#F2F2F2"/><path d="M-14 -4 Q-12 -16 2 -16 Q14 -14 14 -4 Z" fill="#B5673A" stroke="#161616" stroke-width="1.6"/><path d="M-24 -2 q4 -4 8 0 q4 4 8 0 q4 -4 8 0 q4 4 8 0 q4 -4 8 0" stroke="#7A2E5A" stroke-width="2" fill="none"/><circle cx="6" cy="-18" r="2.4" fill="#3FA34D" stroke="#161616" stroke-width="0.8"/></g>`;
+const cumiKering = (x, y, s = 1, rot = 0) => `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><path d="M-6 -22 Q0 -30 6 -22 L8 6 Q0 10 -8 6 Z" fill="#E7C08A" stroke="#161616" stroke-width="1.6"/>${[-6, -2, 2, 6].map(d => `<path d="M${d} 6 Q${d * 1.4} 16 ${d * 1.2} 22" stroke="#C9965A" stroke-width="1.8" fill="none" stroke-linecap="round"/>`).join('')}<circle cx="-2" cy="-4" r="1.4" fill="#161616"/></g>`;
+const spoon = (x, y, rot = 0) => `<g transform="translate(${x} ${y}) rotate(${rot})"><rect x="-1.6" y="0" width="3.2" height="30" rx="1.5" fill="#B9C0C8" stroke="#161616" stroke-width="1"/><ellipse cx="0" cy="-4" rx="6" ry="8" fill="#D2D8DE" stroke="#161616" stroke-width="1.4"/></g>`;
+function s3e2Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const kkBig = (o, bg = dapurA()) => bg + place(chefKakap({ ...o, lid: blink(T) && (o.lid ?? 0.3) < 0.9 ? 1 : (o.lid ?? 0.3), m: mouthOf(sh, T, 'kakap', o.m || 'smirk') }), -30, 170 + bob('kakap'), 1.95, { w: 140, flip: true }) + `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>`;
+  const papaBig = (o, extra = '') => dapurA() + place(papa({ ...o, lid: blink(T) && (o.lid ?? 0.3) < 0.9 ? 1 : (o.lid ?? 0.3), m: mouthOf(sh, T, 'cj', o.m || 'flat') }), 35, 140 + bob('cj'), 2.0) + meja() + extra;
+  if (id === 'duel') {
+    const shake = t > 0.05 && t < 0.4 ? Math.sin(T * 70) * 2.2 : 0;
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + dapurA() + place(TN({ lid: blink(T, 1) ? 1 : 0.35, px: 0.6, m: 'flat' }), 2, 250, 0.82, { w: 120 }) +
+      place(chefKakap({ lid: blink(T, 2) ? 1 : 0.5, px: -0.6, m: 'smirk' }), 166, 262, 0.72) +
+      place(papa({ lid: blink(T) ? 1 : 0.1, px: 0, m: mouthOf(sh, T, 'cj', 'grit') }), 72, 168 + bob('cj'), 1.25) + (t < 0.6 ? star(60, 300, 6) + star(210, 300, 6) : '') + `</g>`;
+  }
+  if (id === 'sombong') { const slide = 1 - easeOut(prog(t, 0, 0.3)); return `<g transform="translate(${(slide * 220).toFixed(1)} 0)">` + kkBig({ lid: 0.55, px: 0.4, m: 'smirk' }) + `</g>`; }
+  if (id === 'hina') {
+    const laugh = T > sh.lines[0].end - 1.2 ? Math.abs(Math.sin(T * 16)) * 3 : 0;
+    return kkBig({ lid: laugh ? 0.98 : 0.45, px: 0.8, m: laugh ? 'grin' : 'smirk' }).replace('translate(', `translate(0 ${(-laugh).toFixed(2)}) translate(`) + karungA(108, 424, '', 0.75) + karungA(186, 424, '', 0.75);
+  }
+  if (id === 'khawatir') return dapurA() + place(CB({ lid: blink(T) ? 1 : 0.35, px: 0.6, m: mouthOf(sh, T, 'cb', 'frown'), brow: 'sad' }), 35, 135 + bob('cb'), 2.0) + `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>`;
+  if (id === 'tenang') {
+    return dapurA() + place(TN({ lid: blink(T) ? 1 : 0.55, px: 0, m: mouthOf(sh, T, 'teri', 'flat') }), 30, 170 + bob('teri'), 1.6, { w: 120 }) + `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>` +
+      karungA(-2, 296, 'CUMI', 0.75) + karungA(216, 296, 'TERI', 0.75) + cumiKering(240, 252, 1.2, 12);
+  }
+  if (id === 'cicip1') {
+    const chew = Math.floor(T * 5) % 2 ? 'flat' : 'smile';
+    return papaBig({ lid: 0.75, px: 0, m: talking(sh, T, 'cj') ? 'flat' : chew }, menuMewah(135, 432, 1.5));
+  }
+  if (id === 'cicip2') {
+    const wow = t > 1.0, z = 1 + 0.08 * easeOut(prog(t, 1.0, 0.25)), sp = wow ? Math.min(1, (t - 1.0) * 4) : 0;
+    const sn = [0, 1].map(k => { const o = ((t * 1.4 + k * 0.5) % 1); return t < 1.0 ? `<path d="M${118 - o * 10} ${330 - o * 40 - k * 10} q6 -6 0 -12 q-6 -6 0 -12" stroke="#B5803E" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="${(1 - o).toFixed(2)}"/>` : ''; }).join('');
+    return cam(z, 135, 250, dapurA() + place(papa({ lid: wow ? 0 : (t > 0.5 ? 0.98 : 0.6), pr: wow ? 2 : undefined, py: wow ? 0 : 0.5, m: mouthOf(sh, T, 'cj', wow ? 'o' : 'flat') }), 35, 140 + bob('cj'), 2.0) + meja() + nasgor(135, 420, 1.5, false, t) + cumiKering(176, 404, 0.8, 70) + sn +
+      (wow ? star(36, 160, 8 * sp) + star(228, 176, 7 * sp) + star(214, 300, 5 * sp) : ''));
+  }
+  if (id === 'curi') {
+    const shock = t > 0.55, sp = shock ? Math.min(1, (t - 0.55) * 4) : 0, lift = easeOut(prog(t, 0, 0.4));
+    return dapurA() + place(chefKakap({ lid: shock ? 0 : (blink(T) ? 1 : 0.5), pr: shock ? 2 : undefined, px: 0.9, m: mouthOf(sh, T, 'kakap', shock ? 'o' : 'flat'), brow: shock ? 'up' : undefined }), 10, 170, 1.6, { w: 140, flip: true }) +
+      spoon(196, 330 - lift * 40, -30) + meja() + nasgor(200, 420, 1.0, false, t) + (shock ? star(40, 170, 7 * sp) + star(236, 190, 6 * sp) : '');
+  }
+  if (id === 'tuduh') {
+    const shake = talking(sh, T, 'kakap') ? Math.sin(T * 40) * 1.4 : 0;
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + kkBig({ lid: 0, px: 0.6, m: 'grit', sweat: true, brow: 'angry' }) + `</g>`;
+  }
+  if (id === 'rahasia') {
+    const raise = easeOut(prog(t, 0.2, 0.6));
+    return dapurA() + place(TN({ lid: blink(T) ? 1 : 0.55, px: -0.3, m: mouthOf(sh, T, 'teri', 'smile') }), 40, 170 + bob('teri'), 1.6, { w: 120 }) + `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>` +
+      cumiKering(222, 380 - raise * 90, 1.7, 8) + (raise > 0.9 ? `<g opacity="${(0.5 + 0.5 * Math.sin(T * 8)).toFixed(2)}">${star(236, 300, 5)}${star(196, 314, 4)}</g>` : '');
+  }
+  if (id === 'menang') {
+    const sly = t > sh.dur - 1.2;
+    return papaBig({ lid: 0.6, px: sly ? -0.9 : 0.95, m: 'frown', sweat: true }, nasgor(135, 432, 1.4, true));
+  }
+  if (id === 'bisik') {
+    return dapurA(true) + place(papa({ lid: blink(T) ? 1 : 0.15, px: 0.9, m: 'frown' }), -20, 190, 1.35) +
+      place(chefKakap({ lid: 0.55, px: -0.6, m: mouthOf(sh, T, 'kakap', 'smirk') }), 128, 214 + bob('kakap'), 1.0) + `<rect y="402" width="270" height="78" fill="#2A1E16" stroke="#161616" stroke-width="2"/>`;
+  }
+  if (id === 'end') {
+    const z = 1 + 0.07 * easeOut(prog(t, 0, sh.dur)), glow = 0.6 + 0.4 * Math.sin(T * 6), flip = easeOut(prog(t, 0.6, 0.6));
+    let s = `<rect width="270" height="480" fill="#12100F"/>${Array.from({ length: 9 }, (_, i) => `<rect x="${i * 32}" y="0" width="14" height="480" fill="#1A1614"/>`).join('')}`;
+    s += `<g transform="translate(135 230) rotate(${(-6 + 6 * flip).toFixed(1)})"><rect x="-62" y="-80" width="124" height="150" fill="#C9A04A" stroke="#000" stroke-width="3"/><rect x="-50" y="-68" width="100" height="126" fill="#2A2420" stroke="#000" stroke-width="1.6"/>`;
+    s += `<path d="M-30 58 Q-34 -6 0 -10 Q34 -6 30 58 Z" fill="#050505"/><circle cx="0" cy="-30" r="22" fill="#050505"/><path d="M-26 -40 L26 -40 L18 -56 L-18 -56 Z" fill="#050505"/>`;
+    s += `<circle cx="-9" cy="-30" r="4" fill="#FF3B2F" opacity="${(glow * flip).toFixed(2)}"/><circle cx="9" cy="-30" r="4" fill="#FF3B2F" opacity="${(glow * flip).toFixed(2)}"/></g>`;
+    s += `<text x="222" y="210" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="44" fill="#F5C542" stroke="#000" stroke-width="2" opacity="${(0.4 + 0.5 * glow).toFixed(2)}">?</text>`;
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+SCENES.s3e2 = [s3e2Scene, ep3Overlay]; TITLES.s3e2 = 'Mertua Cumi Jumbo..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

@@ -518,6 +518,97 @@
       "prompt": "[dramatis, seperti narator sinetron] Mandor salah sembah... dan juragan yang asli, masih berdiri di gerbang, membawa karung teri.",
       "status": "ok",
       "session_id": "4er75pDbj0mkFR6c4WjR"
+    },
+    {
+      "id": "S3E2_01",
+      "spk": "cj",
+      "prompt": "[tegas, lantang] Duel dimulai! Yang kalah, angkat kaki dari rumah ini!",
+      "status": "ok",
+      "session_id": "KBEZHg5Dkvw2xpZrq7yn"
+    },
+    {
+      "id": "S3E2_02",
+      "spk": "kakap",
+      "prompt": "[sombong, santai] Teri nasi lawan Chef Kakap? Ini bukan duel. Ini hiburan.",
+      "status": "ok",
+      "session_id": "qh72GYFx0BRhgi9zRVnn"
+    },
+    {
+      "id": "S3E2_03",
+      "spk": "kakap",
+      "prompt": "[meremehkan] Saya bawa bahan impor. Kamu bawa apa? Ikan kering bau gudang?",
+      "status": "ok",
+      "session_id": "3zAcaQzzfC4XZbxm0Hym"
+    },
+    {
+      "id": "S3E2_04",
+      "spk": "cb",
+      "prompt": "[khawatir, pelan] Mas... yakin cuma bawa itu?",
+      "status": "ok",
+      "session_id": "28oHMRuYZWfSonY7Qeuh"
+    },
+    {
+      "id": "S3E2_05",
+      "spk": "teri",
+      "prompt": "[tenang, datar] Cumi asin sama teri, Dik. Itu cukup.",
+      "status": "ok",
+      "session_id": "cS7Nf1V9tX6IDR5xJ28B"
+    },
+    {
+      "id": "S3E2_06",
+      "spk": "cj",
+      "prompt": "[datar, mengunyah] Masakan Chef... enak. Biasa.",
+      "status": "ok",
+      "session_id": "QRD34xN4kK7utQEp6Ymc"
+    },
+    {
+      "id": "S3E2_07",
+      "spk": "cj",
+      "prompt": "[mengendus, terdiam, lalu kaget] ...Loh. Cumi asinnya kok gurih begini?",
+      "status": "ok",
+      "session_id": "W1WdkHum4nmVLyYOC2aq"
+    },
+    {
+      "id": "S3E2_08",
+      "spk": "kakap",
+      "prompt": "[mencicip diam-diam, kaget] Loh... kok enak?!",
+      "status": "ok",
+      "session_id": "tFnxp3KhHpGEAxxPbdRc"
+    },
+    {
+      "id": "S3E2_09",
+      "spk": "kakap",
+      "prompt": "[panik, menuduh] Curang! Pasti pakai bumbu rahasia!",
+      "status": "ok",
+      "session_id": "VRLqxKhF0VOm9b2fUQzK"
+    },
+    {
+      "id": "S3E2_10",
+      "spk": "teri",
+      "prompt": "[kalem] Rahasianya cuma satu, Chef. Cuminya dijemur sampai kering betul.",
+      "status": "ok",
+      "session_id": "gWenz9EiOi6pRFT4lNhd"
+    },
+    {
+      "id": "S3E2_11",
+      "spk": "cj",
+      "prompt": "[berdeham, gengsi] Ya wis... Teri menang.",
+      "status": "ok",
+      "session_id": "Jxjyyt7pjKVwAqyG0Glv"
+    },
+    {
+      "id": "S3E2_12",
+      "spk": "kakap",
+      "prompt": "[licik, berbisik] Juragan... coba tanya, Teri itu anak siapa.",
+      "status": "ok",
+      "session_id": "psCv9lMw80DTe0X15VvE"
+    },
+    {
+      "id": "S3E2_13",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Papa belum tahu... ayah Teri Nasi adalah orang yang paling dia benci.",
+      "status": "ok",
+      "session_id": "TyNI5wnnDi2ZPUPMbQui"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

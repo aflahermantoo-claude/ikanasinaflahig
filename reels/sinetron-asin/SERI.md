@@ -28,6 +28,7 @@ Premis: Cumi Jumbo, pemilik 100 gudang ikan asin, menyamar jadi kuli di gudangny
 ## Seri 3 — Mertua Cumi Jumbo
 Premis: Cumi Baby, putri juragan terkaya (Papa Cumi Jumbo), jatuh cinta pada Teri Nasi yang sederhana. Papa menolak keras — sampai diam-diam mencicipi masakan Teri. Soft sell: nasi goreng teri / masakan ikan asin.
 - Ep 1 "Tinggalkan Anak Saya!" — Papa Cumi Jumbo membanting amplop uang di meja makan: "Berapa yang kamu mau? Tinggalkan anak saya!"; Teri Nasi menolak uangnya; Papa diam-diam mencicipi nasi goreng teri... ✅ Diproduksi (tayang 2 Nov 2026): Papa ketahuan menghabiskan sepiring ("dimakan kucing!"), lalu memberi syarat — Teri harus mengalahkan chef pribadi Papa besok; chef itu belum pernah kalah.
+- Ep 2 "Chef Tak Terkalahkan" — ✅ Diproduksi (tayang 5 Nov 2026): chef pribadi Papa ternyata Chef Kakap, yang mengejek bahan Teri ("ikan kering bau gudang"); nasi goreng cumi asin & teri buatan Teri bikin Papa dan Chef Kakap sendiri terdiam ("Loh... kok enak?!"); Papa gengsi mengakui Teri menang, lalu Chef Kakap berbisik "Teri itu anak siapa" — ayah Teri adalah orang yang paling Papa benci.
 
 ## Tokoh & suara (ElevenLabs, `_produksi/voices.json`)
 | Kode | Tokoh | Suara ElevenLabs | Cadangan (Microsoft Edge neural) |

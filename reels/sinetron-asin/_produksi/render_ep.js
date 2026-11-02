@@ -578,6 +578,81 @@ function s3e2Scene(sh, t, T) {
 }
 SCENES.s3e2 = [s3e2Scene, ep3Overlay]; TITLES.s3e2 = 'Mertua Cumi Jumbo..';
 
+// ================= S1E5 — Cumi yang Terhina: Juragan Hiu (gaya A, sitcom deadpan) =================
+// Juragan Hiu: 140 x 100, menghadap KIRI (seperti Kakap)
+function hiuA(o = {}) {
+  const { lid = 0.4, px = -0.4, py = 0, m = 'flat', sweat = false, tear = false } = o;
+  const lw = S.LW, gr = '#6F8796', dg = '#4F6573', ln = '#161616';
+  let s = `<path d="M114 48 L140 14 L132 48 L140 82 Z" fill="${dg}" stroke="${ln}" stroke-width="${lw}" stroke-linejoin="round"/>`;
+  s += `<path d="M52 22 L72 -16 L90 22 Z" fill="${dg}" stroke="${ln}" stroke-width="${lw}" stroke-linejoin="round"/>`;
+  s += `<ellipse cx="66" cy="50" rx="56" ry="32" fill="${gr}" stroke="${ln}" stroke-width="${lw}"/>`;
+  s += `<path d="M14 58 Q60 86 112 60 Q64 72 14 58 Z" fill="#DDE6EA"/>`;
+  s += `<path d="M80 36 q-5 12 0 24 M88 36 q-5 12 0 24 M96 38 q-5 11 0 22" stroke="${dg}" stroke-width="2" fill="none" stroke-linecap="round"/>`;
+  s += `<path d="M62 66 L76 88 L86 66 Z" fill="${dg}" stroke="${ln}" stroke-width="${lw * 0.8}" stroke-linejoin="round"/>`;
+  s += L.eye(34, 40, 11, { side: 1, lid, px, py, skin: gr, lw, pr: o.pr, brow: o.brow, m });
+  s += `<path d="M22 25 L46 31" stroke="#26323A" stroke-width="${lw * 1.8}" stroke-linecap="round"/><path d="M50 22 L58 34 M53 26 L57 24 M55 30 L59 28" stroke="#C8D2D8" stroke-width="1.6" stroke-linecap="round"/>`;
+  if (m === 'teeth') s += `<path d="M10 58 Q24 70 40 60 Z" fill="#3A1414" stroke="${ln}" stroke-width="${lw * 0.8}"/><path d="M13 60 l3 4 l3 -3 l3 4 l3 -3 l3 4 l3 -3 l3 3" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>`;
+  else s += L.mouth(m, 22, 60, 12);
+  s += `<path d="M30 76 Q56 94 86 78" stroke="#F5C542" stroke-width="4.2" fill="none" stroke-dasharray="4 1.6"/><rect x="50" y="82" width="12" height="12" rx="2" fill="#F5C542" stroke="${ln}" stroke-width="1.2"/><text x="56" y="91.5" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="8" fill="#7A5A10">H</text>`;
+  if (tear) s += `<path d="M30 54 Q26 63 30 68 Q34 63 30 54 Z" fill="#8FD0F5" stroke="${ln}" stroke-width="1.2"/>`;
+  if (sweat) s += `<path d="M98 16 Q94 25 98 30 Q102 25 98 16 Z" fill="#8FD0F5" stroke="${ln}" stroke-width="1.2"/>`;
+  return s;
+}
+const karungCumi = (x, y, sc = 1, rot = 0) => `<g transform="rotate(${rot} ${x + 35 * sc} ${y + 20 * sc})">${karungA(x, y, 'CUMI', sc)}</g>`;
+function s1e5Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const ground = c => `<rect y="402" width="270" height="78" fill="${c}" stroke="#161616" stroke-width="2"/>`;
+  const kkBig = (o, bg = marketDayA(), g = '#B48A5E') => bg + place(KK({ chain: true, ...o, lid: blink(T) && (o.lid ?? 0.3) < 0.9 ? 1 : (o.lid ?? 0.3), m: mouthOf(sh, T, 'kakap', o.m || 'frown') }), -30, 150 + (o.dy || 0) + bob('kakap'), 1.95, { w: 140, flip: true }) + ground(g);
+  const hiuBig = (o, extra = '') => marketDayA() + place(hiuA({ ...o, lid: blink(T) && (o.lid ?? 0.4) < 0.9 ? 1 : (o.lid ?? 0.4), m: mouthOf(sh, T, 'hiu', o.m || 'flat') }), -40, 150 + bob('hiu'), 1.95, { w: 140, flip: true }) + extra + ground('#B48A5E');
+  if (id === 'sunyi') {
+    const pass = prog(t, 0.0, sh.dur), sx = 300 - pass * 420;
+    return marketDayA() + place(CB({ lid: blink(T) ? 1 : 0.2, px: 0.6, m: 'o' }), 140, 196, 0.85) + counterA() + place(KK({ lid: 0, pr: 2, px: 0.6, m: 'o', chain: true }), 6, 236, 0.85, { w: 140, flip: true }) +
+      `<g opacity="0.78"><path d="M${sx} 300 L${sx + 60} 140 Q${sx + 90} 240 ${sx + 130} 300 Z" fill="#1B2430"/></g><rect y="0" width="270" height="480" fill="#0B1220" opacity="${(0.12 + 0.12 * Math.sin(pass * Math.PI)).toFixed(2)}"/>`;
+  }
+  if (id === 'minggir') { const shout = Math.sin(T * 30) * (talking(sh, T, 'kakap') ? 1.2 : 0); return `<g transform="translate(${shout.toFixed(2)} 0)">` + kkBig({ lid: 0.1, px: 0.6, m: 'grit', brow: 'angry' }) + `</g>`; }
+  if (id === 'hiu') { const z = 1 + 0.08 * easeOut(prog(t, 0, 0.4)); return cam(z, 135, 260, hiuBig({ lid: 0.55, px: 0.6, py: 0.4, m: 'smirk' })); }
+  if (id === 'ejek') { const laugh = Math.abs(Math.sin(T * 16)) * 3; return kkBig({ lid: 0.98, m: 'grin', dy: -laugh }); }
+  if (id === 'oh') {
+    const push = easeOut(prog(t, 0.9, 0.5));
+    return marketDayA() + place(CB({ lid: blink(T) ? 1 : 0.62, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 35, 118 + bob('cb'), 2.0) + ground('#8E5D36') + `<g transform="translate(${(60 * push).toFixed(1)} 0)">${X.plate(90, 452, 0.95)}${cumiKering(102, 436, 0.75, 70)}${cumiKering(128, 438, 0.75, 100)}</g>`;
+  }
+  if (id === 'endus') {
+    const wow = t > 1.0, z = 1 + 0.08 * easeOut(prog(t, 1.0, 0.25)), sp = wow ? Math.min(1, (t - 1.0) * 4) : 0;
+    const sn = [0, 1, 2].map(k => { const o = ((t * 1.3 + k * 0.33) % 1); return t < 1.0 ? `<path d="M${210 - o * 120} ${300 - k * 14} q10 -6 18 0 q8 6 18 0" stroke="#B5803E" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="${(1 - o).toFixed(2)}"/>` : ''; }).join('');
+    return cam(z, 135, 250, hiuBig({ lid: wow ? 0 : 0.98, pr: wow ? 2 : undefined, px: 0.2, m: wow ? 'o' : 'flat', tear: t > 1.6 }) + sn + (wow ? star(36, 150, 8 * sp) + star(230, 170, 7 * sp) : ''));
+  }
+  if (id === 'kaget') { const sp = Math.min(1, t * 4); return kkBig({ lid: 0, pr: 2, px: 0.5, m: 'o', brow: 'up', sweat: true }) + star(40, 160, 7 * sp) + star(228, 176, 6 * sp); }
+  if (id === 'borong') {
+    return marketDayA() + karungCumi(150, 300, 1.4) + karungCumi(196, 262, 1.0, 8) + place(hiuA({ lid: blink(T) ? 1 : 0.3, px: 0.5, m: mouthOf(sh, T, 'hiu', 'smirk') }), -10, 200 + bob('hiu'), 1.3, { w: 140, flip: true }) + ground('#B48A5E');
+  }
+  if (id === 'oren') {
+    const walk = easeOut(prog(t, 0, 0.6)), x = 35 + (1 - walk) * 220;
+    return marketDayA() + place(KO({ lid: 0.5, m: mouthOf(sh, T, 'ko', 'flat') }), x, 140 + bob('ko'), 2.0) + shades(x, 140 + bob('ko'), 2.0) + ground('#B48A5E');
+  }
+  if (id === 'tantang') {
+    const z = 1 + 0.05 * easeOut(prog(t, 0, sh.dur));
+    let s = `<g><clipPath id="cl"><rect width="135" height="480"/></clipPath><g clip-path="url(#cl)">${marketDayA()}${place(hiuA({ lid: 0.5, px: 0.8, m: mouthOf(sh, T, 'hiu', 'teeth') }), -60, 170 + bob('hiu'), 1.5, { w: 140, flip: true })}</g></g>`;
+    s += `<g><clipPath id="cr"><rect x="135" width="135" height="480"/></clipPath><g clip-path="url(#cr)"><rect x="135" width="135" height="480" fill="#F7DFA8"/>${place(KO({ lid: 0.5, px: -0.8, m: 'frown' }), 150, 160, 1.4)}${shades(150, 160, 1.4)}</g></g>`;
+    s += `<path d="M135 0 L135 480" stroke="#FFFFFF" stroke-width="4"/>` + ground('#B48A5E');
+    return cam(z, 135, 240, s);
+  }
+  if (id === 'curi') {
+    const tip = Math.sin(T * 6) * 3, sly = Math.sin(T * 5) > 0 ? -0.9 : 0.9;
+    return marketDayA() + `<rect width="270" height="480" fill="#0A0814" opacity="0.45"/>` + place(KK({ lid: 0.55, px: talking(sh, T, 'kakap') ? 0.4 : sly, m: mouthOf(sh, T, 'kakap', 'smirk'), chain: true }), 30, 200 + tip, 1.3, { w: 140, flip: true }) +
+      karungCumi(4, 176 + tip, 1.25, 14) + ground('#2A2236');
+  }
+  if (id === 'end') {
+    const z = 1 + 0.07 * easeOut(prog(t, 0, sh.dur)), glow = 0.6 + 0.4 * Math.sin(T * 6);
+    let s = marketDayA() + `<rect width="270" height="480" fill="#0A0814" opacity="0.62"/>` + counterA();
+    s += [0, 1, 2, 3, 4, 5].map(k => `<path d="M${120 + k * 26} ${360 + k * 6} q8 -3 16 0" stroke="#7A5A30" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>`).join('');
+    s += `<text x="135" y="270" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="54" fill="#F5C542" stroke="#000" stroke-width="2" opacity="${(0.4 + 0.5 * glow).toFixed(2)}">?</text>`;
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+SCENES.s1e5 = [s1e5Scene, ep3Overlay]; TITLES.s1e5 = 'Cumi yang Terhina..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

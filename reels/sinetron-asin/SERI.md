@@ -19,6 +19,7 @@ Premis: Cumi Baby (cumi asin kecil, kering, sering diejek) ternyata punya aroma 
 - Ep 3 "Bos Oren" — Kakap minta Bos Oren (kucing oren, bos pasar) "mengajak ngobrol" Cumi Baby; Bos Oren malah pesan 10 kilo: "Ternyata enak." Kakap masih menunggu di telepon.
 - Ep 4 dst: lanjutkan dari sini (Kakap kehilangan dukungan Bos Oren, Cumi Baby mulai kerja di restoran, dsb.).
 - Ep 4 "Kakap Ditinggal Bos" — ✅ Diproduksi (tayang 3 Nov 2026): telepon Kakap ditutup Bos Oren, lapak esnya sepi; Kakap menghina Cumi Baby ("lakunya sehari doang!"), lalu kaget melihat antrean tamu restoran Teri yang semuanya pesan cumi asin; Bos Oren menjadikan lapak es Kakap gudang cumi asin; malamnya Kakap menelepon "Juragan Hiu" — satu-satunya yang ditakuti Bos Oren.
+- Ep 5 "Juragan Hiu" — ✅ Diproduksi (tayang 6 Nov 2026): Juragan Hiu datang dan meremehkan Cumi Baby ("cumi kecil, kering, keriput"); aroma cumi asin mengingatkannya pada kampung nelayan masa kecil sampai menangis; dia mau memborong semua cumi asin, Bos Oren menolak — duel di dermaga; sementara itu Kakap kabur membawa karung cumi asin terakhir.
 
 ## Seri 2 — Juragan Menyamar
 Premis: Cumi Jumbo, pemilik 100 gudang ikan asin, menyamar jadi kuli di gudangnya sendiri (pakai caping). Mandor galak (Kakap berhelm kuning) meremehkannya tanpa tahu dia juragan. Soft sell: kualitas & ketelitian gudang ikan asin.
@@ -39,5 +40,6 @@ Premis: Cumi Baby, putri juragan terkaya (Papa Cumi Jumbo), jatuh cinta pada Ter
 | kakap | Kakap Segar / Mandor | Maliq Nganjuk `EIcz16yo4q5hJFhNay0n` | jv-ID-DimasNeural |
 | ko | Bos Oren | Bambangg `IMaRqUzeNVCT6ks9SI4Y` | jv-ID-DimasNeural (pitch rendah) |
 | cj | Cumi Jumbo / Papa (pria tua berwibawa) | Bambang (Grounded and authoritative) `j7n5yC6BN3oA2ZIWImty` | jv-ID-DimasNeural (pitch rendah) |
+| hiu | Juragan Hiu (hiu abu-abu, bekas luka, kalung emas "H") | Kang Nandar `aK834gEOxQEtviMPgurT` | id-ID-ArdiNeural (pitch rendah) |
 
 Tokoh baru: tambahkan baris di tabel ini + voices.json, dan gambar dalam gaya Ep 3.

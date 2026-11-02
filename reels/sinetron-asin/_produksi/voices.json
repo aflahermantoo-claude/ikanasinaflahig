@@ -55,6 +55,15 @@
         "rate": "-12%",
         "pitch": "-14Hz"
       }
+    },
+    "hiu": {
+      "name": "Kang Nandar - HQ voice",
+      "voice_id": "aK834gEOxQEtviMPgurT",
+      "fallback": {
+        "voice": "id-ID-ArdiNeural",
+        "rate": "-10%",
+        "pitch": "-14Hz"
+      }
     }
   },
   "lines": [
@@ -609,6 +618,78 @@
       "prompt": "[dramatis, seperti narator sinetron] Papa belum tahu... ayah Teri Nasi adalah orang yang paling dia benci.",
       "status": "ok",
       "session_id": "TyNI5wnnDi2ZPUPMbQui"
+    },
+    {
+      "id": "S1E5_01",
+      "spk": "nar",
+      "prompt": "[dramatis, tegang] Pagi itu... pasar mendadak sunyi. Juragan Hiu datang.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_02",
+      "spk": "kakap",
+      "prompt": "[sombong, berteriak] Minggir semua! Juragan Hiu mau ketemu cumi kering itu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_03",
+      "spk": "hiu",
+      "prompt": "[berat, meremehkan] Ini yang bikin Bos Oren takluk? Cumi kecil, kering, keriput.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_04",
+      "spk": "kakap",
+      "prompt": "[mengejek] Betul, Juragan! Baunya sampai ujung pasar!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_05",
+      "spk": "cb",
+      "prompt": "[datar] Oh. Mau coba, Juragan?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_06",
+      "spk": "hiu",
+      "prompt": "[mengendus, lalu terharu pelan] ...Loh. Ini aroma cumi asin kampung nelayan... waktu saya kecil.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_07",
+      "spk": "kakap",
+      "prompt": "[kaget, terbata] Loh?! Juragan... kok malah nangis?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_08",
+      "spk": "hiu",
+      "prompt": "[tegas, berwibawa] Mulai hari ini, semua cumi asin Mbak Cumi... saya yang beli.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_09",
+      "spk": "ko",
+      "prompt": "[datar, dingin] Ndak bisa, Hiu. Saya pelanggan duluan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_10",
+      "spk": "hiu",
+      "prompt": "[menantang, pelan] Oren. Kita selesaikan... di dermaga.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_11",
+      "spk": "kakap",
+      "prompt": "[berbisik, licik] Mereka rebutan... karung terakhirnya saya bawa saja.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E5_12",
+      "spk": "nar",
+      "prompt": "[dramatis, pelan] Tidak ada yang sadar... karung cumi asin terakhir sudah hilang, bersama Kakap.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

@@ -653,6 +653,77 @@ function s1e5Scene(sh, t, T) {
 }
 SCENES.s1e5 = [s1e5Scene, ep3Overlay]; TITLES.s1e5 = 'Cumi yang Terhina..';
 
+// ================= S2E3 — Juragan Menyamar: Juragan di Gerbang (gaya A, sitcom deadpan) =================
+const helmTeri = `<g transform="translate(6 -6) scale(0.72)"><path d="M34 24 Q36 -8 66 -8 Q96 -8 98 24 Z" fill="#F5C542" stroke="#161616" stroke-width="2.6"/><ellipse cx="66" cy="24" rx="38" ry="5" fill="#F2B520" stroke="#161616" stroke-width="2.4"/><path d="M66 -8 L66 22" stroke="#D99A10" stroke-width="3"/></g>`;
+const kakapCaping = o => KK({ chain: false, ...o }) + `<g transform="translate(18 -8) scale(0.95)">${capingSvg}</g>`;
+function gudang100A() { // gerbang gudang No. 100, malam
+  return gerbangA() + `<rect x="60" y="184" width="150" height="26" rx="5" fill="#7A4A2A" stroke="#161616" stroke-width="2"/><text x="135" y="201.5" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="10" fill="#FFF4E6">GUDANG IKAN ASIN No. 100</text>` +
+    `<rect width="270" height="480" fill="#0A0814" opacity="0.6"/><circle cx="214" cy="150" r="15" fill="#F4F1DE" opacity="0.85"/>`;
+}
+function s2e3Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const ground = `<rect y="402" width="270" height="78" fill="#C9B48A" stroke="#161616" stroke-width="2"/>`;
+  const mandorClose = (o, extra = '') => gerbangA() + place(mandor({ ...o, lid: blink(T) && o.lid < 0.9 ? 1 : o.lid, m: mouthOf(sh, T, 'kakap', o.m) }), -30, 150 + (o.dy || 0) + bob('kakap'), 1.95, { w: 140, flip: true }) + extra + ground;
+  if (id === 'ampun') {
+    const rock = Math.abs(Math.sin(T * 7)) * 6;
+    return gerbangA() + place(kuli({ lid: blink(T) ? 1 : 0.5, px: -0.7, m: 'flat' }), 186, 206, 0.8) + karungA(196, 318, 'TERI', 0.8) +
+      place(TN({ lid: 0.1, pr: 2, px: 0.6, m: 'o', brow: 'up' }), -6, 176, 1.1, { w: 120, flip: true }) +
+      place(mandor({ lid: 0.6, px: 0.9, py: 0.6, m: mouthOf(sh, T, 'kakap', 'frown'), sweat: true }), 62, 210 + rock + bob('kakap'), 0.95, { w: 140, rot: 35, cx: 70, cy: 120 });
+  }
+  if (id === 'bingung') {
+    const q = `<text x="200" y="${150 + Math.sin(T * 5) * 4}" font-family="Liberation Sans" font-weight="bold" font-size="40" fill="#161616" stroke="#FFFFFF" stroke-width="2" paint-order="stroke">?</text>`;
+    return gerbangA() + place(TN({ lid: blink(T) ? 1 : 0.2, px: 0.5, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up' }), 15, 180 + bob('teri'), 1.75, { w: 120, flip: true }) + q + ground;
+  }
+  if (id === 'usir') {
+    const lunge = Math.sin(Math.PI * prog(t, 0.0, 0.4)) * 16;
+    return gerbangA() + place(kuli({ lid: blink(T) ? 1 : 0.45, px: -0.8, m: 'flat' }), 150, 200, 1.0) + karungA(170, 300, 'TERI', 1.0) +
+      place(mandor({ lid: blink(T) ? 1 : 0.1, px: -0.3, m: mouthOf(sh, T, 'kakap', 'grit'), brow: 'angry' }), 4 + lunge, 236 + bob('kakap'), 1.05, { w: 140, flip: true });
+  }
+  if (id === 'rak') {
+    const lineEnd = sh.lines[0].end - sh.start, put = easeOut(prog(t, lineEnd - 0.2, 0.3));
+    return gerbangA() + rakA(176, 214) + place(kuli({ lid: blink(T) ? 1 : 0.5, px: 0.7, m: mouthOf(sh, T, 'cj', 'flat') }), 40, 130 + bob('cj'), 1.5) +
+      karungA(182, 300 - put * 54, 'TERI', 0.95) + ground;
+  }
+  if (id === 'telp') return mandorClose({ lid: 0.55, px: 0.5, m: 'smile' }, L.phone(212, 300, 1.6, -8));
+  if (id === 'jawab') {
+    const k = prog(t, 0, sh.dur);
+    return mandorClose({ lid: 0.2 - k * 0.2, px: 0.7, m: k > 0.6 ? 'o' : 'frown', sweat: k > 0.4, brow: k > 0.6 ? 'up' : undefined }, L.phone(212, 300, 1.6, -8));
+  }
+  if (id === 'loh') {
+    const turn = easeOut(prog(t, 0.0, 0.6)), shock = t > 0.5, sp = shock ? Math.min(1, (t - 0.5) * 4) : 0;
+    const z = 1 + 0.1 * easeOutBack(prog(t, 0.5, 0.3));
+    const stars = shock ? star(40, 140, 7 * sp) + star(200, 120, 6 * sp) + star(50, 300, 5 * sp) : '';
+    return cam(z, 135, 240, gerbangA() + place(kuli({ lid: 0.5, px: -0.6, m: 'flat' }), 160, 200, 1.0) + karungA(176, 300, 'TERI', 0.95) +
+      place(mandor({ lid: shock ? 0 : 0.4, pr: shock ? 2 : undefined, px: -0.2 - turn * 0.7, m: mouthOf(sh, T, 'kakap', shock ? 'o' : 'frown'), brow: shock ? 'up' : undefined, sweat: true }), -10, 210 + bob('kakap'), 1.2, { w: 140, flip: true }) + L.phone(120, 300, 1.2, -8)) + stars;
+  }
+  if (id === 'buka') {
+    const lift = easeOut(prog(t, 0.0, 0.6));
+    const cap = place(capingSvg, 35 + lift * 120, 130 - lift * 90, 2.0, { rot: lift * 40, cx: 50, cy: 0 });
+    const gleam = t > 0.5 ? star(135, 340, 8 * (0.6 + 0.4 * Math.sin(T * 8))) : '';
+    return gerbangA() + place(CJ({ hat: false, lid: blink(T) ? 1 : 0.35, px: 0, m: mouthOf(sh, T, 'cj', 'flat') }), 35, 130 + bob('cj'), 2.0) + cap + gleam;
+  }
+  if (id === 'putus') {
+    const l2 = sh.lines[1], teriTalk = T >= l2.start - 0.05, swap = easeOut(prog(T, sh.lines[0].start + 0.8, 0.5));
+    return gerbangA() + place(CJ({ hat: false, lid: blink(T) ? 1 : 0.35, px: -0.4, m: mouthOf(sh, T, 'cj', 'flat') }), 150, 196, 1.0) +
+      place(TN({ lid: teriTalk ? 0 : 0.3, pr: teriTalk ? 2 : undefined, px: 0.6, m: mouthOf(sh, T, 'teri', teriTalk ? 'o' : 'flat'), brow: 'up' }) + (swap > 0.5 ? helmTeri : ''), 10, 186 + bob('teri'), 1.0, { w: 120, flip: true }) +
+      place((swap > 0.5 ? kakapCaping : mandor)({ lid: 0.6, px: 0.2, m: 'frown', sweat: true }), 40, 418 + Math.abs(Math.sin(T * 9)) * 2, 0.7, { w: 140, flip: true }) + karungA(160, 420, 'TERI', 0.8);
+  }
+  if (id === 'bisik') {
+    const sly = Math.sin(T * 5) > 0 ? -0.9 : 0.9;
+    return gudangA() + stacks() + `<rect width="270" height="480" fill="#0A0814" opacity="0.55"/>` +
+      place(kakapCaping({ lid: 0.55, px: talking(sh, T, 'kakap') ? 0.4 : sly, m: mouthOf(sh, T, 'kakap', 'smirk') }), -30, 150 + bob('kakap'), 1.95, { w: 140, flip: true }) +
+      L.phone(212, 300, 1.6, -8) + `<rect y="402" width="270" height="78" fill="#2A2236" stroke="#161616" stroke-width="2"/>`;
+  }
+  if (id === 'end') {
+    const z = 1 + 0.09 * easeOut(prog(t, 0, sh.dur)), glow = 0.6 + 0.4 * Math.sin(T * 6);
+    return cam(z, 135, 240, gudang100A() +
+      `<text x="135" y="305" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="48" fill="#F5C542" stroke="#000" stroke-width="2" opacity="${(0.4 + 0.5 * glow).toFixed(2)}">?</text>`);
+  }
+  return '';
+}
+SCENES.s2e3 = [s2e3Scene, ep3Overlay]; TITLES.s2e3 = 'Juragan Menyamar..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

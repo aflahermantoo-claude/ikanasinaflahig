@@ -690,6 +690,78 @@
       "spk": "nar",
       "prompt": "[dramatis, pelan] Tidak ada yang sadar... karung cumi asin terakhir sudah hilang, bersama Kakap.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E3_01",
+      "spk": "kakap",
+      "prompt": "[memohon, panik] Ampun, Juragan! Jangan potong gaji saya!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_02",
+      "spk": "teri",
+      "prompt": "[bingung] Pak Mandor... saya ini Teri. Kuli!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_03",
+      "spk": "kakap",
+      "prompt": "[galak, menunjuk] Heh, caping! Minggir! Kuli kayak kamu nggak pantas berdiri dekat Juragan!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_04",
+      "spk": "cj",
+      "prompt": "[datar, tenang] Saya cuma mau naruh teri ini di rak, Pak. Biar tetap kering.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_05",
+      "spk": "kakap",
+      "prompt": "[menelepon, manis] Bu Sekretaris... Juragan hari ini pakai baju apa, ya?",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_06",
+      "spk": "cb",
+      "prompt": "[sopan, resmi, seperti di telepon] Beliau pakai caping, Pak. Dan bawa karung teri.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_07",
+      "spk": "kakap",
+      "prompt": "[kaget, pelan] Loh... caping?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_08",
+      "spk": "cj",
+      "prompt": "[datar, berwibawa] Seratus karung sudah saya cek. Tiga puluh... masih lembab.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_09",
+      "spk": "cj",
+      "prompt": "[tegas] Mulai hari ini, Teri jadi mandor. Kamu... angkat karung.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_10",
+      "spk": "teri",
+      "prompt": "[kaget] Loh... saya, Juragan?",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_11",
+      "spk": "kakap",
+      "prompt": "[berbisik, licik] Bos... penyamaran Juragan sudah ketahuan. Gudang nomor seratus... malam ini.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E3_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Ternyata Mandor tidak sendirian... dan gudang nomor seratus, menyimpan rahasia.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

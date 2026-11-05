@@ -762,6 +762,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Ternyata Mandor tidak sendirian... dan gudang nomor seratus, menyimpan rahasia.",
       "status": "fallback"
+    },
+    {
+      "id": "S3E3_01",
+      "spk": "cj",
+      "prompt": "[membentak, memukul meja] Teri! Jawab sekarang. Kamu itu anak siapa?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_02",
+      "spk": "teri",
+      "prompt": "[gugup, pelan] Bapak saya... cuma tukang jemur cumi di Muara Angke, Om.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_03",
+      "spk": "kakap",
+      "prompt": "[ketawa sinis] Tukang jemur! Pantas bahannya bau gudang.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_04",
+      "spk": "cj",
+      "prompt": "[meremehkan] Anak tukang jemur mau dekati anak juragan? Mimpi!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_05",
+      "spk": "cb",
+      "prompt": "[membela, kesal] Papa! Yang penting Mas Teri jujur!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_06",
+      "spk": "teri",
+      "prompt": "[tenang] Ini cumi asin jemuran Bapak, Om. Dari dulu dijemur sendiri.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_07",
+      "spk": "cj",
+      "prompt": "[mengendus, terdiam, lalu kaget] ...Loh. Ini aroma cumi asin pertama... yang bikin Papa kaya!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_08",
+      "spk": "kakap",
+      "prompt": "[kaget] Loh?! Jadi gudang Juragan dulu... mulainya dari jemuran bapaknya Teri?",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_09",
+      "spk": "cj",
+      "prompt": "[marah, suara bergetar] Bapakmu itu... yang meninggalkan saya di dermaga, tiga puluh tahun lalu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_10",
+      "spk": "cb",
+      "prompt": "[kaget, pelan] Papa... kenal bapaknya Mas Teri?",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_11",
+      "spk": "cj",
+      "prompt": "[tegas, dingin] Mulai malam ini, kamu dilarang masuk rumah ini!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E3_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Tapi malam itu... yang mengetuk pintu, justru bapak Teri sendiri.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

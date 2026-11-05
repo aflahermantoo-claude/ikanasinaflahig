@@ -119,10 +119,22 @@ LINES = {
  'S2E3_10': ('teri', 'Loh... saya, Juragan?'),
  'S2E3_11': ('kakap', 'Bos... penyamaran Juragan sudah ketahuan. Gudang nomor seratus... malam ini.'),
  'S2E3_12': ('nar', 'Ternyata Mandor tidak sendirian... dan gudang nomor seratus, menyimpan rahasia.'),
+ 'S3E3_01': ('cj', 'Teri! Jawab sekarang. Kamu itu anak siapa?!'),
+ 'S3E3_02': ('teri', 'Bapak saya... cuma tukang jemur cumi di Muara Angke, Om.'),
+ 'S3E3_03': ('kakap', 'Tukang jemur! Pantas bahannya bau gudang.'),
+ 'S3E3_04': ('cj', 'Anak tukang jemur mau dekati anak juragan? Mimpi!'),
+ 'S3E3_05': ('cb', 'Papa! Yang penting Mas Teri jujur!'),
+ 'S3E3_06': ('teri', 'Ini cumi asin jemuran Bapak, Om. Dari dulu dijemur sendiri.'),
+ 'S3E3_07': ('cj', '...Loh. Ini aroma cumi asin pertama... yang bikin Papa kaya!'),
+ 'S3E3_08': ('kakap', 'Loh?! Jadi gudang Juragan dulu... mulainya dari jemuran bapaknya Teri?'),
+ 'S3E3_09': ('cj', 'Bapakmu itu... yang meninggalkan saya di dermaga, tiga puluh tahun lalu!'),
+ 'S3E3_10': ('cb', 'Papa... kenal bapaknya Mas Teri?'),
+ 'S3E3_11': ('cj', 'Mulai malam ini, kamu dilarang masuk rumah ini!'),
+ 'S3E3_12': ('nar', 'Tapi malam itu... yang mengetuk pintu, justru bapak Teri sendiri.'),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120)}
 
-TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3}
+TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -244,6 +256,20 @@ SPECS = {
   dict(id='bisik', lines=['S2E3_11'], pre=0.5, post=0.4, sfx=[('dun', 0.1)], amb='night'),
   dict(id='end', lines=['S2E3_12'], pre=0.4, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
  ],
+ 's3e3': [  # babak: 1 Drama (bentak, jawab) · 2 Diremehkan (ejek, mimpi, bela) · 3 Penemuan (sodor, endus, kakap) · 4 Drama lagi (dermaga, kenal, larang) · 5 Cliffhanger (end)
+  dict(id='bentak', lines=['S3E3_01'], pre=0.15, post=0.3, sfx=[('thud', 0.0), ('dun', 0.05)], amb='night'),
+  dict(id='jawab', lines=['S3E3_02'], pre=0.25, post=0.3, amb='night'),
+  dict(id='ejek', lines=['S3E3_03'], pre=0.2, post=0.3, sfx=[('whoosh', 0.0)], amb='night'),
+  dict(id='mimpi', lines=['S3E3_04'], pre=0.2, post=0.3, amb='night'),
+  dict(id='bela', lines=['S3E3_05'], pre=0.2, post=0.4, amb='night'),
+  dict(id='sodor', lines=['S3E3_06'], pre=0.3, post=0.4, sfx_after=[('thud', 0.0)], amb='night'),
+  dict(id='endus', lines=['S3E3_07'], pre=1.2, post=0.6, sfx=[('sniff', 0.1), ('ting', 1.0)], amb='night'),
+  dict(id='kakap', lines=['S3E3_08'], pre=0.3, post=0.4, sfx=[('ting', 0.1)], amb='night'),
+  dict(id='dermaga', lines=['S3E3_09'], pre=0.4, post=0.4, sfx=[('dun', 0.0)], amb='night'),
+  dict(id='kenal', lines=['S3E3_10'], pre=0.3, post=0.4, amb='night'),
+  dict(id='larang', lines=['S3E3_11'], pre=0.2, post=0.5, sfx_after=[('thud', 0.0)], amb='night'),
+  dict(id='end', lines=['S3E3_12'], pre=1.2, post=1.9, sfx=[('knock', 0.1), ('dunn', 1.0)], amb='night'),
+ ],
 }
 
 def lp(x, f):
@@ -280,6 +306,7 @@ SFX = {
  'sniff': lambda: np.concatenate([bp(noise(0.14), 2500, 6000) * env(int(0.14 * SR), 0.04, 0.05), np.zeros(int(0.08 * SR), np.float32), bp(noise(0.14), 2500, 6000) * env(int(0.14 * SR), 0.04, 0.05), np.zeros(int(0.08 * SR), np.float32), bp(noise(0.3), 2500, 6000) * env(int(0.3 * SR), 0.08, 0.12)]) * 0.7,
  'ting': lambda: tone(2093, 0.8, 'sine', 0.25) * 0.4 + tone(3136, 0.8, 'sine', 0.2) * 0.25,
  'chew': lambda: np.concatenate([lp(noise(0.09), 800) * env(int(0.09 * SR), 0.01, 0.03) * 1.5 if k % 2 == 0 else np.zeros(int(0.12 * SR), np.float32) for k in range(10)]),
+ 'knock': lambda: np.concatenate([lp(noise(0.12), 600) * env(int(0.12 * SR), 0.001, 0.03) * 3 + tone(110, 0.12, 'sine', 0.04) * 0.8, np.zeros(int(0.18 * SR), np.float32)] * 3),
  'pop': lambda: tone(900, 0.09, 'sine', 0.03) * 0.5 + tone(1400, 0.09, 'sine', 0.02) * 0.3,
  'confetti': lambda: sum(np.roll(tone(f, 0.3, 'pluck'), int(i * 0.05 * SR)) for i, f in enumerate([1046, 1318, 1568, 2093])) * 0.3,
 }

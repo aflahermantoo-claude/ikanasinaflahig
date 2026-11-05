@@ -95,6 +95,18 @@ LINES = {
  'S3E2_11': ('cj', 'Ya wis... Teri menang.'),
  'S3E2_12': ('kakap', 'Juragan... coba tanya, Teri itu anak siapa.'),
  'S3E2_13': ('nar', 'Papa belum tahu... ayah Teri Nasi adalah orang yang paling dia benci.'),
+ 'S1E6_01': ('nar', "Dermaga, tengah hari. Juragan Hiu dan Bos Oren... saling tatap."),
+ 'S1E6_02': ('hiu', "Oren. Yang kalah, nggak boleh beli cumi asin Mbak Cumi lagi."),
+ 'S1E6_03': ('ko', "Setuju. Kamu yang kalah."),
+ 'S1E6_04': ('kakap', "Hahaha! Rebutan terus! Karung terakhirnya sudah di perahu saya!"),
+ 'S1E6_05': ('kakap', "Tanpa karung ini, Cumi Baby cuma cumi kecil yang nggak laku!"),
+ 'S1E6_06': ('cb', "Oh. Itu bukan yang terakhir."),
+ 'S1E6_07': ('teri', "Mbak Cumi! Jemuran tadi pagi sudah kering... lima puluh karung!"),
+ 'S1E6_08': ('hiu', "Loh?! Lima puluh karung... wanginya sampai ujung dermaga!"),
+ 'S1E6_09': ('hiu', "Duelnya batal! Lima puluh karung itu punya saya!"),
+ 'S1E6_10': ('ko', "Ndak. Punya saya."),
+ 'S1E6_11': ('kakap', "Sekarung cumi asin buat saya sendiri... Loh, kok perahunya goyang?"),
+ 'S1E6_12': ('nar', "Di bawah perahu Kakap... sesuatu yang jauh lebih besar dari Juragan Hiu, ikut mencium aroma cumi asin itu."),
  'S1E5_01': ('nar', 'Pagi itu... pasar mendadak sunyi. Juragan Hiu datang.'),
  'S1E5_02': ('kakap', 'Minggir semua! Juragan Hiu mau ketemu cumi kering itu!'),
  'S1E5_03': ('hiu', 'Ini yang bikin Bos Oren takluk? Cumi kecil, kering, keriput.'),
@@ -134,7 +146,7 @@ LINES = {
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120)}
 
-TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3}
+TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -242,6 +254,18 @@ SPECS = {
   dict(id='tantang', lines=['S1E5_10'], pre=0.4, post=0.5, sfx=[('thud', 0.1)], amb='morning'),
   dict(id='curi', lines=['S1E5_11'], pre=0.4, post=0.4, amb='night'),
   dict(id='end', lines=['S1E5_12'], pre=0.4, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
+ ],
+ 's1e6': [  # babak: 1 Drama (tatap, syarat, setuju) · 2 Diremehkan (perahu, oh) · 3 Penemuan (teri, loh) · 4 Drama lagi (rebut) · 5 Cliffhanger (goyang, end)
+  dict(id='tatap', lines=['S1E6_01'], pre=0.15, post=0.3, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='syarat', lines=['S1E6_02'], pre=0.2, post=0.3, amb='morning'),
+  dict(id='setuju', lines=['S1E6_03'], pre=0.3, post=0.4, sfx_after=[('thud', 0.05)], amb='morning'),
+  dict(id='perahu', lines=['S1E6_04', 'S1E6_05'], gap=0.3, pre=0.3, post=0.3, sfx=[('whoosh', 0.0)], amb='morning'),
+  dict(id='oh', lines=['S1E6_06'], pre=0.5, post=0.6, min=2.0, amb='morning'),
+  dict(id='teri', lines=['S1E6_07'], pre=0.3, post=0.3, sfx=[('whoosh', 0.0)], amb='morning'),
+  dict(id='loh', lines=['S1E6_08'], pre=1.0, post=0.5, sfx=[('sniff', 0.05), ('ting', 0.85)], amb='morning'),
+  dict(id='rebut', lines=['S1E6_09', 'S1E6_10'], gap=0.4, pre=0.2, post=0.5, sfx=[('whoosh', 0.0)], sfx_after=[('thud', 0.0)], amb='morning'),
+  dict(id='goyang', lines=['S1E6_11'], pre=0.3, post=0.4, amb='night'),
+  dict(id='end', lines=['S1E6_12'], pre=0.4, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
  ],
  's2e3': [  # babak: 1 Drama (ampun, bingung) · 2 Diremehkan (usir, rak) · 3 Penemuan (telp, jawab, loh) · 4 Drama lagi (buka, putus) · 5 Cliffhanger (bisik, end)
   dict(id='ampun', lines=['S2E3_01'], pre=0.15, post=0.3, sfx=[('thud', 0.0), ('dun', 0.05)], amb='morning'),

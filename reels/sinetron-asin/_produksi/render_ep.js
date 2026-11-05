@@ -785,6 +785,89 @@ function s3e3Scene(sh, t, T) {
 }
 SCENES.s3e3 = [s3e3Scene, ep3Overlay]; TITLES.s3e3 = 'Mertua Cumi Jumbo..';
 
+// ================= S1E6 — Cumi yang Terhina: Duel di Dermaga (gaya A, sitcom deadpan) =================
+function dermagaA(T = 0, { pier = true, dusk = false } = {}) { // dermaga siang: langit, laut, lantai papan
+  let s = `<rect width="270" height="480" fill="${dusk ? '#F2A36B' : '#BFE3F0'}"/><circle cx="214" cy="${dusk ? 214 : 74}" r="22" fill="${dusk ? '#FF7A3D' : '#FFE07A'}" stroke="#161616" stroke-width="2"/>`;
+  s += `<rect y="228" width="270" height="252" fill="${dusk ? '#2E5E86' : '#3C8DC0'}" stroke="#161616" stroke-width="2"/>`;
+  s += [0, 1, 2, 3].map(k => `<path d="M-30 ${246 + k * 22} ${Array.from({ length: 12 }, (_, j) => `q13.5 ${j % 2 ? 5 : -5} 27 0`).join(' ')}" transform="translate(${(-((T * 12 + k * 11) % 27)).toFixed(1)} 0)" stroke="${dusk ? '#4F84AE' : '#7CC0E6'}" stroke-width="2" fill="none"/>`).join('');
+  if (pier) {
+    s += `<g stroke="#161616" stroke-width="2">${[18, 96, 174, 250].map(x => `<rect x="${x}" y="300" width="10" height="60" fill="#5A3A22"/>`).join('')}</g>`;
+    s += `<rect y="330" width="270" height="150" fill="#A8784A" stroke="#161616" stroke-width="2.2"/>${[352, 378, 404, 430, 456].map(y => `<path d="M0 ${y} L270 ${y}" stroke="#7A5232" stroke-width="1.6"/>`).join('')}`;
+    s += `<rect x="20" y="276" width="70" height="20" rx="4" fill="#7A4A2A" stroke="#161616" stroke-width="1.8"/><text x="55" y="290" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="9" fill="#FFF4E6">DERMAGA</text>`;
+  }
+  return s;
+}
+const jemuranCumi = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><g stroke="#161616" stroke-width="2"><rect x="0" y="0" width="6" height="70" fill="#7A4A2A"/><rect x="104" y="0" width="6" height="70" fill="#7A4A2A"/></g><path d="M0 8 L110 8 M0 36 L110 36" stroke="#7A4A2A" stroke-width="2.4"/></g>` +
+  [0, 1].map(r => [0, 1, 2, 3, 4].map(k => cumiKering(x + (14 + k * 20) * s, y + (20 + r * 28) * s, 0.55 * s, 0)).join('')).join('');
+const perahuA = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-70 -8 L70 -8 Q60 26 -56 26 Z" fill="#C8553D" stroke="#161616" stroke-width="2.4" stroke-linejoin="round"/><path d="M-66 0 L66 0" stroke="#F4EBDD" stroke-width="4"/><text x="0" y="19" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="9" fill="#FFF4E6">KAKAP 1</text></g>`;
+const dayung = (x, y, rot) => `<g transform="translate(${x} ${y}) rotate(${rot.toFixed(1)})"><rect x="-2.5" y="-40" width="5" height="70" fill="#8E5D36" stroke="#161616" stroke-width="1.6"/><ellipse cx="0" cy="36" rx="7" ry="12" fill="#8E5D36" stroke="#161616" stroke-width="1.6"/></g>`;
+const aromaUap = (t, x0, y0, n = 3, dx = 1) => [...Array(n).keys()].map(k => { const o = ((t * 1.2 + k / n) % 1); return `<path d="M${(x0 + dx * o * 90).toFixed(1)} ${(y0 - k * 14 - o * 10).toFixed(1)} q8 -6 16 0 q8 6 16 0" stroke="#B5803E" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="${(0.9 * (1 - o)).toFixed(2)}"/>`; }).join('');
+function s1e6Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const ground = `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>`;
+  const hiuBig = (o, extra = '') => dermagaA(T) + place(hiuA({ ...o, lid: blink(T) && (o.lid ?? 0.4) < 0.9 ? 1 : (o.lid ?? 0.4), m: mouthOf(sh, T, 'hiu', o.m || 'flat') }), -40, 150 + bob('hiu'), 1.95, { w: 140, flip: true }) + extra + ground;
+  const wind = [0, 1, 2].map(k => { const x = ((T * 260 + k * 110) % 380) - 60; return `<path d="M${x.toFixed(1)} ${200 + k * 34} l40 0 q10 0 10 -8" stroke="#FFFFFF" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.85"/>`; }).join('');
+  if (id === 'tatap') {
+    const z = 1 + 0.06 * easeOut(prog(t, 0, sh.dur));
+    return cam(z, 135, 280, dermagaA(T) + place(hiuA({ lid: 0.55, px: 0.9, m: 'frown' }), 0, 196, 1.05, { w: 140, flip: true }) +
+      place(KO({ lid: 0.5, px: -0.8, m: 'frown' }), 156, 176, 1.05) + shades(156, 176, 1.05) + wind);
+  }
+  if (id === 'syarat') return hiuBig({ lid: 0.5, px: 0.7, m: talking(sh, T, 'hiu') ? mouthOf(sh, T, 'hiu', 'teeth') : 'teeth' }, wind);
+  if (id === 'setuju') {
+    const z = 1 + 0.05 * easeOut(prog(T, sh.lines[0].start, 0.3));
+    return cam(z, 135, 240, dermagaA(T) + place(KO({ lid: 0.5, m: mouthOf(sh, T, 'ko', 'flat') }), 35, 140 + bob('ko'), 2.0) + shades(35, 140 + bob('ko'), 2.0) + ground);
+  }
+  if (id === 'perahu') {
+    const away = easeOut(prog(t, 0, sh.dur)), bx = 120 + away * 40, by = 262, rock = Math.sin(T * 3) * 3;
+    const laugh = talking(sh, T, 'kakap') ? Math.abs(Math.sin(T * 16)) * 3 : 0;
+    const second = T >= sh.lines[1].start - 0.1;
+    return dermagaA(T, { pier: false }) + `<rect x="-10" y="300" width="80" height="180" fill="#A8784A" stroke="#161616" stroke-width="2.2"/>` +
+      `<g transform="rotate(${rock.toFixed(1)} ${bx} ${by})">` + place(KK({ lid: second ? 0.45 : 0.98, px: -0.5, m: mouthOf(sh, T, 'kakap', second ? 'smirk' : 'grin'), chain: true }), bx - 70, by - 120 - laugh + bob('kakap'), 1.0, { w: 140 }) +
+      karungCumi(bx + 4, by - 44, 0.8, 10) + dayung(bx - 50, by - 20, -30 + Math.sin(T * 4) * 20) + perahuA(bx, by, 1.0) + `</g>` +
+      `<path d="M${bx - 80} ${by + 30} q20 -6 40 0 q20 6 40 0 q20 -6 40 0 q20 6 40 0" stroke="#FFFFFF" stroke-width="2.4" fill="none"/>`;
+  }
+  if (id === 'oh') return dermagaA(T) + place(CB({ lid: blink(T) ? 1 : 0.62, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 35, 118 + bob('cb'), 2.0) + ground;
+  if (id === 'teri') {
+    const slide = 1 - easeOut(prog(t, 0, 0.4)), pant = Math.abs(Math.sin(T * 9)) * 3, gx = 30 + slide * 240;
+    return dermagaA(T) + jemuranCumi(140, 252, 1.0) + aromaUap(t, 150, 250, 3) +
+      place(teriChef({ lid: blink(T) ? 1 : 0.15, px: 0.3, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up' }), gx - 30, 160 - pant + bob('teri'), 1.35, { w: 120, flip: true }) +
+      `<g transform="translate(${gx + 80} -40)"><rect x="0" y="330" width="96" height="40" fill="#8E5D36" stroke="#161616" stroke-width="2"/><circle cx="18" cy="376" r="10" fill="#4A4F57" stroke="#161616" stroke-width="2"/><circle cx="78" cy="376" r="10" fill="#4A4F57" stroke="#161616" stroke-width="2"/></g>` +
+      karungCumi(gx + 82, 256, 0.7) + karungCumi(gx + 130, 260, 0.6, 8) + karungCumi(gx + 104, 232, 0.6, -6) + L.sweatDrop(gx + 4, 170, 1.4);
+  }
+  if (id === 'loh') {
+    const wow = t > 0.85, z = 1 + 0.08 * easeOut(prog(t, 0.85, 0.25)), sp = wow ? Math.min(1, (t - 0.85) * 4) : 0;
+    const sn = t < 0.85 ? aromaUap(t, 250, 300, 3, -1) : '';
+    return cam(z, 135, 250, hiuBig({ lid: wow ? 0 : 0.98, pr: wow ? 2 : undefined, px: 0.2, m: wow ? mouthOf(sh, T, 'hiu', 'o') : 'flat', sweat: wow }, sn) + (wow ? star(36, 150, 8 * sp) + star(230, 170, 7 * sp) : ''));
+  }
+  if (id === 'rebut') {
+    const tug = Math.sin(T * 7) * 10, second = T >= sh.lines[1].start - 0.1;
+    return dermagaA(T) + karungA(196, 300, 'CUMI', 0.8) + karungA(214, 276, 'CUMI', 0.7) + karungA(0, 300, 'CUMI', 0.8) +
+      place(hiuA({ lid: blink(T) ? 1 : 0.2, px: 0.9, m: mouthOf(sh, T, 'hiu', 'grit'), brow: 'angry' }), -30 + tug, 196 + bob('hiu'), 1.05, { w: 140, flip: true }) +
+      place(KO({ lid: second ? 0.5 : 0.6, px: -0.8, m: mouthOf(sh, T, 'ko', 'flat') }), 150 + tug, 174 + bob('ko'), 1.0) + shades(150 + tug, 174 + bob('ko'), 1.0) +
+      karungA(100 + tug, 276, 'CUMI', 1.0) + (t > sh.dur - 0.6 ? star(135, 260, 8) : '');
+  }
+  if (id === 'goyang') {
+    const rk = Math.sin(T * (4 + t * 2)) * (2 + t * 3), bx = 135, by = 330;
+    const shock = T >= sh.lines[0].end - 1.1;
+    return dermagaA(T, { pier: false, dusk: true }) + `<g transform="rotate(${rk.toFixed(1)} ${bx} ${by})">` +
+      place(KK({ lid: shock ? 0 : 0.6, pr: shock ? 2 : undefined, px: shock ? 0.6 : -0.3, m: mouthOf(sh, T, 'kakap', shock ? 'o' : 'smile'), chain: true, sweat: shock }), bx - 105, by - 190 + bob('kakap'), 1.5, { w: 140 }) +
+      karungCumi(bx + 10, by - 58, 1.0, 6) + perahuA(bx, by, 1.4) + `</g>` + aromaUap(t, 150, 270, 2) + `<rect width="270" height="480" fill="#1A0E20" opacity="0.18"/>`;
+  }
+  if (id === 'end') {
+    const rise = easeOut(prog(t, 0.2, 2.2)), z = 1 + 0.07 * easeOut(prog(t, 0, sh.dur)), glow = 0.6 + 0.4 * Math.sin(T * 6), rk = Math.sin(T * 5) * 4;
+    let s = `<rect width="270" height="480" fill="#04101C"/><rect width="270" height="120" fill="#1D4A6B"/><path d="M0 120 ${Array.from({ length: 10 }, (_, j) => `q13.5 ${j % 2 ? 4 : -4} 27 0`).join(' ')}" stroke="#4F84AE" stroke-width="2" fill="none"/>`;
+    s += `<g transform="rotate(${rk.toFixed(1)} 135 112)"><path d="M85 104 L185 104 Q178 126 95 126 Z" fill="#0B0A12" stroke="#000" stroke-width="2"/></g>`;
+    s += [0, 1, 2, 3].map(k => { const o = (t * 0.5 + k / 4) % 1; return `<circle cx="${100 + k * 22}" cy="${(330 - o * 200).toFixed(1)}" r="${2 + k % 2}" fill="none" stroke="#4F84AE" stroke-width="1.2" opacity="${(1 - o).toFixed(2)}"/>`; }).join('');
+    const sy = 480 - rise * 210;
+    s += `<ellipse cx="135" cy="${sy.toFixed(1)}" rx="150" ry="80" fill="#0A1A28"/><path d="M-10 ${(sy - 10).toFixed(1)} L-40 ${(sy - 60).toFixed(1)} L-30 ${(sy + 20).toFixed(1)} Z" fill="#0A1A28"/>`;
+    s += `<circle cx="96" cy="${(sy - 30).toFixed(1)}" r="7" fill="#FFE14D" opacity="${(glow * rise).toFixed(2)}"/><circle cx="174" cy="${(sy - 30).toFixed(1)}" r="7" fill="#FFE14D" opacity="${(glow * rise).toFixed(2)}"/>`;
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+SCENES.s1e6 = [s1e6Scene, ep3Overlay]; TITLES.s1e6 = 'Cumi yang Terhina..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

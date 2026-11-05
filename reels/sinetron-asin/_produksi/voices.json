@@ -834,6 +834,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Tapi malam itu... yang mengetuk pintu, justru bapak Teri sendiri.",
       "status": "fallback"
+    },
+    {
+      "id": "S1E6_01",
+      "spk": "nar",
+      "prompt": "[dramatis, tegang] Dermaga, tengah hari. Juragan Hiu dan Bos Oren... saling tatap.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_02",
+      "spk": "hiu",
+      "prompt": "[berat, menantang] Oren. Yang kalah, nggak boleh beli cumi asin Mbak Cumi lagi.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_03",
+      "spk": "ko",
+      "prompt": "[datar, dingin] Setuju. Kamu yang kalah.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_04",
+      "spk": "kakap",
+      "prompt": "[tertawa mengejek, berteriak dari jauh] Hahaha! Rebutan terus! Karung terakhirnya sudah di perahu saya!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_05",
+      "spk": "kakap",
+      "prompt": "[sombong] Tanpa karung ini, Cumi Baby cuma cumi kecil yang nggak laku!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_06",
+      "spk": "cb",
+      "prompt": "[datar] Oh. Itu bukan yang terakhir.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_07",
+      "spk": "teri",
+      "prompt": "[terengah-engah, semangat] Mbak Cumi! Jemuran tadi pagi sudah kering... lima puluh karung!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_08",
+      "spk": "hiu",
+      "prompt": "[kaget, terbata] Loh?! Lima puluh karung... wanginya sampai ujung dermaga!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_09",
+      "spk": "hiu",
+      "prompt": "[tegas, buru-buru] Duelnya batal! Lima puluh karung itu punya saya!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_10",
+      "spk": "ko",
+      "prompt": "[datar, sambil menarik karung] Ndak. Punya saya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_11",
+      "spk": "kakap",
+      "prompt": "[puas, lalu bingung] Sekarung cumi asin buat saya sendiri... Loh, kok perahunya goyang?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E6_12",
+      "spk": "nar",
+      "prompt": "[dramatis, pelan] Di bawah perahu Kakap... sesuatu yang jauh lebih besar dari Juragan Hiu, ikut mencium aroma cumi asin itu.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

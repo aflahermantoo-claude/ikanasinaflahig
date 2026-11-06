@@ -906,6 +906,72 @@
       "spk": "nar",
       "prompt": "[dramatis, pelan] Di bawah perahu Kakap... sesuatu yang jauh lebih besar dari Juragan Hiu, ikut mencium aroma cumi asin itu.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E4_01",
+      "spk": "kakap",
+      "prompt": "[berbisik, licik, sambil membuka gembok] Bos... gudang nomor seratus sudah saya buka. Angkut semuanya malam ini!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_02",
+      "spk": "teri",
+      "prompt": "[kaget, tegas] Pak Kakap! Ngapain malam-malam di gudang seratus?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_03",
+      "spk": "kakap",
+      "prompt": "[mengejek] Mandor baru, helmnya kegedean! Gudang ini isinya cuma cumi asin kecil-kecil, keriput. Siapa yang mau?",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_04",
+      "spk": "teri",
+      "prompt": "[membela, polos] Itu jemuran paling kering, Pak. Disimpan di sini biar awet.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_05",
+      "spk": "cj",
+      "prompt": "[datar, berwibawa, muncul dari gelap] Gudang seratus bukan gudang sisa. Ini cumi asin terbaik... yang saya simpan sendiri.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_06",
+      "spk": "kakap",
+      "prompt": "[mencium, lalu kaget pelan] Loh... kok wanginya begini?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_07",
+      "spk": "teri",
+      "prompt": "[takjub] Pantas restoran-restoran antre dari bulan lalu, Juragan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_08",
+      "spk": "cj",
+      "prompt": "[datar] Makanya Bos-mu mau mencurinya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_09",
+      "spk": "kakap",
+      "prompt": "[sombong, menunjuk lampu truk] Hah! Bos sudah datang! Juragan nggak bisa apa-apa!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_10",
+      "spk": "cj",
+      "prompt": "[tenang, dingin] Saya tahu. Bos-mu itu... sudah saya kenal dari dulu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E4_11",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Pintu truk terbuka... dan yang turun, memakai caping yang sama persis dengan Juragan.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

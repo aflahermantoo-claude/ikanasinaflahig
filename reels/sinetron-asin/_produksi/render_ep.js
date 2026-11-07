@@ -933,6 +933,78 @@ function s2e4Scene(sh, t, T) {
 }
 SCENES.s2e4 = [s2e4Scene, ep3Overlay]; TITLES.s2e4 = 'Juragan Menyamar..';
 
+// ================= S3E4 — Mertua Cumi Jumbo: Tamu Tengah Malam (gaya A, sitcom deadpan) =================
+// Tokoh baru: Bapak Teri ("Teri Besar") — teri tua, sisik lebih abu, kumis & alis putih, caping, memikul karung cumi asin.
+const bapakTeri = (o = {}, { karung = true } = {}) => (karung ? `<g transform="translate(52 -6) rotate(8) scale(0.55)">${karungA(0, 0, 'CUMI', 1)}</g>` : '') +
+  TN({ blangkon: false, ...o }).replace(/#DCE5EC/g, '#BAC4CC').replace(/#AFC0CE/g, '#94A3B0') +
+  `<path d="M17 14 Q26 10 35 14" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M17 14 Q26 10 35 14" stroke="#161616" stroke-width="0.6" fill="none"/>` +
+  `<path d="M6 33 Q12 29 20 32 Q14 37 6 33 Z" fill="#FFFFFF" stroke="#161616" stroke-width="1.1"/>` +
+  `<g transform="translate(-4 4) scale(0.62)">${capingSvg}</g>`;
+function pintuDepanA(open = 1) { // pintu depan rumah juragan, malam
+  let s = `<rect width="270" height="480" fill="#3E1E1E"/>${Array.from({ length: 9 }, (_, i) => `<rect x="${i * 32}" y="0" width="14" height="480" fill="#4A2424"/>`).join('')}<rect y="350" width="270" height="130" fill="#2A1A14" stroke="#161616" stroke-width="2"/>`;
+  s += `<rect x="110" y="96" width="140" height="256" fill="#0E1A30" stroke="#161616" stroke-width="3"/><circle cx="214" cy="128" r="9" fill="#FFF1B8"/>${[[136, 120], [180, 150], [232, 170], [150, 190]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1.4" fill="#FFF1B8"/>`).join('')}`;
+  s += `<rect x="110" y="96" width="${(140 * (1 - open)).toFixed(1)}" height="256" fill="#5A2E22" stroke="#161616" stroke-width="3"/>`;
+  return s;
+}
+const surat = (x, y, s = 1, rot = 0) => `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><path d="M-34 -44 L34 -44 L34 44 L-34 44 Z" fill="#E9D3A6" stroke="#161616" stroke-width="2"/><path d="M-34 -44 L-28 -38 L-34 -30 M34 30 L28 38 L34 44" stroke="#C9A46A" stroke-width="1.4" fill="none"/>${[-30, -20, -10, 0, 10].map(d => `<path d="M-24 ${d} L${d % 20 ? 20 : 24} ${d}" stroke="#8C6A4A" stroke-width="1.6"/>`).join('')}<text x="8" y="32" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="11" fill="#2A3A6A" transform="rotate(-8 8 32)">Jumbo</text><path d="M-14 36 Q8 30 30 34" stroke="#2A3A6A" stroke-width="1.4" fill="none"/></g>`;
+function s3e4Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const lidOf = (o, d = 0.3) => blink(T) && (o.lid ?? d) < 0.9 ? 1 : (o.lid ?? d);
+  const papaBig = (o, extra = '') => ruangMakanA() + place(papa({ ...o, lid: lidOf(o), m: mouthOf(sh, T, 'cj', o.m || 'flat') }), 35, 140 - (o.up || 0) + bob('cj'), 2.0) + meja() + extra;
+  const kkBig = o => ruangMakanA() + place(chefKakap({ ...o, lid: lidOf(o), m: mouthOf(sh, T, 'kakap', o.m || 'smirk') }), -30, 170 - (o.up || 0) + bob('kakap'), 1.95, { w: 140, flip: true }) + meja();
+  const btBig = (o, bg = ruangMakanA(), extra = '', karung = true) => bg + place(bapakTeri({ ...o, lid: lidOf(o, 0.5), m: mouthOf(sh, T, 'bt', o.m || 'flat') }, { karung }), 54, 236 + bob('bt'), 1.75, { w: 120 }) + extra;
+  if (id === 'pintu') {
+    const open = easeOut(prog(t, 0.35, 0.5)), knock = [0.0, 0.3].some(k => t > k && t < k + 0.12) ? 1 : 0;
+    let s = pintuDepanA(open);
+    s += `<g opacity="${(0.3 + 0.7 * open).toFixed(2)}">` + place(bapakTeri({ lid: 0.5, px: -0.6, m: 'flat' }), 150, 230, 0.95, { w: 120 }) + `</g>`;
+    if (knock) s += `<path d="M246 200 l12 -6 M248 214 l14 0 M246 228 l12 6" stroke="#F5C542" stroke-width="3" stroke-linecap="round"/>`;
+    s += place(papa({ lid: open > 0.5 ? 0 : 0.4, pr: open > 0.5 ? 2 : undefined, px: 0.9, m: mouthOf(sh, T, 'cj', open > 0.5 ? 'o' : 'flat'), brow: open > 0.5 ? 'up' : undefined, sweat: open > 0.5 }), -10, 196 + bob('cj'), 1.3);
+    return cam(1 + 0.05 * easeOut(prog(t, 0.4, 0.3)), 135, 240, s);
+  }
+  if (id === 'tamu') return btBig({ lid: 0.5, px: -0.2, m: 'flat' }, pintuDepanA(1));
+  if (id === 'ejek') { const slide = 1 - easeOut(prog(t, 0, 0.3)); const laugh = Math.abs(Math.sin(T * 16)) * 3 * (t > 0.3 ? 1 : 0); return `<g transform="translate(${(slide * 220).toFixed(1)} 0)">` + kkBig({ lid: laugh ? 0.98 : 0.5, px: 0.5, m: talking(sh, T, 'kakap') ? 'grin' : 'smirk', up: laugh }) + `</g>`; }
+  if (id === 'modal') return papaBig({ lid: 0.6, px: -0.5, m: 'smirk' });
+  if (id === 'mohon') return ruangMakanA() + place(CB({ lid: lidOf({}, 0.25), px: 0.6, m: mouthOf(sh, T, 'cb', 'frown'), brow: 'sad' }), 35, 135 + bob('cb'), 2.0) + meja();
+  if (id === 'buka') {
+    const drop = easeOut(prog(t, 0.0, 0.3));
+    return ruangMakanA() + place(bapakTeri({ lid: lidOf({}, 0.6), px: 0.3, py: 0.4, m: mouthOf(sh, T, 'bt', 'frown'), brow: 'sad' }, { karung: false }), 120, 250 + bob('bt'), 1.15, { w: 120 }) +
+      place(papa({ lid: lidOf({}, 0.6), px: 0.8, m: 'frown' }), -6, 200, 1.15) + meja() + karungBuka(70, 296 + (1 - drop) * -50, 1.3, t);
+  }
+  if (id === 'endus') {
+    const wow = t > 1.0, z = 1 + 0.08 * easeOut(prog(t, 1.0, 0.25)), sp = wow ? Math.min(1, (t - 1.0) * 4) : 0;
+    const sn = [0, 1].map(k => { const o = ((t * 1.4 + k * 0.5) % 1); return t < 1.0 ? `<path d="M${118 - o * 10} ${330 - o * 40 - k * 10} q6 -6 0 -12 q-6 -6 0 -12" stroke="#B5803E" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="${(1 - o).toFixed(2)}"/>` : ''; }).join('');
+    return cam(z, 135, 250, ruangMakanA() + place(papa({ lid: wow ? 0 : (t > 0.5 ? 0.98 : 0.6), pr: wow ? 2 : undefined, py: wow ? 0 : 0.5, m: mouthOf(sh, T, 'cj', wow ? 'o' : 'flat') }), 35, 140 + bob('cj'), 2.0) + meja() + karungBuka(150, 300, 1.1, t) + sn +
+      (wow ? star(36, 160, 8 * sp) + star(228, 176, 7 * sp) + star(214, 300, 5 * sp) : ''));
+  }
+  if (id === 'kakap') {
+    const drop = easeOut(prog(t, 0.2, 0.4)), sp = Math.min(1, t * 4);
+    return ruangMakanA() + place(chefKakap({ lid: 0, pr: 2, px: 0.6, m: mouthOf(sh, T, 'kakap', 'o'), brow: 'up', sweat: true }), 10, 170 + bob('kakap'), 1.6, { w: 140, flip: true }) +
+      meja() + spoon(206, 300 + drop * 100, -30 + drop * 80) + star(40, 170, 7 * sp) + star(236, 190, 6 * sp);
+  }
+  if (id === 'pulang') {
+    const z = 1 + 0.05 * easeOut(prog(t, 0, sh.dur));
+    const bg = ruangMakanA().replace(/<rect x="24" y="112"[\s\S]*?fill="#D99A5E"\/>/, '') + fotoDermaga(62, 150, 1.0);
+    return cam(z, 135, 240, bg + place(bapakTeri({ lid: lidOf({}, 0.55), px: -0.3, m: mouthOf(sh, T, 'bt', 'frown'), brow: 'sad' }, { karung: false }), 70, 250 + bob('bt'), 1.6, { w: 120 }) + meja());
+  }
+  if (id === 'pergi') return ruangMakanA() + place(CB({ lid: lidOf({}, 0.1), pr: 2, px: 0.5, m: mouthOf(sh, T, 'cb', 'o'), brow: 'sad' }), 35, 135 + bob('cb'), 2.0) + meja();
+  if (id === 'cukup') {
+    const hit = t > 0.15 && t < 0.55, shake = hit ? Math.sin(T * 70) * 2.4 : 0;
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + papaBig({ lid: 0.1, px: 0, m: 'grit', brow: 'angry', sweat: true }, hit ? star(50, 396, 7) + star(220, 392, 6) : '') + `</g>`;
+  }
+  if (id === 'end') {
+    const z = 1 + 0.1 * easeOut(prog(t, 0, sh.dur)), pull = easeOut(prog(t, 0.6, 1.0)), glow = 0.85 + 0.15 * Math.sin(T * 4);
+    let s = ruangMakanA() + meja() + `<rect width="270" height="480" fill="#08060A" opacity="0.78"/>`;
+    s += `<path d="M135 0 L60 480 L210 480 Z" fill="#FFF1B8" opacity="${(0.16 * glow).toFixed(2)}"/>`;
+    s += karungA(150, 300, 'CUMI', 1.2);
+    s += place(TN({ blangkon: false, lid: 0, pr: 2, px: 0.4, py: 0.6, m: 'o', sweat: true }), 20, 250, 1.25, { w: 120 });
+    s += surat(150 - pull * 20, 330 - pull * 80, 0.7 + pull * 0.5, 18 - pull * 22);
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+SCENES.s3e4 = [s3e4Scene, ep3Overlay]; TITLES.s3e4 = 'Mertua Cumi Jumbo..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

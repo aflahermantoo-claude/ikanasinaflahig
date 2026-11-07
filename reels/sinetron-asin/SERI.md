@@ -34,6 +34,7 @@ Premis: Cumi Baby, putri juragan terkaya (Papa Cumi Jumbo), jatuh cinta pada Ter
 - Ep 1 "Tinggalkan Anak Saya!" — Papa Cumi Jumbo membanting amplop uang di meja makan: "Berapa yang kamu mau? Tinggalkan anak saya!"; Teri Nasi menolak uangnya; Papa diam-diam mencicipi nasi goreng teri... ✅ Diproduksi (tayang 2 Nov 2026): Papa ketahuan menghabiskan sepiring ("dimakan kucing!"), lalu memberi syarat — Teri harus mengalahkan chef pribadi Papa besok; chef itu belum pernah kalah.
 - Ep 2 "Chef Tak Terkalahkan" — ✅ Diproduksi (tayang 5 Nov 2026): chef pribadi Papa ternyata Chef Kakap, yang mengejek bahan Teri ("ikan kering bau gudang"); nasi goreng cumi asin & teri buatan Teri bikin Papa dan Chef Kakap sendiri terdiam ("Loh... kok enak?!"); Papa gengsi mengakui Teri menang, lalu Chef Kakap berbisik "Teri itu anak siapa" — ayah Teri adalah orang yang paling Papa benci.
 - Ep 3 "Anak Siapa?" — ✅ Diproduksi (tayang 8 Nov 2026): Papa menginterogasi Teri — bapaknya "cuma tukang jemur cumi di Muara Angke"; Chef Kakap & Papa mengejek; aroma cumi asin jemuran bapak Teri ternyata aroma cumi asin pertama yang bikin Papa kaya ("Loh!"); bapak Teri meninggalkan Papa di dermaga 30 tahun lalu, Teri dilarang masuk rumah; malam itu yang mengetuk pintu justru bapak Teri sendiri.
+- Ep 4 "Tamu Tengah Malam" — ✅ Diproduksi (tayang 11 Nov 2026): Papa membuka pintu — "Teri Besar", bapak Teri bercaping memikul karung, datang menjemput anaknya; Chef Kakap ("usir saja!") & Papa ("mau minta modal?") meremehkannya; isi karung: cumi asin yang dulu mereka jemur berdua ("Loh...") — malam itu bapak Teri melaut, Papa-lah yang pergi membawa semua jemuran; Papa mengusir semua orang; di dasar karung Teri menemukan surat lama bertanda tangan Papa.
 
 ## Tokoh & suara (ElevenLabs, `_produksi/voices.json`)
 | Kode | Tokoh | Suara ElevenLabs | Cadangan (Microsoft Edge neural) |
@@ -45,5 +46,6 @@ Premis: Cumi Baby, putri juragan terkaya (Papa Cumi Jumbo), jatuh cinta pada Ter
 | ko | Bos Oren | Bambangg `IMaRqUzeNVCT6ks9SI4Y` | jv-ID-DimasNeural (pitch rendah) |
 | cj | Cumi Jumbo / Papa (pria tua berwibawa) | Bambang (Grounded and authoritative) `j7n5yC6BN3oA2ZIWImty` | jv-ID-DimasNeural (pitch rendah) |
 | hiu | Juragan Hiu (hiu abu-abu, bekas luka, kalung emas "H") | Kang Nandar `aK834gEOxQEtviMPgurT` | id-ID-ArdiNeural (pitch rendah) |
+| bt | Bapak Teri / "Teri Besar" (teri tua, sisik abu, kumis & alis putih, caping, karung cumi) | Arthur - Wise Indonesian Narrator `tX4zpyB6s34no1FgD0Mm` | id-ID-ArdiNeural (pelan, pitch rendah) |
 
 Tokoh baru: tambahkan baris di tabel ini + voices.json, dan gambar dalam gaya Ep 3.

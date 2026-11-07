@@ -64,6 +64,15 @@
         "rate": "-10%",
         "pitch": "-14Hz"
       }
+    },
+    "bt": {
+      "name": "Arthur - Wise Indonesian Narrator",
+      "voice_id": "tX4zpyB6s34no1FgD0Mm",
+      "fallback": {
+        "voice": "id-ID-ArdiNeural",
+        "rate": "-12%",
+        "pitch": "-9Hz"
+      }
     }
   },
   "lines": [
@@ -971,6 +980,78 @@
       "id": "S2E4_11",
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Pintu truk terbuka... dan yang turun, memakai caping yang sama persis dengan Juragan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_01",
+      "spk": "cj",
+      "prompt": "[kaget, membuka pintu] Kamu... Teri Besar?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_02",
+      "spk": "bt",
+      "prompt": "[tua, tenang, berat] Tiga puluh tahun, Jumbo. Saya datang jemput anak saya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_03",
+      "spk": "kakap",
+      "prompt": "[ketawa sinis] Hah! Tukang jemur bawa karung. Usir saja, Juragan!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_04",
+      "spk": "cj",
+      "prompt": "[dingin, meremehkan] Dulu kamu tinggalkan saya. Sekarang mau minta modal?",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_05",
+      "spk": "cb",
+      "prompt": "[memohon] Papa, dengar dulu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_06",
+      "spk": "bt",
+      "prompt": "[pelan, sedih] Saya nggak ninggalin kamu. Malam itu saya melaut, cari cumi buat jemuran kita.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_07",
+      "spk": "cj",
+      "prompt": "[mengendus karung, terdiam, lalu kaget] ...Loh. Ini cumi asin yang dulu... kita jemur berdua.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_08",
+      "spk": "kakap",
+      "prompt": "[kaget] Loh?! Juragan dulu... tukang jemur juga?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_09",
+      "spk": "bt",
+      "prompt": "[tegas, sedih] Waktu saya pulang, kamu sudah pergi. Bawa semua jemuran kita.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_10",
+      "spk": "cb",
+      "prompt": "[kaget, pelan] Papa... jadi Papa yang pergi?",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_11",
+      "spk": "cj",
+      "prompt": "[membentak, suara bergetar] Cukup! Semua keluar dari rumah ini!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E4_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Tapi di dasar karung itu... Teri menemukan surat lama, bertanda tangan Papa.",
       "status": "fallback"
     }
   ],

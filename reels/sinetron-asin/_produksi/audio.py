@@ -154,10 +154,22 @@ LINES = {
  'S3E3_10': ('cb', 'Papa... kenal bapaknya Mas Teri?'),
  'S3E3_11': ('cj', 'Mulai malam ini, kamu dilarang masuk rumah ini!'),
  'S3E3_12': ('nar', 'Tapi malam itu... yang mengetuk pintu, justru bapak Teri sendiri.'),
+ 'S3E4_01': ('cj', 'Kamu... Teri Besar?!'),
+ 'S3E4_02': ('bt', 'Tiga puluh tahun, Jumbo. Saya datang jemput anak saya.'),
+ 'S3E4_03': ('kakap', 'Hah! Tukang jemur bawa karung. Usir saja, Juragan!'),
+ 'S3E4_04': ('cj', 'Dulu kamu tinggalkan saya. Sekarang mau minta modal?'),
+ 'S3E4_05': ('cb', 'Papa, dengar dulu!'),
+ 'S3E4_06': ('bt', 'Saya nggak ninggalin kamu. Malam itu saya melaut, cari cumi buat jemuran kita.'),
+ 'S3E4_07': ('cj', '...Loh. Ini cumi asin yang dulu... kita jemur berdua.'),
+ 'S3E4_08': ('kakap', 'Loh?! Juragan dulu... tukang jemur juga?!'),
+ 'S3E4_09': ('bt', 'Waktu saya pulang, kamu sudah pergi. Bawa semua jemuran kita.'),
+ 'S3E4_10': ('cb', 'Papa... jadi Papa yang pergi?'),
+ 'S3E4_11': ('cj', 'Cukup! Semua keluar dari rumah ini!'),
+ 'S3E4_12': ('nar', 'Tapi di dasar karung itu... Teri menemukan surat lama, bertanda tangan Papa.'),
 }
-ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120)}
+ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120), 'bt': ('id+m1', 0, 115)}
 
-TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35}
+TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -316,6 +328,20 @@ SPECS = {
   dict(id='kenal', lines=['S3E3_10'], pre=0.3, post=0.4, amb='night'),
   dict(id='larang', lines=['S3E3_11'], pre=0.2, post=0.5, sfx_after=[('thud', 0.0)], amb='night'),
   dict(id='end', lines=['S3E3_12'], pre=1.2, post=1.9, sfx=[('knock', 0.1), ('dunn', 1.0)], amb='night'),
+ ],
+  's3e4': [  # babak: 1 Drama (pintu, tamu) · 2 Diremehkan (ejek, modal, mohon) · 3 Penemuan (buka, endus, kakap) · 4 Drama lagi (pulang, pergi, cukup) · 5 Cliffhanger (end)
+  dict(id='pintu', lines=['S3E4_01'], pre=0.5, post=0.3, sfx=[('knock', 0.0), ('dun', 0.45)], amb='night'),
+  dict(id='tamu', lines=['S3E4_02'], pre=0.25, post=0.3, amb='night'),
+  dict(id='ejek', lines=['S3E4_03'], pre=0.2, post=0.3, sfx=[('whoosh', 0.0)], amb='night'),
+  dict(id='modal', lines=['S3E4_04'], pre=0.2, post=0.3, amb='night'),
+  dict(id='mohon', lines=['S3E4_05'], pre=0.2, post=0.4, amb='night'),
+  dict(id='buka', lines=['S3E4_06'], pre=0.3, post=0.4, sfx=[('thud', 0.05)], amb='night'),
+  dict(id='endus', lines=['S3E4_07'], pre=1.2, post=0.6, sfx=[('sniff', 0.1), ('ting', 1.0)], amb='night'),
+  dict(id='kakap', lines=['S3E4_08'], pre=0.3, post=0.4, sfx=[('ting', 0.1)], amb='night'),
+  dict(id='pulang', lines=['S3E4_09'], pre=0.4, post=0.4, sfx=[('dun', 0.0)], amb='night'),
+  dict(id='pergi', lines=['S3E4_10'], pre=0.3, post=0.4, amb='night'),
+  dict(id='cukup', lines=['S3E4_11'], pre=0.2, post=0.5, sfx=[('thud', 0.15)], amb='night'),
+  dict(id='end', lines=['S3E4_12'], pre=1.0, post=1.9, sfx=[('dunn', 0.9)], amb='night'),
  ],
 }
 

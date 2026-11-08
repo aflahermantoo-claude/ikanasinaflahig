@@ -166,13 +166,37 @@ LINES = {
  'S3E4_10': ('cb', 'Papa... jadi Papa yang pergi?'),
  'S3E4_11': ('cj', 'Cukup! Semua keluar dari rumah ini!'),
  'S3E4_12': ('nar', 'Tapi di dasar karung itu... Teri menemukan surat lama, bertanda tangan Papa.'),
+ 'S1E7_01': ('nar', "Tengah laut. Perahu Kakap... diangkat dari bawah."),
+ 'S1E7_02': ('kakap', "Tolong! Tolong! Karung cumi asinku ditarik tentakel!"),
+ 'S1E7_03': ('kakap', "Gara-gara cumi kecil bau kamu, aku hampir dimakan monster!"),
+ 'S1E7_04': ('kakap', "Cumi asin kering begitu, monster juga pasti muntah!"),
+ 'S1E7_05': ('cb', "Monsternya nggak muntah. Dia ikut ke sini."),
+ 'S1E7_06': ('teri', "Mbak Cumi! Karungnya dibalikin... kosong! Bersih, nggak ada sisa!"),
+ 'S1E7_07': ('hiu', "Loh?! Itu... Penghuni Laut Dalam. Seratus tahun nggak pernah naik ke darat!"),
+ 'S1E7_08': ('teri', "Dia naik... cuma gara-gara wangi cumi asin?"),
+ 'S1E7_09': ('ko', "Hiu. Gencatan senjata dulu. Lima puluh karung ini kita jaga."),
+ 'S1E7_10': ('hiu', "Setuju. Tapi kamu yang di depan."),
+ 'S1E7_11': ('cb', "Biar saya yang ngomong sama dia."),
+ 'S1E7_12': ('nar', "Penghuni Laut Dalam menatap Cumi Baby lama sekali... lalu, untuk pertama kalinya dalam seratus tahun, dia bicara."),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120), 'bt': ('id+m1', 0, 115)}
 
-TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3}
+TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3, 's1e7': 1.42}
 
 # ---------------- shot specs ----------------
 SPECS = {
+ 's1e7': [  # babak: 1 Drama (angkat, tarik) · 2 Diremehkan (basah, oh) · 3 Penemuan (karung, loh, teri2) · 4 Drama lagi (jaga) · 5 Cliffhanger (maju, end)
+  dict(id='angkat', lines=['S1E7_01'], pre=0.1, post=0.2, sfx=[('dun', 0.0)], amb='night'),
+  dict(id='tarik', lines=['S1E7_02'], pre=0.2, post=0.5, sfx=[('whoosh', 0.1)], sfx_after=[('thud', 0.1)], amb='night'),
+  dict(id='basah', lines=['S1E7_03', 'S1E7_04'], gap=0.3, pre=0.3, post=0.3, amb='morning'),
+  dict(id='oh', lines=['S1E7_05'], pre=0.5, post=0.6, min=2.0, amb='morning'),
+  dict(id='karung', lines=['S1E7_06'], pre=0.6, post=0.3, sfx=[('whoosh', 0.0), ('thud', 0.5)], amb='morning'),
+  dict(id='loh', lines=['S1E7_07'], pre=0.8, post=0.4, sfx=[('sniff', 0.0), ('ting', 0.65)], amb='morning'),
+  dict(id='teri2', lines=['S1E7_08'], pre=0.3, post=0.4, amb='morning'),
+  dict(id='jaga', lines=['S1E7_09', 'S1E7_10'], gap=0.4, pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='maju', lines=['S1E7_11'], pre=0.4, post=0.4, amb='night'),
+  dict(id='end', lines=['S1E7_12'], pre=0.4, post=1.9, sfx=[('dunn', 0.0)], amb='night'),
+ ],
  'ep2': [
   dict(id='recap', lines=['E2_01'], pre=0.3, post=0.5, min=3.0),
   dict(id='reveal', lines=[], min=3.0, sfx=[('whoosh', 0.0), ('dun', 0.35), ('dun', 1.05), ('dunn', 1.75)]),

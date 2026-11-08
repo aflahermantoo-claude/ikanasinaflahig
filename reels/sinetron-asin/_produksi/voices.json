@@ -1053,6 +1053,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Tapi di dasar karung itu... Teri menemukan surat lama, bertanda tangan Papa.",
       "status": "fallback"
+    },
+    {
+      "id": "S1E7_01",
+      "spk": "nar",
+      "prompt": "[dramatis, tegang] Tengah laut. Perahu Kakap... diangkat dari bawah.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_02",
+      "spk": "kakap",
+      "prompt": "[panik, berteriak] Tolong! Tolong! Karung cumi asinku ditarik tentakel!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_03",
+      "spk": "kakap",
+      "prompt": "[basah kuyup, marah, terengah] Gara-gara cumi kecil bau kamu, aku hampir dimakan monster!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_04",
+      "spk": "kakap",
+      "prompt": "[mengejek] Cumi asin kering begitu, monster juga pasti muntah!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_05",
+      "spk": "cb",
+      "prompt": "[datar] Monsternya nggak muntah. Dia ikut ke sini.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_06",
+      "spk": "teri",
+      "prompt": "[kaget, menunjuk] Mbak Cumi! Karungnya dibalikin... kosong! Bersih, nggak ada sisa!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_07",
+      "spk": "hiu",
+      "prompt": "[ketakutan, terbata] Loh?! Itu... Penghuni Laut Dalam. Seratus tahun nggak pernah naik ke darat!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_08",
+      "spk": "teri",
+      "prompt": "[bingung, pelan] Dia naik... cuma gara-gara wangi cumi asin?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_09",
+      "spk": "ko",
+      "prompt": "[datar, tegas] Hiu. Gencatan senjata dulu. Lima puluh karung ini kita jaga.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_10",
+      "spk": "hiu",
+      "prompt": "[gemetar, berbisik] Setuju. Tapi kamu yang di depan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_11",
+      "spk": "cb",
+      "prompt": "[datar, tenang] Biar saya yang ngomong sama dia.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E7_12",
+      "spk": "nar",
+      "prompt": "[dramatis, pelan] Penghuni Laut Dalam menatap Cumi Baby lama sekali... lalu, untuk pertama kalinya dalam seratus tahun, dia bicara.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

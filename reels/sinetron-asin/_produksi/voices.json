@@ -1125,6 +1125,78 @@
       "spk": "nar",
       "prompt": "[dramatis, pelan] Penghuni Laut Dalam menatap Cumi Baby lama sekali... lalu, untuk pertama kalinya dalam seratus tahun, dia bicara.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E5_01",
+      "spk": "hiu",
+      "prompt": "[berat, pelan, sambil membuka caping] Lama nggak ketemu... Jumbo.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_02",
+      "spk": "kakap",
+      "prompt": "[sombong, bangga] Kenalkan, Bos saya! Juragan Hiu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_03",
+      "spk": "hiu",
+      "prompt": "[mengejek] Punya seratus gudang, malah nyamar jadi kuli. Dari dulu kamu memang cuma kuli, Jumbo.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_04",
+      "spk": "kakap",
+      "prompt": "[tertawa mengejek] Cumi asin keriput begini, paling buat pakan kucing, Bos!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_05",
+      "spk": "cj",
+      "prompt": "[datar, berwibawa] Cium dulu. Baru ngomong.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_06",
+      "spk": "hiu",
+      "prompt": "[mencium, lalu suaranya bergetar] Loh... ini... wangi jemuran kita dulu di dermaga?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_07",
+      "spk": "teri",
+      "prompt": "[takjub, berbisik] Juragan Hiu... nangis?",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_08",
+      "spk": "cj",
+      "prompt": "[datar] Dijemur sampai kering, garamnya pas. Caranya nggak pernah berubah.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_09",
+      "spk": "hiu",
+      "prompt": "[marah menutupi malu] Kakap! Angkut semua ke truk!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_10",
+      "spk": "cj",
+      "prompt": "[tenang, dingin] Silakan coba. Gudang seratus... nggak pernah dijual.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_11",
+      "spk": "teri",
+      "prompt": "[panik, membaca HP] Juragan! Gudang satu sampai sembilan puluh sembilan... pintunya kebuka semua!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E5_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Malam itu... truk Juragan Hiu ternyata bukan cuma satu.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

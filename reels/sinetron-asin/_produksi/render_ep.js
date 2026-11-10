@@ -1164,6 +1164,86 @@ function s2e5Scene(sh, t, T) {
 }
 SCENES.s2e5 = [s2e5Scene, ep3Overlay]; TITLES.s2e5 = 'Juragan Menyamar..';
 
+// ================= S3E5 — Mertua Cumi Jumbo: Surat di Dasar Karung (gaya A, sitcom deadpan) =================
+const suratBesar = (T) => { // close-up surat lama, tulisan tangan
+  let s = `<rect width="270" height="480" fill="#2A1414"/><rect width="270" height="480" fill="#08060A" opacity="0.35"/>`;
+  s += `<g transform="rotate(-3 135 200)"><path d="M34 104 L236 110 L232 300 L38 294 Z" fill="#E9D3A6" stroke="#161616" stroke-width="2.6"/><path d="M34 104 L48 118 L36 134 M232 282 L218 290 L232 300" stroke="#C9A46A" stroke-width="1.6" fill="none"/>`;
+  s += `<circle cx="200" cy="140" r="16" fill="#D8BC86" opacity="0.7"/><circle cx="76" cy="266" r="12" fill="#D8BC86" opacity="0.6"/>`;
+  const rows = ['Jemuran cumi asin ini', 'milik kita berdua.', 'Separuh untuk', 'Teri Besar.'];
+  s += rows.map((r, i) => `<text x="52" y="${146 + i * 27}" font-family="DejaVu Serif" font-size="13.2" fill="#3A2A1A">${esc(r)}</text>`).join('');
+  s += `<text x="182" y="268" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="19" fill="#2A3A6A" transform="rotate(-8 182 268)">Jumbo</text><path d="M146 278 Q182 268 218 274" stroke="#2A3A6A" stroke-width="1.8" fill="none"/></g>`;
+  return s;
+};
+const pagarA = (T) => { // luar pagar rumah juragan, malam
+  let s = `<rect width="270" height="480" fill="#100E1C"/><circle cx="210" cy="78" r="12" fill="#F4F1DE" opacity="0.8"/>`;
+  s += `<rect y="300" width="270" height="180" fill="#1E1A26" stroke="#161616" stroke-width="2"/>`;
+  s += `<path d="M0 214 L270 214 M0 292 L270 292" stroke="#3A3446" stroke-width="5"/>${Array.from({ length: 14 }, (_, i) => `<path d="M${8 + i * 20} 300 L${8 + i * 20} 200 L${4 + i * 20} 192 L${8 + i * 20} 184 L${12 + i * 20} 192 L${8 + i * 20} 200" stroke="#3A3446" stroke-width="4" fill="#3A3446"/>`).join('')}`;
+  return s;
+};
+function s3e5Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const lidOf = (o, d = 0.3) => blink(T) && (o.lid ?? d) < 0.9 ? 1 : (o.lid ?? d);
+  const papaBig = (o, extra = '') => ruangMakanA() + place(papa({ ...o, lid: lidOf(o), m: mouthOf(sh, T, 'cj', o.m || 'flat') }), 35, 140 - (o.up || 0) + bob('cj'), 2.0) + meja() + extra;
+  const kkBig = (o, extra = '') => ruangMakanA() + place(chefKakap({ ...o, lid: lidOf(o), m: mouthOf(sh, T, 'kakap', o.m || 'smirk') }), -30, 170 - (o.up || 0) + bob('kakap'), 1.95, { w: 140, flip: true }) + meja() + extra;
+  if (id === 'surat') {
+    const lift = easeOut(prog(t, 0, 0.35)), z = 1 + 0.06 * easeOut(prog(t, 0.2, 0.3));
+    let s = ruangMakanA() + `<rect width="270" height="480" fill="#08060A" opacity="0.35"/>` + karungA(170, 310, 'CUMI', 1.2);
+    s += place(TN({ blangkon: false, lid: lidOf({}, 0), pr: 2, px: 0.5, py: -0.2, m: mouthOf(sh, T, 'teri', 'o'), sweat: true }), 10, 230 + bob('teri'), 1.5, { w: 120 });
+    s += surat(196, 260 - lift * 70, 0.95, 14 - lift * 10) + (t > 0.3 ? star(160, 150, 6) + star(236, 168, 5) : '');
+    return cam(z, 135, 240, s + meja());
+  }
+  if (id === 'bentak') {
+    const hit = t > 0.1 && t < 0.45, shake = hit ? Math.sin(T * 70) * 2.4 : 0;
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + papaBig({ lid: 0.05, px: 0.4, m: 'grit', brow: 'angry', sweat: true }, hit ? star(44, 396, 6) + star(226, 392, 6) : '') + `</g>`;
+  }
+  if (id === 'rebut') {
+    const slide = 1 - easeOut(prog(t, 0, 0.3)), laugh = Math.abs(Math.sin(T * 16)) * 3 * (t > 0.3 ? 1 : 0);
+    return `<g transform="translate(${(slide * 220).toFixed(1)} 0)">` + kkBig({ lid: laugh ? 0.98 : 0.5, px: 0.5, m: talking(sh, T, 'kakap') ? 'grin' : 'smirk', up: laugh }, surat(206, 292 - laugh, 0.75, 22) + `<path d="M228 258 q4 -8 0 -14 M236 262 q4 -8 0 -14" stroke="#B5803E" stroke-width="2" fill="none" stroke-linecap="round"/>`) + `</g>`;
+  }
+  if (id === 'buang') return papaBig({ lid: 0.6, px: -0.5, m: 'smirk' });
+  if (id === 'baca') {
+    const grab = easeOut(prog(t, 0, 0.3));
+    return ruangMakanA() + place(CB({ lid: lidOf({}, 0.2), px: 0.6, m: mouthOf(sh, T, 'cb', 'frown'), brow: 'angry' }), 35, 135 + bob('cb'), 2.0) + meja() + surat(232 - (1 - grab) * -60, 300, 0.75, -10);
+  }
+  if (id === 'isi') return cam(1 + 0.05 * easeOut(prog(t, 0, sh.dur)), 135, 190, suratBesar(T));
+  if (id === 'kakap') {
+    const drop = easeOut(prog(t, 0.2, 0.4)), sp = Math.min(1, t * 4);
+    return ruangMakanA() + place(chefKakap({ lid: 0, pr: 2, px: 0.6, m: mouthOf(sh, T, 'kakap', 'o'), brow: 'up', sweat: true }), 10, 170 + bob('kakap'), 1.6, { w: 140, flip: true }) +
+      meja() + spoon(206, 300 + drop * 100, -30 + drop * 80) + star(40, 170, 7 * sp) + star(236, 190, 6 * sp);
+  }
+  if (id === 'endus') {
+    const wow = t > 0.9, z = 1 + 0.08 * easeOut(prog(t, 0.9, 0.25)), sp = wow ? Math.min(1, (t - 0.9) * 4) : 0;
+    const sn = [0, 1].map(k => { const o = ((t * 1.4 + k * 0.5) % 1); return t < 0.9 ? `<path d="M${150 - o * 10} ${330 - o * 40 - k * 10} q6 -6 0 -12 q-6 -6 0 -12" stroke="#B5803E" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="${(1 - o).toFixed(2)}"/>` : ''; }).join('');
+    const tear = wow ? `<path d="M74 250 Q70 259 74 264 Q78 259 74 250 Z" fill="#8FD0F5" stroke="#161616" stroke-width="1.2"/>` : '';
+    return cam(z, 135, 250, ruangMakanA() + place(papa({ lid: wow ? 0.35 : (t > 0.4 ? 0.98 : 0.6), py: wow ? 0 : 0.5, m: mouthOf(sh, T, 'cj', wow ? 'o' : 'flat'), brow: wow ? 'sad' : undefined }), 35, 140 + bob('cj'), 2.0) + meja() + surat(160, 340, 0.85, -6) + sn + tear +
+      (wow ? star(36, 160, 8 * sp) + star(228, 176, 7 * sp) : ''));
+  }
+  if (id === 'janji') {
+    const z = 1 + 0.05 * easeOut(prog(t, 0, sh.dur));
+    const bg = ruangMakanA().replace(/<rect x="24" y="112"[\s\S]*?fill="#D99A5E"\/>/, '') + fotoDermaga(62, 150, 1.0);
+    return cam(z, 135, 240, bg + place(bapakTeri({ lid: lidOf({}, 0.55), px: -0.3, m: mouthOf(sh, T, 'bt', 'flat') }, { karung: true }), 70, 250 + bob('bt'), 1.6, { w: 120 }) + meja());
+  }
+  if (id === 'ragu') return papaBig({ lid: 0.5, px: 0.7, py: 0.4, m: 'frown', brow: 'sad' }, surat(214, 404, 0.6, 8));
+  if (id === 'kabur') {
+    const grab = easeOut(prog(t, 0, 0.25)), run = easeOut(prog(t, 2.0, 1.0)), hop = Math.abs(Math.sin(T * 14)) * 5 * (t > 2.0 ? 1 : 0);
+    let s = ruangMakanA() + place(papa({ lid: lidOf({}, 0), pr: 2, px: 0.8, m: 'o', brow: 'up', sweat: true }), -10, 210, 1.1) + meja();
+    s += `<g transform="translate(${(run * 260).toFixed(1)} ${(-hop).toFixed(1)})">` + place(chefKakap({ lid: 0, pr: 2, px: -0.8, m: mouthOf(sh, T, 'kakap', 'grit'), sweat: true }), 100, 220 + bob('kakap'), 1.05, { w: 140, flip: true }) + surat(232, 300, 0.55, 30 - grab * 30) + `</g>`;
+    if (t > 2.0) s += `<path d="M${(110 + run * 200).toFixed(0)} 270 l-40 0 M${(110 + run * 200).toFixed(0)} 290 l-56 0 M${(110 + run * 200).toFixed(0)} 310 l-40 0" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.7"/>`;
+    return s;
+  }
+  if (id === 'end') {
+    const z = 1 + 0.08 * easeOut(prog(t, 0, sh.dur)), glow = 0.75 + 0.25 * Math.sin(T * 5), run = easeOut(prog(t, 0.2, 1.4));
+    let s = pagarA(T);
+    s += `<path d="M178 286 L270 220 L270 360 Z" fill="#FFF6B0" opacity="${(0.18 * glow).toFixed(2)}"/>`;
+    s += `<g transform="translate(150 196) scale(0.62)">` + trukA(0, 0) + `<circle cx="206" cy="74" r="9" fill="#FFF3A0" opacity="${glow.toFixed(2)}"/><rect x="40" y="26" width="40" height="40" rx="6" fill="#F5C542" stroke="#161616" stroke-width="2"/><text x="60" y="56" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="30" fill="#7A5A10">H</text></g>`;
+    s += `<g transform="translate(${(-60 + run * 150).toFixed(1)} 0)"><g fill="#050505" stroke="#000" stroke-width="2"><ellipse cx="60" cy="290" rx="34" ry="22"/><path d="M92 290 L112 274 L108 290 L112 306 Z"/><path d="M40 270 Q52 250 70 268"/></g><circle cx="44" cy="284" r="3.2" fill="#FFE14D" opacity="${glow.toFixed(2)}"/>${surat(66, 258, 0.38, -20)}</g>`;
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+SCENES.s3e5 = [s3e5Scene, ep3Overlay]; TITLES.s3e5 = 'Mertua Cumi Jumbo..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

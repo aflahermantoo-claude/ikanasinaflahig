@@ -1197,6 +1197,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Malam itu... truk Juragan Hiu ternyata bukan cuma satu.",
       "status": "fallback"
+    },
+    {
+      "id": "S3E5_01",
+      "spk": "teri",
+      "prompt": "[kaget, memegang surat] Juragan... surat ini... tanda tangannya Jumbo!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_02",
+      "spk": "cj",
+      "prompt": "[panik, membentak] Kembalikan! Itu bukan urusanmu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_03",
+      "spk": "kakap",
+      "prompt": "[ketawa sinis, merebut surat] Hah! Kertas lusuh bau cumi asin keriput. Paling surat utang!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_04",
+      "spk": "cj",
+      "prompt": "[dingin, meremehkan] Buang saja. Itu cuma sampah dari dermaga.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_05",
+      "spk": "cb",
+      "prompt": "[tegas] Sini! Biar aku yang baca, Papa!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_06",
+      "spk": "cb",
+      "prompt": "[membaca pelan] \"Jemuran cumi asin ini milik kita berdua. Separuh untuk Teri Besar. Tertanda, Jumbo.\"",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_07",
+      "spk": "kakap",
+      "prompt": "[kaget] Loh?! Berarti separuh harta Juragan... punya bapaknya Teri?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_08",
+      "spk": "cj",
+      "prompt": "[mengendus surat, suara bergetar] ...Loh. Wanginya masih wangi jemuran cumi asin kita dulu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_09",
+      "spk": "bt",
+      "prompt": "[tua, tenang, berat] Saya nggak minta hartamu, Jumbo. Saya cuma simpan cumi asinnya... dan janjimu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_10",
+      "spk": "cj",
+      "prompt": "[pelan, ragu] Kalau begitu... Teri boleh...",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_11",
+      "spk": "kakap",
+      "prompt": "[panik, menyambar surat] Nggak bisa! Surat ini hilang, Juragan tetap kaya!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E5_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Chef Kakap kabur membawa surat itu... dan di luar pagar, truk Juragan Hiu sudah menunggu.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

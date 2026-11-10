@@ -190,10 +190,22 @@ LINES = {
  'S2E5_10': ('cj', "Silakan coba. Gudang seratus... nggak pernah dijual."),
  'S2E5_11': ('teri', "Juragan! Gudang satu sampai sembilan puluh sembilan... pintunya kebuka semua!"),
  'S2E5_12': ('nar', "Malam itu... truk Juragan Hiu ternyata bukan cuma satu."),
+ 'S3E5_01': ('teri', "Juragan... surat ini... tanda tangannya Jumbo!"),
+ 'S3E5_02': ('cj', "Kembalikan! Itu bukan urusanmu!"),
+ 'S3E5_03': ('kakap', "Hah! Kertas lusuh bau cumi asin keriput. Paling surat utang!"),
+ 'S3E5_04': ('cj', "Buang saja. Itu cuma sampah dari dermaga."),
+ 'S3E5_05': ('cb', "Sini! Biar aku yang baca, Papa!"),
+ 'S3E5_06': ('cb', "\"Jemuran cumi asin ini milik kita berdua. Separuh untuk Teri Besar. Tertanda, Jumbo.\""),
+ 'S3E5_07': ('kakap', "Loh?! Berarti separuh harta Juragan... punya bapaknya Teri?!"),
+ 'S3E5_08': ('cj', "...Loh. Wanginya masih wangi jemuran cumi asin kita dulu."),
+ 'S3E5_09': ('bt', "Saya nggak minta hartamu, Jumbo. Saya cuma simpan cumi asinnya... dan janjimu."),
+ 'S3E5_10': ('cj', "Kalau begitu... Teri boleh..."),
+ 'S3E5_11': ('kakap', "Nggak bisa! Surat ini hilang, Juragan tetap kaya!"),
+ 'S3E5_12': ('nar', "Chef Kakap kabur membawa surat itu... dan di luar pagar, truk Juragan Hiu sudah menunggu."),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120), 'bt': ('id+m1', 0, 115)}
 
-TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3, 's1e7': 1.42, 's2e5': 1.3}
+TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3, 's1e7': 1.42, 's2e5': 1.3, 's3e5': 1.42}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -498,6 +510,21 @@ SPECS['s2e5'] = [  # babak: 1 Drama (caping, kenalkan) · 2 Diremehkan (ejek, pa
   dict(id='jual', lines=['S2E5_10'], pre=0.3, post=0.5, amb='night'),
   dict(id='telp', lines=['S2E5_11'], pre=0.9, post=0.3, sfx=[('ring', 0.0)], amb='night'),
   dict(id='end', lines=['S2E5_12'], pre=0.5, post=1.9, sfx=[('klakson', 0.1), ('dunn', 0.5)], amb='night'),
+]
+
+SPECS['s3e5'] = [  # babak: 1 Drama (surat, bentak) · 2 Diremehkan (rebut, buang, baca) · 3 Penemuan (isi, kakap, endus) · 4 Drama lagi (janji, ragu, kabur) · 5 Cliffhanger (end)
+  dict(id='surat', lines=['S3E5_01'], pre=0.15, post=0.3, sfx=[('dun', 0.0)], amb='night'),
+  dict(id='bentak', lines=['S3E5_02'], pre=0.2, post=0.3, sfx=[('thud', 0.1)], amb='night'),
+  dict(id='rebut', lines=['S3E5_03'], pre=0.2, post=0.3, sfx=[('whoosh', 0.0)], amb='night'),
+  dict(id='buang', lines=['S3E5_04'], pre=0.2, post=0.3, amb='night'),
+  dict(id='baca', lines=['S3E5_05'], pre=0.2, post=0.3, sfx=[('whoosh', 0.0)], amb='night'),
+  dict(id='isi', lines=['S3E5_06'], pre=0.4, post=0.5, amb='night'),
+  dict(id='kakap', lines=['S3E5_07'], pre=0.3, post=0.4, sfx=[('ting', 0.1)], amb='night'),
+  dict(id='endus', lines=['S3E5_08'], pre=1.0, post=0.6, sfx=[('sniff', 0.1), ('ting', 0.9)], amb='night'),
+  dict(id='janji', lines=['S3E5_09'], pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='night'),
+  dict(id='ragu', lines=['S3E5_10'], pre=0.3, post=0.2, amb='night'),
+  dict(id='kabur', lines=['S3E5_11'], pre=0.15, post=0.5, sfx=[('whoosh', 0.1)], amb='night'),
+  dict(id='end', lines=['S3E5_12'], pre=0.6, post=1.9, sfx=[('klakson', 0.1), ('dunn', 0.6)], amb='night'),
 ]
 
 # ---------------- build ----------------

@@ -9,7 +9,7 @@ Dua jalur tayang, masing-masing 1 episode per hari. Jalur ditandai `"slot"` di m
 | `pagi` | 09:00 WIB (mulai 13 Nov 2026) | Seri 3 — Mertua Cumi Jumbo ↔ Seri 1 — Cumi yang Terhina, bergantian | lanjut terus (aturan lama tanpa Seri 2) |
 
 - Jalur pagi, urutan stok yang sudah jadi: 13 Nov S3E2, 14 S1E5, 15 S3E3, 16 S1E6, 17 S3E4, 18 S1E7, 19 S3E5, 20 S1E8. Setelah itu lanjut bergantian: S3E6, S1E9, S3E7, S1E10, dst. (Seri 3 dulu, lalu Seri 1).
-- Produksi jalan setiap hari ±05:00 WIB: isi slot kosong jalur malam dulu (episode Seri 2 berikutnya), lalu jalur pagi.
+- Produksi jalan setiap hari ±16:00 WIB: isi slot kosong jalur malam dulu (episode Seri 2 berikutnya), lalu jalur pagi.
 - Rotasi di bawah ini (3 seri bergilir) TIDAK berlaku selama aturan aktif ini ada.
 
 ## Rotasi tayang lama (1–11 Nov 2026, 1 episode per hari, 19:00 WIB)

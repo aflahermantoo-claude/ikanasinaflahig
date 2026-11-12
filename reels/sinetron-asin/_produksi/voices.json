@@ -1350,6 +1350,78 @@
       "spk": "nar",
       "prompt": "[dramatis, pelan] Malam itu, di dasar laut... seratus pasang mata kuning terbuka bersamaan.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E6_01",
+      "spk": "hiu",
+      "prompt": "[tertawa puas] Sembilan puluh sembilan truk, Jumbo! Malam ini semua gudangmu saya kosongkan!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_02",
+      "spk": "kakap",
+      "prompt": "[sombong, mengejek] Habis sudah, Juragan! Tinggal satu gudang, isinya cumi asin keriput!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_03",
+      "spk": "hiu",
+      "prompt": "[mengejek, pelan] Dari kuli... balik lagi jadi kuli.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_04",
+      "spk": "cj",
+      "prompt": "[datar, berwibawa] Silakan. Buka truknya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_05",
+      "spk": "teri",
+      "prompt": "[kaget, membaca HP] Loh?! Kata sopirnya... sembilan puluh sembilan gudang itu kosong semua!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_06",
+      "spk": "hiu",
+      "prompt": "[panik] Kosong?! Ke mana semua ikan asinnya?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_07",
+      "spk": "cj",
+      "prompt": "[tenang] Sejak jadi kuli, saya cek satu-satu. Yang terbaik dijemur ulang, lalu saya pindah ke gudang seratus.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_08",
+      "spk": "kakap",
+      "prompt": "[mengendus, lemas] Bos... truknya cuma bau solar.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_09",
+      "spk": "hiu",
+      "prompt": "[marah] Kepung gudang seratus! Nggak ada yang keluar malam ini!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_10",
+      "spk": "teri",
+      "prompt": "[panik] Juragan! Kita dikepung sembilan puluh sembilan truk!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_11",
+      "spk": "cj",
+      "prompt": "[datar, menatap kamera] Tenang. Saya sudah telepon seseorang.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E6_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Dan dari arah dermaga... terdengar suara yang paling ditakuti Juragan Hiu.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

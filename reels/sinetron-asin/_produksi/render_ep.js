@@ -1328,6 +1328,67 @@ function s1e8Scene(sh, t, T) {
 }
 SCENES.s1e8 = [s1e8Scene, ep3Overlay]; TITLES.s1e8 = 'Cumi yang Terhina..';
 
+// ================= S2E6 — Juragan Menyamar: Truk Tengah Malam (gaya A, sitcom deadpan) =================
+const ceklis = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-26" y="-34" width="52" height="68" rx="3" fill="#F4EBDD" stroke="#161616" stroke-width="2"/><rect x="-10" y="-38" width="20" height="8" rx="2" fill="#8E5D36" stroke="#161616" stroke-width="1.4"/>${[-20, -6, 8, 22].map(d => `<path d="M-18 ${d} l4 4 l7 -8" stroke="#3FA34D" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M-2 ${d} L18 ${d}" stroke="#8C6A4A" stroke-width="1.6"/>`).join('')}</g>`;
+function kepungA(T) { // gerbang gudang seratus dikelilingi lampu truk
+  let s = gudang100A();
+  [[10, 330], [60, 350], [120, 340], [180, 352], [236, 334]].forEach(([x, y], k) => { const g = 0.6 + 0.4 * Math.sin(T * 6 + k); s += `<path d="M${x} ${y} L${x - 40} ${y - 120} L${x + 40} ${y - 120} Z" fill="#FFF6B0" opacity="${(0.13 * g).toFixed(2)}"/><circle cx="${x - 9}" cy="${y}" r="7" fill="#FFF3A0" opacity="${g.toFixed(2)}" stroke="#161616" stroke-width="1.2"/><circle cx="${x + 9}" cy="${y}" r="7" fill="#FFF3A0" opacity="${g.toFixed(2)}" stroke="#161616" stroke-width="1.2"/>`; });
+  return s;
+}
+function dermagaMalamA(T) {
+  let s = dermagaA(T) + `<rect width="270" height="480" fill="#06081A" opacity="0.72"/><circle cx="214" cy="74" r="14" fill="#F4F1DE" opacity="0.85"/>`;
+  s += [0, 1, 2].map(k => { const o = ((T * 0.5 + k / 3) % 1); return `<ellipse cx="150" cy="262" rx="${(20 + o * 90).toFixed(1)}" ry="${(5 + o * 18).toFixed(1)}" fill="none" stroke="#BFE3F0" stroke-width="2" opacity="${(0.8 * (1 - o)).toFixed(2)}"/>`; }).join('');
+  return s;
+}
+function s2e6Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const groundN = `<rect y="402" width="270" height="78" fill="#2A2236" stroke="#161616" stroke-width="2"/>`;
+  const bg = () => gudang100A() + lampuTruk(0.25);
+  const hiuBig = (o, extra = '', dy = 0) => bg() + place(hiuA({ ...o, lid: blink(T) && (o.lid ?? 0.4) < 0.9 ? 1 : (o.lid ?? 0.4), m: mouthOf(sh, T, 'hiu', o.m || 'flat') }), -40, 150 + dy + bob('hiu'), 1.95, { w: 140, flip: true }) + extra + groundN;
+  const cjBig = (o, extra = '', base = bg) => base() + place(CJ({ hat: false, ...o, lid: blink(T) && (o.lid ?? 0.4) < 0.9 ? 1 : (o.lid ?? 0.4), m: mouthOf(sh, T, 'cj', o.m || 'flat') }), 35, 140 + bob('cj'), 2.0) + groundN + extra;
+  if (id === 'truk') {
+    const laugh = Math.abs(Math.sin(T * 14)) * 2;
+    return deretGudangA(T, 1) + place(hiuA({ lid: blink(T) ? 1 : 0.5, px: 0.4, m: mouthOf(sh, T, 'hiu', 'smirk') }), -30, 168 - laugh + bob('hiu'), 1.75, { w: 140, flip: true });
+  }
+  if (id === 'keriput') {
+    const laugh = !talking(sh, T, 'kakap') && t > 0.3 ? Math.abs(Math.sin(T * 16)) * 3 : 0;
+    return bg() + place(kakapCaping({ lid: laugh ? 0.98 : 0.45, px: 0.6, m: mouthOf(sh, T, 'kakap', 'grin') }), -30, 160 - laugh + bob('kakap'), 1.85, { w: 140, flip: true }) + groundN + karungCumi(186, 296, 1.0, 6);
+  }
+  if (id === 'kuli') return hiuBig({ lid: 0.6, px: 0.5, m: 'smirk' }, '', 20);
+  if (id === 'buka') return cjBig({ lid: 0.5, px: 0.6, m: 'flat' });
+  if (id === 'loh') {
+    const wow = t > 0.8, sp = wow ? Math.min(1, (t - 0.8) * 4) : 0, buzz = !wow ? Math.sin(T * 50) * 1.5 : 0, z = 1 + 0.07 * easeOut(prog(t, 0.8, 0.25));
+    return cam(z, 135, 250, bg() + place(teriMandor({ lid: wow ? 0 : 0.3, pr: wow ? 2 : undefined, px: 0.6, m: mouthOf(sh, T, 'teri', wow ? 'o' : 'flat'), brow: wow ? 'up' : undefined, sweat: wow }), 0, 196 + bob('teri'), 1.6, { w: 120, flip: true }) + L.phone(212 + buzz, 300, 1.6, -8) + groundN +
+      (wow ? star(40, 150, 8 * sp) + star(226, 160, 7 * sp) : ''));
+  }
+  if (id === 'kosong') {
+    const shake = t < 0.4 ? Math.sin(T * 70) * 2 : 0;
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + hiuBig({ lid: 0, pr: 2, px: 0.4, m: 'o', brow: 'up', sweat: true }, '', 20) + `</g>`;
+  }
+  if (id === 'cek') return cjBig({ lid: 0.45, px: 0.5, m: 'flat' }, karungBuka(178, 318, 0.95, t) + ceklis(40, 262, 0.9), dalam100A);
+  if (id === 'solar') {
+    const sniffing = t < 1.0, sag = easeOut(prog(t, 1.0, 0.5)) * 10;
+    const smoke = [0, 1, 2].map(k => { const o = ((t * 0.7 + k / 3) % 1); return `<circle cx="${(200 + o * 30).toFixed(1)}" cy="${(330 - o * 50).toFixed(1)}" r="${(8 + o * 10).toFixed(1)}" fill="#55505A" opacity="${(0.6 * (1 - o)).toFixed(2)}"/>`; }).join('');
+    return bg() + place(trukA(0, 0, 1), 120, 250, 0.9) + smoke + place(kakapCaping({ lid: sniffing ? 0.98 : 0.75, px: 0.4, py: 0.6, m: mouthOf(sh, T, 'kakap', sniffing ? 'flat' : 'frown') }), -20, 186 + sag + bob('kakap'), 1.5, { w: 140, flip: true }) + groundN;
+  }
+  if (id === 'kepung') {
+    const point = Math.sin(Math.PI * prog(t, 0.1, 0.4)) * 6;
+    return hiuBig({ lid: 0.1, px: 0.9 + point * 0, m: 'grit', brow: 'angry' }, '', 20 - point);
+  }
+  if (id === 'panik') return kepungA(T) + place(teriMandor({ lid: blink(T) ? 1 : 0, pr: 2, px: Math.sin(T * 6) > 0 ? -0.8 : 0.8, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up', sweat: true }), 20, 180 + bob('teri'), 1.6, { w: 120 });
+  if (id === 'tenang') {
+    const z = 1 + 0.08 * easeOut(prog(t, 0, sh.dur));
+    return cam(z, 135, 230, cjBig({ lid: 0.55, px: 0, py: 0, m: 'flat' }, L.phone(206, 300, 1.4, 10)));
+  }
+  if (id === 'end') {
+    const z = 1 + 0.1 * easeOut(prog(t, 0, sh.dur));
+    return cam(z, 135, 260, dermagaMalamA(T) + `<text x="150" y="232" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="40" fill="#F5C542" stroke="#000" stroke-width="2" opacity="${(0.4 + 0.4 * Math.sin(T * 6)).toFixed(2)}">?</text>`);
+  }
+  return '';
+}
+SCENES.s2e6 = [s2e6Scene, ep3Overlay]; TITLES.s2e6 = 'Juragan Menyamar..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

@@ -73,6 +73,15 @@
         "rate": "-12%",
         "pitch": "-9Hz"
       }
+    },
+    "pld": {
+      "name": "A Serakkk - Deep, hoarse",
+      "voice_id": "LxiqOV1uxBCgYTeitAHf",
+      "fallback": {
+        "voice": "id-ID-ArdiNeural",
+        "rate": "-15%",
+        "pitch": "-20Hz"
+      }
     }
   },
   "lines": [
@@ -1268,6 +1277,78 @@
       "id": "S3E5_12",
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Chef Kakap kabur membawa surat itu... dan di luar pagar, truk Juragan Hiu sudah menunggu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_01",
+      "spk": "pld",
+      "prompt": "[berat, bergema, pelan] Siapa... yang menjemur cumi asin ini?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_02",
+      "spk": "kakap",
+      "prompt": "[panik, menunjuk] Dia, Tuan! Cumi kecil itu! Hukum saja dia!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_03",
+      "spk": "kakap",
+      "prompt": "[mengejek] Cumi kering, keriput, bau gudang! Pantas Tuan sampai naik ke darat!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_04",
+      "spk": "hiu",
+      "prompt": "[gemetar, berbisik] Cumi Baby... minta maaf saja, biar kita selamat.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_05",
+      "spk": "cb",
+      "prompt": "[datar] Saya yang jemur. Dua hari di bawah matahari, garamnya pas.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_06",
+      "spk": "pld",
+      "prompt": "[pelan, bergetar, terharu] Seratus tahun saya cari wangi ini. Wangi jemuran nelayan, waktu saya masih kecil.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_07",
+      "spk": "teri",
+      "prompt": "[kaget] Loh?! Monster laut... nangis?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_08",
+      "spk": "ko",
+      "prompt": "[datar] Dia bukan mau makan kita. Dia kangen.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_09",
+      "spk": "pld",
+      "prompt": "[berat, tegas] Mulai hari ini, semua cumi asin di dermaga ini... milik laut.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_10",
+      "spk": "cb",
+      "prompt": "[datar] Nggak bisa. Sudah dipesan restoran Mas Teri.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_11",
+      "spk": "pld",
+      "prompt": "[berat, pelan] Kalau begitu... besok saya bawa teman-teman saya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E8_12",
+      "spk": "nar",
+      "prompt": "[dramatis, pelan] Malam itu, di dasar laut... seratus pasang mata kuning terbuka bersamaan.",
       "status": "fallback"
     }
   ],

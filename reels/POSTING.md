@@ -3,14 +3,14 @@
 Dokumen ini adalah sumber aturan untuk tugas terjadwal "Posting Reels @ikanasinaflah".
 Kalau aturan berubah, cukup ubah file ini — prompt tugas terjadwal membaca file ini setiap kali jalan.
 
-## Jadwal
-- Satu Reel per hari, tayang pukul 19:00 WIB. Tugas mulai 18:50 WIB untuk persiapan; kalau persiapan selesai sebelum 19:00, tunggu sampai 19:00 WIB (pakai Monitor dengan until-loop yang mengecek jam, jangan foreground sleep), baru posting.
+## Jadwal (mulai 13 Nov 2026: 2 Reels per hari)
+- Dua slot tayang: **pagi 09:00 WIB** (tugas "Posting Reels Pagi @ikanasinaflah", mulai 08:50) dan **malam 19:00 WIB** (tugas "Posting Reels @ikanasinaflah", mulai 18:50). Kalau persiapan selesai sebelum jam tayang, tunggu (pakai Monitor dengan until-loop yang mengecek jam, jangan foreground sleep), baru posting.
 - Tidak bentrok dengan tugas "Carousel Harian Cumiasin" (15:55 WIB, carousel) — Reel tetap diposting walau hari itu sudah ada carousel.
-- Maksimal **1 posting per hari**. Kalau sudah ada episode dengan `posted_at` di tanggal hari ini (WIB), jangan posting lagi.
+- Maksimal **1 posting per slot per hari**. Kalau sudah ada episode dengan `slot` yang sama dan `posted_at` di tanggal hari ini (WIB), jangan posting lagi di slot itu. (Episode lama tanpa `slot` dianggap `malam`.)
 
 ## Memilih episode
-1. Cari semua `reels/**/meta.json` dengan `"status": "ready"` atau `"status": "scheduled"`. Status `draft` (masih diproduksi) dan `hold` (ditahan Aflah) dilewati.
-2. Hanya yang `scheduled_at` kosong (`null`) atau **tanggal**-nya (WIB) hari ini atau sebelumnya. Jamnya tidak dipakai untuk memilih — jam tayang selalu 19:00 WIB.
+1. Cari semua `reels/**/meta.json` dengan `"status": "ready"` atau `"status": "scheduled"` **dan `slot` sama dengan slot tugas ini** (`pagi` untuk tugas 09:00, `malam` untuk tugas 19:00; tanpa `slot` = `malam`). Status `draft` (masih diproduksi) dan `hold` (ditahan Aflah) dilewati.
+2. Hanya yang `scheduled_at` kosong (`null`) atau **tanggal**-nya (WIB) hari ini atau sebelumnya. Jamnya tidak dipakai untuk memilih — jam tayang mengikuti slot (09:00 atau 19:00 WIB).
 3. Urutkan: `scheduled_at` paling awal dulu (yang `null` paling belakang), lalu nomor `episode` terkecil.
 4. Ambil **satu** saja. Kalau tidak ada → antrean kosong, jangan posting apa pun.
 

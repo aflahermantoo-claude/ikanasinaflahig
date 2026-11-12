@@ -1,12 +1,16 @@
 # Seri, tokoh & rotasi — Sinetron Asin Universe
 
-## ⚠️ ATURAN AKTIF mulai 12 Nov 2026 (permintaan Aflah — Juragan Menyamar paling banyak views)
-- Yang diproduksi dan diposting HANYA **Seri 2 — Juragan Menyamar**, 1 episode per hari, tayang 19:00 WIB, sampai **Ep 10**.
-- Jadwal: Ep 3 = 12 Nov, Ep 4 = 13 Nov, Ep 5 = 14 Nov, lalu Ep 6 = 15 Nov, Ep 7 = 16 Nov, Ep 8 = 17 Nov, Ep 9 = 18 Nov, Ep 10 = 19 Nov 2026.
-- Produksi jalan setiap hari ±05:00 WIB, membuat episode berikutnya untuk slot kosong paling awal (biasanya besok/lusa).
-- Seri 1 dan Seri 3 DIJEDA: episode yang sudah jadi tapi belum tayang diberi status `hold` (tidak dihapus). Jangan produksi episode baru Seri 1/3 sampai Aflah bilang lanjut.
-- Setelah Ep 10 selesai diproduksi: berhenti produksi dan kirim laporan sekali ke Aflah bahwa Seri 2 sudah sampai Ep 10.
-- Rotasi di bawah ini TIDAK berlaku selama aturan aktif ini ada.
+## ⚠️ ATURAN AKTIF mulai 12 Nov 2026 (permintaan Aflah) — 2 Reels per hari
+Dua jalur tayang, masing-masing 1 episode per hari. Jalur ditandai `"slot"` di meta.json dan jam di `scheduled_at`.
+
+| Jalur | Jam tayang | Seri | Batas |
+|---|---|---|---|
+| `malam` | 19:00 WIB | Seri 2 — Juragan Menyamar (paling banyak views) | sampai **Ep 10** (Ep 3 = 12 Nov … Ep 10 = 19 Nov 2026), lalu berhenti dan lapor sekali ke Aflah |
+| `pagi` | 09:00 WIB (mulai 13 Nov 2026) | Seri 3 — Mertua Cumi Jumbo ↔ Seri 1 — Cumi yang Terhina, bergantian | lanjut terus (aturan lama tanpa Seri 2) |
+
+- Jalur pagi, urutan stok yang sudah jadi: 13 Nov S3E2, 14 S1E5, 15 S3E3, 16 S1E6, 17 S3E4, 18 S1E7, 19 S3E5, 20 S1E8. Setelah itu lanjut bergantian: S3E6, S1E9, S3E7, S1E10, dst. (Seri 3 dulu, lalu Seri 1).
+- Produksi jalan setiap hari ±05:00 WIB: isi slot kosong jalur malam dulu (episode Seri 2 berikutnya), lalu jalur pagi.
+- Rotasi di bawah ini (3 seri bergilir) TIDAK berlaku selama aturan aktif ini ada.
 
 ## Rotasi tayang lama (1–11 Nov 2026, 1 episode per hari, 19:00 WIB)
 Urutan bergilir, diulang terus:

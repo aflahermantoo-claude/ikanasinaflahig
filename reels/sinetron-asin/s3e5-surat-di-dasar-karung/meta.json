@@ -13,11 +13,11 @@
   "animation": "A — Sitcom deadpan",
   "voice": "Suara cadangan Microsoft Edge neural (kredit ElevenLabs habis), tempo 1.42x",
   "loudness_lufs": -14,
-  "status": "hold",
-  "scheduled_at": "2026-11-14T19:00:00+07:00",
+  "status": "scheduled",
+  "scheduled_at": "2026-11-19T09:00:00+07:00",
   "posted_at": null,
   "instagram_media_id": null,
   "share_to_feed": false,
   "posted_via": null,
-  "hold_reason": "Dijeda Aflah 12 Nov 2026: posting hanya Seri 2 Juragan Menyamar sampai Ep 10"
+  "slot": "pagi"
 }

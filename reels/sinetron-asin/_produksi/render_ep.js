@@ -1244,6 +1244,90 @@ function s3e5Scene(sh, t, T) {
 }
 SCENES.s3e5 = [s3e5Scene, ep3Overlay]; TITLES.s3e5 = 'Mertua Cumi Jumbo..';
 
+// ================= S1E8 — Cumi yang Terhina: Kata Pertama (gaya A, sitcom deadpan) =================
+function ujungA(T, { dark = 0 } = {}) { // ujung dermaga mendung (lanjutan S1E7 'maju'/'end')
+  return `<rect width="270" height="480" fill="#56606C"/><rect y="300" width="270" height="180" fill="#244A6C"/>` +
+    [0, 1].map(k => `<path d="M-30 ${316 + k * 20} ${Array.from({ length: 12 }, (_, j) => `q13.5 ${j % 2 ? 5 : -5} 27 0`).join(' ')}" transform="translate(${(-((T * 10 + k * 11) % 27)).toFixed(1)} 0)" stroke="#3E6A90" stroke-width="2" fill="none"/>`).join('') +
+    (dark ? `<rect width="270" height="480" fill="#0A0A1A" opacity="${dark}"/>` : '');
+}
+const papanA = (y = 360) => `<rect y="${y}" width="270" height="${480 - y}" fill="#A8784A" stroke="#161616" stroke-width="2.2"/>${[y + 24, y + 50, y + 76].map(v => `<path d="M0 ${v} L270 ${v}" stroke="#7A5232" stroke-width="1.6"/>`).join('')}`;
+const airMata = (T, x, y) => [0, 1].map(k => { const o = (T * 1.3 + k * 0.5) % 1; return `<path d="M${x} ${(y + o * 50).toFixed(1)} q-12 20 0 28 q12 -8 0 -28 Z" fill="#8FD0F5" stroke="#161616" stroke-width="1.4" opacity="${(1 - o * 0.7).toFixed(2)}"/>`; }).join('');
+function s1e8Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const ground = `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>`;
+  const pldMouth = (o = 0) => talking(sh, T, 'pld') ? { m: 'o', open: 4 + amp(sh, T, 'pld') * 9 } : { m: o ? 'o' : 'flat', open: o };
+  if (id === 'bicara') {
+    const z = 1 + 0.06 * easeOut(prog(t, 0, sh.dur)), shk = t < 0.5 ? Math.sin(T * 60) * 2.5 : 0;
+    let s = ujungA(T) + guritaA(110, 200, 1.15, { lid: 0.15, px: 0.1, py: 0.8, ...pldMouth(3) }) + papanA(360);
+    s += place(CB({ lid: blink(T) ? 1 : 0.62, px: -0.7, py: -0.6, m: 'flat', blush: false, brow: 'low' }), 168, 196, 0.72);
+    return `<g transform="translate(${shk.toFixed(2)} 0)">` + cam(z, 135, 240, s) + `</g>`;
+  }
+  if (id === 'tunjuk') {
+    const slide = 1 - easeOut(prog(t, 0, 0.3));
+    return `<g transform="translate(${(-slide * 200).toFixed(1)} 0)">` + dermagaA(T) + place(KK({ lid: 0, pr: 2, px: -0.8, m: mouthOf(sh, T, 'kakap', 'o'), chain: true, sweat: true, brow: 'up' }), 40, 130 + bob('kakap'), 1.6, { w: 140 }) + tetes(T, 80, 170) + ground + `</g>` +
+      `<path d="M30 250 l-16 0 M34 266 l-22 0 M30 282 l-16 0" stroke="#161616" stroke-width="2.6" stroke-linecap="round"/>`;
+  }
+  if (id === 'ejek') {
+    const laugh = Math.abs(Math.sin(T * 14)) * 2.5 * (talking(sh, T, 'kakap') ? 1 : 0);
+    return dermagaA(T) + karungA(176, 288, 'CUMI', 1.1) + aromaUap(t, 186, 284, 2) + place(KK({ lid: 0.5, px: 0.6, m: mouthOf(sh, T, 'kakap', 'smirk'), chain: true }), 10, 130 - laugh + bob('kakap'), 1.6, { w: 140 }) + tetes(T, 50, 170, 2) + ground;
+  }
+  if (id === 'bisik') {
+    const peek = easeOut(prog(t, 0, 0.5)), tr = Math.sin(T * 32) * 1.3;
+    let s = dermagaA(T);
+    s += place(hiuA({ lid: 0.1, px: 0.8, m: mouthOf(sh, T, 'hiu', 'frown'), sweat: true }), -60 + peek * 60 + tr, 170 + bob('hiu'), 1.1, { w: 140, flip: true });
+    s += place(KO({ lid: 0.55, px: -0.6, m: 'flat' }), 90, 160, 1.4) + shades(90, 160, 1.4);
+    return s + ground;
+  }
+  if (id === 'jemur') return dermagaA(T) + place(CB({ lid: blink(T) ? 1 : 0.62, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 35, 118 + bob('cb'), 2.0) + ground;
+  if (id === 'kangen') {
+    const wow = t > 0.9, z = 1 + 0.08 * easeOut(prog(t, 0.9, 0.3));
+    let s = ujungA(T) + guritaA(135, 215, 1.55, { lid: wow ? 0.45 : 0.98, px: 0, py: 0.4, ...pldMouth() });
+    if (!wow) s += aromaUap(t, 70, 420, 3);
+    if (wow) s += airMata(T, 79, 254) + airMata(T + 0.4, 191, 254);
+    return cam(z, 135, 250, s + papanA(420) + (wow ? star(30, 140, 7 * Math.min(1, (t - 0.9) * 4)) + star(240, 150, 6 * Math.min(1, (t - 0.9) * 4)) : ''));
+  }
+  if (id === 'loh') {
+    const sp = Math.min(1, t * 4), z = 1 + 0.08 * easeOut(prog(t, 0, 0.25));
+    return cam(z, 135, 250, dermagaA(T) + place(teriChef({ lid: 0, pr: 2, px: 0.7, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up', sweat: true }), 0, 150 + bob('teri'), 2.1, { w: 120 }) + ground + star(36, 150, 8 * sp) + star(236, 170, 7 * sp));
+  }
+  if (id === 'kacamata') {
+    const off = easeOut(prog(t, 0.1, 0.5));
+    return dermagaA(T) + place(KO({ lid: blink(T) ? 1 : 0.5, px: 0.2, m: mouthOf(sh, T, 'ko', 'flat') }), 20, 120 + bob('ko'), 2.0) + shades(20 + off * 30, 120 - off * 90 + bob('ko'), 2.0) + ground;
+  }
+  if (id === 'milik') {
+    const creep = easeOut(prog(t, 0, sh.dur)), shk = t < 0.4 ? Math.sin(T * 60) * 2 : 0;
+    let s = dermagaA(T, { dusk: true }) + guritaA(135, 190, 0.85, { lid: 0.55, px: 0, py: 0.6, ...pldMouth() });
+    s += `<rect y="330" width="270" height="150" fill="#A8784A" stroke="#161616" stroke-width="2.2"/>`;
+    s += [0, 1, 2].map(r => [0, 1, 2, 3, 4].map(k => karungA(10 + k * 50 - r * 8, 400 - r * 26, r === 0 && k % 2 === 0 ? 'CUMI' : '', 0.62)).join('')).join('');
+    s += tentakel(300, 320, 220 - creep * 40, 400, 40, 14, T) + tentakel(-30, 320, 50 + creep * 40, 410, -40, 14, T + 1) + tentakel(140, 300, 130, 360 + creep * 30, 30, 12, T + 2);
+    return `<g transform="translate(${shk.toFixed(2)} 0)">` + s + `</g>` + `<rect width="270" height="480" fill="#1A0E20" opacity="0.15"/>`;
+  }
+  if (id === 'tolak') {
+    let s = ujungA(T) + guritaA(135, 150, 1.2, { lid: 0.3, px: 0, py: 1, m: 'flat' }) + papanA(380);
+    s += place(CB({ lid: blink(T) ? 1 : 0.62, px: 0, py: -0.9, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 75, 220 + bob('cb'), 1.3);
+    return s;
+  }
+  if (id === 'teman') {
+    const sink = easeOut(prog(t, 1.4, sh.dur - 1.4));
+    let s = `<rect width="270" height="480" fill="#56606C"/>` + guritaA(135, 230 + sink * 150, 1.1, { lid: 0.4, px: 0, py: 0.6, ...pldMouth() });
+    s += `<rect y="300" width="270" height="180" fill="#244A6C" opacity="0.92"/>` + [0, 1, 2].map(k => `<circle cx="${100 + k * 34}" cy="${(300 - ((T * 40 + k * 20) % 50)).toFixed(1)}" r="${3 + k}" fill="none" stroke="#BFE3F0" stroke-width="1.5"/>`).join('');
+    return s + papanA(400);
+  }
+  if (id === 'end') {
+    const z = 1 + 0.1 * easeOut(prog(t, 0, sh.dur));
+    let s = `<rect width="270" height="480" fill="#050B16"/><path d="M0 0 L270 0 L270 60 Q135 90 0 60 Z" fill="#0E2238"/>`;
+    const pos = [[60, 130], [190, 110], [120, 210], [30, 260], [230, 230], [100, 290], [170, 250], [140, 140], [40, 180], [220, 300], [120, 270], [70, 230], [200, 190], [250, 270], [20, 300]];
+    pos.forEach(([x, y], k) => {
+      const o = easeOut(prog(t, 0.3 + k * 0.18, 0.25)), r = 5 + (k % 3) * 2;
+      if (o > 0) s += [-1, 1].map(d => `<ellipse cx="${x + d * r * 1.4}" cy="${y}" rx="${r}" ry="${(r * o).toFixed(2)}" fill="#FFE14D" stroke="#161616" stroke-width="1.2" opacity="${(0.6 + 0.4 * Math.sin(T * 4 + k)).toFixed(2)}"/><circle cx="${x + d * r * 1.4}" cy="${y}" r="${(r * 0.35 * o).toFixed(2)}" fill="#161616"/>`).join('');
+    });
+    return cam(z, 135, 240, s);
+  }
+  return '';
+}
+SCENES.s1e8 = [s1e8Scene, ep3Overlay]; TITLES.s1e8 = 'Cumi yang Terhina..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

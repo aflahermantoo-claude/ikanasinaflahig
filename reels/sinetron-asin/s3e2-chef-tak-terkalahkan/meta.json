@@ -13,10 +13,11 @@
   "animation": "A — Sitcom deadpan",
   "voice": "ElevenLabs eleven_v4 (flow vPf78XLPMQwAE6mZ7aqB), tempo 1.25x",
   "loudness_lufs": -14,
-  "status": "scheduled",
+  "status": "hold",
   "scheduled_at": "2026-11-05T19:00:00+07:00",
   "posted_at": null,
   "instagram_media_id": null,
   "share_to_feed": false,
-  "posted_via": null
+  "posted_via": null,
+  "hold_reason": "Dijeda Aflah 12 Nov 2026: posting hanya Seri 2 Juragan Menyamar sampai Ep 10"
 }

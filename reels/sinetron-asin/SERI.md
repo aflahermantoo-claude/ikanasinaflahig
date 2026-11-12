@@ -1,6 +1,14 @@
 # Seri, tokoh & rotasi — Sinetron Asin Universe
 
-## Rotasi tayang (mulai 1 Nov 2026, 1 episode per hari, 19:00 WIB)
+## ⚠️ ATURAN AKTIF mulai 12 Nov 2026 (permintaan Aflah — Juragan Menyamar paling banyak views)
+- Yang diproduksi dan diposting HANYA **Seri 2 — Juragan Menyamar**, 1 episode per hari, tayang 19:00 WIB, sampai **Ep 10**.
+- Jadwal: Ep 3 = 12 Nov, Ep 4 = 13 Nov, Ep 5 = 14 Nov, lalu Ep 6 = 15 Nov, Ep 7 = 16 Nov, Ep 8 = 17 Nov, Ep 9 = 18 Nov, Ep 10 = 19 Nov 2026.
+- Produksi jalan setiap hari ±05:00 WIB, membuat episode berikutnya untuk slot kosong paling awal (biasanya besok/lusa).
+- Seri 1 dan Seri 3 DIJEDA: episode yang sudah jadi tapi belum tayang diberi status `hold` (tidak dihapus). Jangan produksi episode baru Seri 1/3 sampai Aflah bilang lanjut.
+- Setelah Ep 10 selesai diproduksi: berhenti produksi dan kirim laporan sekali ke Aflah bahwa Seri 2 sudah sampai Ep 10.
+- Rotasi di bawah ini TIDAK berlaku selama aturan aktif ini ada.
+
+## Rotasi tayang lama (1–11 Nov 2026, 1 episode per hari, 19:00 WIB)
 Urutan bergilir, diulang terus:
 1. Seri 2 — Juragan Menyamar (episode berikutnya)
 2. Seri 3 — Mertua Cumi Jumbo (episode berikutnya)

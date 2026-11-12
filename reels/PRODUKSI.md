@@ -5,6 +5,9 @@ Tugas itu jalan beberapa kali sehari. Setiap kali jalan, tugas mengisi antrean s
 Wajib dibaca juga: `reels/sinetron-asin/ATURAN_SERI.md` (gaya, 5 babak, footer, caption GEO) dan `reels/sinetron-asin/SERI.md` (rotasi, premis, tokoh, suara).
 Disetujui Aflah 29 Okt 2026: full otomatis, tidak perlu persetujuan naskah.
 
+## 0. Aturan aktif mulai 12 Nov 2026
+Lihat bagian "ATURAN AKTIF" di `sinetron-asin/SERI.md`: hanya Seri 2 Juragan Menyamar sampai Ep 10, 1 per hari. Episode berstatus `hold` (Seri 1/3 yang dijeda) TIDAK dihitung mengisi slot. Episode baru = episode Seri 2 berikutnya (bukan rumus rotasi). Kalau Seri 2 Ep 10 sudah ada, berhenti (laporkan sekali saja ke Aflah).
+
 ## 1. Cek antrean (cepat; kalau penuh, berhenti tanpa notifikasi)
 - Slot = tanggal WIB dari max(hari ini, 2026-11-01) sampai hari ini + 3 (antrean minimal 3 hari ke depan, cadangan kalau ada run yang gagal).
   Kalau sudah lewat 19:00 WIB, slot hari ini tidak dihitung.

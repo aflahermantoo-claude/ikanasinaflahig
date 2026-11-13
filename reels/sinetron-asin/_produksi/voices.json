@@ -82,6 +82,15 @@
         "rate": "-15%",
         "pitch": "-20Hz"
       }
+    },
+    "mak": {
+      "name": "Bunaya Plg",
+      "voice_id": "nEu1CRXDjHpQT7G4E6sZ",
+      "fallback": {
+        "voice": "jv-ID-SitiNeural",
+        "rate": "-8%",
+        "pitch": "-10Hz"
+      }
     }
   },
   "lines": [
@@ -1421,6 +1430,78 @@
       "id": "S2E6_12",
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Dan dari arah dermaga... terdengar suara yang paling ditakuti Juragan Hiu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_01",
+      "spk": "mak",
+      "prompt": "[berteriak dari jauh, galak] HIUUU! Matikan truknya! Pulang!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_02",
+      "spk": "hiu",
+      "prompt": "[gemetar, pucat] Su... suara itu... jangan-jangan...",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_03",
+      "spk": "kakap",
+      "prompt": "[mengejek, sombong] Cuma nenek-nenek bawa tampah, Bos! Sama kayak cumi asin keriput itu, sudah tua!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_04",
+      "spk": "mak",
+      "prompt": "[galak] Siapa yang bilang cumi asin keriput?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_05",
+      "spk": "mak",
+      "prompt": "[mengendus, pelan lalu kagum] Hmm... dijemur dua hari, garamnya pas. Ini jemuran yang saya ajarkan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_06",
+      "spk": "teri",
+      "prompt": "[kaget] Loh?! Nenek ini... ibunya Juragan Hiu?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_07",
+      "spk": "cj",
+      "prompt": "[datar, hormat] Mak Hiu yang mengajari kami berdua menjemur. Dulu, di dermaga.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_08",
+      "spk": "hiu",
+      "prompt": "[lemas, malu] Mak... jangan jewer saya di depan kuli...",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_09",
+      "spk": "mak",
+      "prompt": "[tegas] Truk pulang semua! Besok kalian berdua lomba jemur cumi asin, kayak dulu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_10",
+      "spk": "mak",
+      "prompt": "[tegas, pelan] Yang kalah... jadi kuli yang menang. Seumur hidup.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_11",
+      "spk": "hiu",
+      "prompt": "[berbisik, licik] Kakap... malam ini, garam di jemuran Jumbo... tukar pakai gula.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E7_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Tengah malam, sebuah bayangan bercaping mengendap ke jemuran Juragan Jumbo... membawa sekarung gula.",
       "status": "fallback"
     }
   ],

@@ -238,10 +238,22 @@ LINES = {
  'S2E7_10': ('mak', "Yang kalah... jadi kuli yang menang. Seumur hidup."),
  'S2E7_11': ('hiu', "Kakap... malam ini, garam di jemuran Jumbo... tukar pakai gula."),
  'S2E7_12': ('nar', "Tengah malam, sebuah bayangan bercaping mengendap ke jemuran Juragan Jumbo... membawa sekarung gula."),
+ 'S2E8_01': ('teri', "Juragan! Jemuran kita kok dikerubung semut?!"),
+ 'S2E8_02': ('mak', "Lomba sudah mulai! Nggak ada waktu jemur ulang!"),
+ 'S2E8_03': ('kakap', "Cumi asin dikerubung semut! Cocoknya buat kolak, bukan buat lomba!"),
+ 'S2E8_04': ('hiu', "Jumbo, Jumbo... dari kuli, balik jadi kuli."),
+ 'S2E8_05': ('cj', "Semutnya cuma di karung paling depan. Karung kosong yang saya taruh tadi malam."),
+ 'S2E8_06': ('cj', "Cumi asinnya saya jemur di belakang. Dua hari, garamnya pas."),
+ 'S2E8_07': ('mak', "Hmm... wanginya sampai ujung dermaga. Asinnya pas, gurihnya pas."),
+ 'S2E8_08': ('teri', "Loh?! Jadi sekarung gula itu... cuma buat semut?!"),
+ 'S2E8_09': ('mak', "Jumbo menang! Hiu, mulai hari ini kamu kuli Jumbo. Seumur hidup."),
+ 'S2E8_10': ('hiu', "Ini semua gara-gara Kakap! Gulanya kurang banyak!"),
+ 'S2E8_11': ('hiu', "Kuli boleh, Mak... tapi tanah gudang seratus itu... atas nama saya."),
+ 'S2E8_12': ('nar', "Juragan Hiu membuka surat tanah tua... dan untuk pertama kalinya, Juragan Jumbo terdiam."),
 }
 ESPEAK = {'nar': ('id+m1', 30, 140), 'cb': ('id+f4', 85, 155), 'teri': ('id+m4', 70, 165), 'kakap': ('id+m3', 55, 170), 'ko': ('id+m2', 20, 125), 'cj': ('id+m2', 10, 120), 'hiu': ('id+m1', 5, 120), 'bt': ('id+m1', 0, 115), 'pld': ('id+m1', 0, 100), 'mak': ('id+f2', 30, 130)}
 
-TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3, 's1e7': 1.42, 's2e5': 1.3, 's3e5': 1.42, 's1e8': 1.42, 's2e6': 1.42, 's2e7': 1.42}
+TEMPO = {'s3e2': 1.25, 's2e2': 1.25, 's2e1': 1.2, 's3e1': 1.2, 's1e4': 1.25, 's1e5': 1.25, 's2e3': 1.3, 's3e3': 1.3, 's1e6': 1.3, 's2e4': 1.35, 's3e4': 1.3, 's1e7': 1.42, 's2e5': 1.3, 's3e5': 1.42, 's1e8': 1.42, 's2e6': 1.42, 's2e7': 1.42, 's2e8': 1.5}
 
 # ---------------- shot specs ----------------
 SPECS = {
@@ -606,6 +618,21 @@ SPECS['s2e7'] = [  # babak: 1 Drama (teriak, gemetar) · 2 Diremehkan (nenek, si
   dict(id='kalah', lines=['S2E7_10'], pre=0.3, post=0.4, sfx=[('dun', 0.0)], amb='night'),
   dict(id='bisik', lines=['S2E7_11'], pre=0.4, post=0.4, amb='night'),
   dict(id='end', lines=['S2E7_12'], pre=0.4, post=1.9, sfx=[('dunn', 0.3)], amb='night'),
+]
+
+SPECS['s2e8'] = [  # babak: 1 Drama (semut, mulai) · 2 Diremehkan (kolak, kuli) · 3 Penemuan (depan, belakang, endus, loh) · 4 Drama lagi (menang, salah) · 5 Cliffhanger (tanah, end)
+  dict(id='semut', lines=['S2E8_01'], pre=0.1, post=0.3, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='mulai', lines=['S2E8_02'], pre=0.2, post=0.3, sfx=[('ting', 0.0)], amb='morning'),
+  dict(id='kolak', lines=['S2E8_03'], pre=0.2, post=0.3, sfx=[('whoosh', 0.0)], amb='morning'),
+  dict(id='kuli', lines=['S2E8_04'], pre=0.2, post=0.4, amb='morning'),
+  dict(id='depan', lines=['S2E8_05'], pre=0.3, post=0.3, sfx=[('thud', 0.1)], amb='morning'),
+  dict(id='belakang', lines=['S2E8_06'], pre=0.3, post=0.4, sfx=[('whoosh', 0.0)], amb='morning'),
+  dict(id='endus', lines=['S2E8_07'], pre=1.0, post=0.4, sfx=[('sniff', 0.1), ('ting', 0.9)], amb='morning'),
+  dict(id='loh', lines=['S2E8_08'], pre=0.2, post=0.4, sfx=[('ting', 0.1)], amb='morning'),
+  dict(id='menang', lines=['S2E8_09'], pre=0.2, post=0.3, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='salah', lines=['S2E8_10'], pre=0.2, post=0.4, sfx=[('boing', 0.1)], amb='morning'),
+  dict(id='tanah', lines=['S2E8_11'], pre=0.4, post=0.4, sfx=[('dun', 0.0)], amb='morning'),
+  dict(id='end', lines=['S2E8_12'], pre=0.4, post=1.9, sfx=[('dunn', 0.3)], amb='morning'),
 ]
 
 # ---------------- build ----------------

@@ -1503,6 +1503,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Tengah malam, sebuah bayangan bercaping mengendap ke jemuran Juragan Jumbo... membawa sekarung gula.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E8_01",
+      "spk": "teri",
+      "prompt": "[panik] Juragan! Jemuran kita kok dikerubung semut?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_02",
+      "spk": "mak",
+      "prompt": "[tegas, galak] Lomba sudah mulai! Nggak ada waktu jemur ulang!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_03",
+      "spk": "kakap",
+      "prompt": "[mengejek, sombong] Cumi asin dikerubung semut! Cocoknya buat kolak, bukan buat lomba!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_04",
+      "spk": "hiu",
+      "prompt": "[tertawa sombong] Jumbo, Jumbo... dari kuli, balik jadi kuli.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_05",
+      "spk": "cj",
+      "prompt": "[datar, tenang] Semutnya cuma di karung paling depan. Karung kosong yang saya taruh tadi malam.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_06",
+      "spk": "cj",
+      "prompt": "[datar] Cumi asinnya saya jemur di belakang. Dua hari, garamnya pas.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_07",
+      "spk": "mak",
+      "prompt": "[mengendus, pelan lalu kagum] Hmm... wanginya sampai ujung dermaga. Asinnya pas, gurihnya pas.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_08",
+      "spk": "teri",
+      "prompt": "[kaget] Loh?! Jadi sekarung gula itu... cuma buat semut?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_09",
+      "spk": "mak",
+      "prompt": "[tegas] Jumbo menang! Hiu, mulai hari ini kamu kuli Jumbo. Seumur hidup.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_10",
+      "spk": "hiu",
+      "prompt": "[marah, menunjuk] Ini semua gara-gara Kakap! Gulanya kurang banyak!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_11",
+      "spk": "hiu",
+      "prompt": "[pelan, licik] Kuli boleh, Mak... tapi tanah gudang seratus itu... atas nama saya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E8_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Juragan Hiu membuka surat tanah tua... dan untuk pertama kalinya, Juragan Jumbo terdiam.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

@@ -1475,6 +1475,81 @@ function s2e7Scene(sh, t, T) {
 }
 SCENES.s2e7 = [s2e7Scene, ep3Overlay]; TITLES.s2e7 = 'Juragan Menyamar..';
 
+// ================= S2E8 — Juragan Menyamar: Sekarung Gula (gaya A, sitcom deadpan) =================
+const semut = (T, x0, y0, n = 9, r = 26) => [...Array(n).keys()].map(k => { const a = T * (1.4 + (k % 3) * 0.5) + k * 0.7, x = x0 + Math.cos(a) * r * (0.5 + (k % 4) * 0.18), y = y0 + Math.sin(a * 1.2) * r * 0.45; return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><ellipse cx="-2.6" cy="0" rx="1.8" ry="1.4" fill="#161616"/><ellipse cx="0.8" cy="0" rx="2.2" ry="1.7" fill="#161616"/><path d="M-1 0 l-1.5 2.4 M0.6 0 l0 2.6 M2 0 l1.6 2.4" stroke="#161616" stroke-width="0.6"/></g>`; }).join('');
+const peluit = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-10" y="-6" width="18" height="11" rx="5" fill="#9AA3AD" stroke="#161616" stroke-width="1.6"/><circle cx="8" cy="0" r="6" fill="#B9C0C8" stroke="#161616" stroke-width="1.6"/><path d="M-10 0 Q-22 -2 -26 8" stroke="#C8553D" stroke-width="1.6" fill="none"/></g>`;
+const karungGulaKosong = (x, y, sc = 1) => `<g transform="translate(${x} ${y}) scale(${sc})"><path d="M2 30 Q4 18 18 20 L54 20 Q70 18 70 30 L68 40 Q35 46 2 40 Z" fill="#F4F1EA" stroke="#161616" stroke-width="2"/><text x="35" y="36" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="9" fill="#C8553D">GULA</text></g>`;
+const suratTanah = (x, y, s = 1, rot = 0) => `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><path d="M-40 -50 L40 -50 L40 50 L-40 50 Z" fill="#E9D3A6" stroke="#161616" stroke-width="2"/><path d="M-40 -50 L-33 -43 L-40 -34 M40 34 L33 43 L40 50" stroke="#C9A46A" stroke-width="1.4" fill="none"/><text x="0" y="-32" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="10" fill="#5A3A22">SURAT TANAH</text><text x="0" y="-16" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="12" fill="#C8553D">GUDANG 100</text>${[-2, 8, 18].map(d => `<path d="M-28 ${d} L28 ${d}" stroke="#8C6A4A" stroke-width="1.4"/>`).join('')}<text x="10" y="40" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="11" fill="#2A3A6A" transform="rotate(-8 10 40)">Hiu</text><circle cx="-22" cy="36" r="9" fill="none" stroke="#C8553D" stroke-width="1.6"/></g>`;
+function s2e8Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const lidOf = (o, d = 0.4) => (blink(T) && (o.lid ?? d) < 0.9 ? 1 : (o.lid ?? d));
+  const mak = (o, spk = 'mak') => makHiuA({ ...o, lid: lidOf(o, 0.5), m: mouthOf(sh, T, spk, o.m || 'flat') });
+  const bg = () => dermagaA(T);
+  if (id === 'semut') {
+    const shk = Math.sin(T * 50) * 1.6 * (talking(sh, T, 'teri') ? 1 : 0.3), z = 1 + 0.07 * easeOut(prog(t, 0, sh.dur));
+    let s = bg() + karungA(166, 262, 'CUMI', 1.2) + semut(T, 208, 280, 12, 32) + semut(T + 1.3, 204, 258, 6, 22);
+    s += place(teriMandor({ lid: 0, pr: 2, px: 0.8, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up', sweat: true }), -16, 214 + bob('teri'), 1.75, { w: 120, flip: true });
+    return `<g transform="translate(${shk.toFixed(2)} 0)">` + cam(z, 135, 260, s) + `</g>`;
+  }
+  if (id === 'mulai') {
+    const blow = t < 0.6;
+    return bg() + jemuranCumi(150, 250, 1.0) + place(mak({ lid: 0.15, px: -0.4, m: blow ? 'o' : 'grit', brow: 'angry' }), -30, 156 + bob('mak'), 1.75, { w: 140, flip: true }) + peluit(196, 262, 1.3) + (blow ? teriakGaris(214, 262, 0.9) : '');
+  }
+  if (id === 'kolak') {
+    const laugh = !talking(sh, T, 'kakap') && t > 0.3 ? Math.abs(Math.sin(T * 16)) * 3 : 0;
+    return bg() + place(kakapCaping({ lid: laugh ? 0.98 : 0.45, px: 0.6, m: mouthOf(sh, T, 'kakap', 'grin') }), -30, 160 - laugh + bob('kakap'), 1.8, { w: 140, flip: true }) + karungGulaKosong(176, 262, 1.1);
+  }
+  if (id === 'kuli') {
+    const laugh = Math.abs(Math.sin(T * 14)) * 2;
+    return bg() + place(hiuCaping({ lid: 0.75, px: 0.4, m: mouthOf(sh, T, 'hiu', 'smirk') }), -40, 168 - laugh + bob('hiu'), 1.85, { w: 140, flip: true });
+  }
+  if (id === 'depan') {
+    return bg() + karungA(176, 262, 'KOSONG', 1.1) + semut(T, 214, 280, 10, 30) + place(CJ({ hat: false, lid: lidOf({ lid: 0.55 }), px: 0.9, m: mouthOf(sh, T, 'cj', 'flat') }), -20, 150 + bob('cj'), 1.85);
+  }
+  if (id === 'belakang') {
+    const open = easeOut(prog(t, 0.2, 0.6)), z = 1 + 0.05 * open;
+    let s = bg() + jemuranCumi(40, 236, 1.0) + jemuranCumi(150, 236, 1.0) + aromaUap(t, 90, 230, 3, 1) + aromaUap(t + 0.4, 190, 230, 3, -1);
+    s += `<rect x="${(30 - open * 220).toFixed(1)}" y="210" width="230" height="110" fill="#F4EBDD" stroke="#161616" stroke-width="2"/><path d="M${(30 - open * 220).toFixed(1)} 210 L${(260 - open * 220).toFixed(1)} 210" stroke="#C8553D" stroke-width="4"/>`;
+    s += place(CJ({ hat: false, lid: lidOf({ lid: 0.55 }), px: 0.7, m: mouthOf(sh, T, 'cj', 'flat') }), 150, 250 + bob('cj'), 0.95);
+    return cam(z, 135, 260, s);
+  }
+  if (id === 'endus') {
+    const wow = t > 0.9, sp = wow ? Math.min(1, (t - 0.9) * 4) : 0, z = 1 + 0.07 * easeOut(prog(t, 0.9, 0.3));
+    let s = bg() + jemuranCumi(140, 250, 1.1) + (!wow ? aromaUap(t, 150, 250, 3, -1) : '');
+    s += place(mak({ lid: wow ? 0.15 : 0.98, px: 0.6, py: 0.4, m: wow ? 'smile' : 'flat' }), -26, 170 + bob('mak'), 1.6, { w: 140, flip: true });
+    return cam(z, 135, 250, s + (wow ? star(40, 150, 7 * sp) + star(232, 170, 6 * sp) : ''));
+  }
+  if (id === 'loh') {
+    const sp = Math.min(1, t * 4), z = 1 + 0.08 * easeOut(prog(t, 0, 0.25));
+    return cam(z, 135, 250, bg() + place(teriMandor({ lid: 0, pr: 2, px: 0.7, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up', sweat: true }), -16, 214 + bob('teri'), 1.75, { w: 120, flip: true }) + karungGulaKosong(186, 268, 0.9) + semut(T, 218, 290, 7, 22) + star(40, 150, 8 * sp) + star(226, 160, 7 * sp));
+  }
+  if (id === 'menang') {
+    const point = Math.sin(Math.PI * prog(t, 0.1, 0.4)) * 6;
+    let s = bg() + place(CJ({ hat: false, lid: 0.55, px: 0.2, m: 'flat' }), -10, 236, 0.95) + place(hiuCaping({ lid: 0.3, pr: 2, px: -0.4, m: 'o', brow: 'up', sweat: true }), 146, 250, 0.95, { w: 140, flip: true });
+    s += place(mak({ lid: 0.2, px: 0.5, m: 'grit', brow: 'angry' }), 70, 140 - point + bob('mak'), 0.95, { w: 140, flip: true });
+    return s;
+  }
+  if (id === 'salah') {
+    const tr = Math.sin(T * 30) * 1.2;
+    let s = bg() + place(hiuCaping({ lid: 0.15, px: 0.9, m: mouthOf(sh, T, 'hiu', 'grit'), brow: 'angry' }), -30, 180 + bob('hiu'), 1.3, { w: 140, flip: true });
+    s += place(kakapCaping({ lid: 0.1, pr: 2, px: -0.8, m: 'o', sweat: true }), 150 + tr, 250, 0.95) + tetes(T, 180, 230, 2);
+    return s;
+  }
+  if (id === 'tanah') {
+    const up = easeOut(prog(t, 0.3, 0.6));
+    return bg() + place(hiuCaping({ lid: 0.55, px: 0.9, m: mouthOf(sh, T, 'hiu', 'smirk') }), -50, 176 + bob('hiu'), 1.75, { w: 140, flip: true }) + suratTanah(208, 420 - up * 170, 0.9, -8 + up * 6);
+  }
+  if (id === 'end') {
+    const z = 1 + 0.1 * easeOut(prog(t, 0, sh.dur));
+    let s = bg() + place(CJ({ hat: false, lid: 0.05, pr: 2, px: 0, m: 'flat', sweat: true }), 20, 150, 1.5) + suratTanah(212, 250, 0.8, 6);
+    s += `<text x="70" y="180" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="40" fill="#F5C542" stroke="#000" stroke-width="2" opacity="${(0.4 + 0.4 * Math.sin(T * 6)).toFixed(2)}">?</text>`;
+    return cam(z, 135, 260, s);
+  }
+  return '';
+}
+SCENES.s2e8 = [s2e8Scene, ep3Overlay]; TITLES.s2e8 = 'Juragan Menyamar..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

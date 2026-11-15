@@ -1575,6 +1575,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Juragan Hiu membuka surat tanah tua... dan untuk pertama kalinya, Juragan Jumbo terdiam.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E9_01",
+      "spk": "hiu",
+      "prompt": "[sombong, mengibaskan kertas] Gudang seratus berdiri di tanah saya! Besok pagi, kosongkan!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_02",
+      "spk": "teri",
+      "prompt": "[panik] Juragan... kok diam saja?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_03",
+      "spk": "kakap",
+      "prompt": "[mengejek, tertawa] Juragan seratus gudang, ternyata numpang tanah! Cumi asinnya ikut diusir!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_04",
+      "spk": "hiu",
+      "prompt": "[meremehkan] Cumi asin keriput begitu... buang saja ke laut.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_05",
+      "spk": "mak",
+      "prompt": "[pelan, curiga] Sebentar. Di balik surat ini... ada tulisannya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_06",
+      "spk": "mak",
+      "prompt": "[membaca pelan, lalu kaget] Tanah dibayar... dengan sepuluh karung cumi asin jemuran Jumbo.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_07",
+      "spk": "teri",
+      "prompt": "[kaget] Loh?! Tanahnya dibeli pakai cumi asin Juragan?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_08",
+      "spk": "cj",
+      "prompt": "[datar, tenang] Dulu cumi asin jemuran saya paling wangi di dermaga. Hiu yang menjualnya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_09",
+      "spk": "hiu",
+      "prompt": "[marah, panik] Tetap atas nama saya! Kalau begitu... nggak ada yang punya!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_10",
+      "spk": "mak",
+      "prompt": "[marah, berteriak] Hiuuu! Kamu sobek surat tanah?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_11",
+      "spk": "cj",
+      "prompt": "[pelan, datar] Saya juga menyimpan satu surat, Hiu. Tiga puluh tahun.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E9_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Surat itu ditulis Mak Hiu sendiri... dan isinya, rahasia yang tak pernah boleh dibuka.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

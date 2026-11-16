@@ -1647,6 +1647,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Surat itu ditulis Mak Hiu sendiri... dan isinya, rahasia yang tak pernah boleh dibuka.",
       "status": "fallback"
+    },
+    {
+      "id": "S2E10_01",
+      "spk": "mak",
+      "prompt": "[panik, merebut] Jumbo! Jangan dibuka! Surat itu... jangan!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_02",
+      "spk": "hiu",
+      "prompt": "[curiga, sombong] Buka saja! Paling surat utang Mak sama kuli ini!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_03",
+      "spk": "kakap",
+      "prompt": "[mengejek, tertawa] Atau resep cumi asin keriput, bau gudang! Hahaha!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_04",
+      "spk": "hiu",
+      "prompt": "[meremehkan] Cumi asin begitu... dari dulu nggak ada harganya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_05",
+      "spk": "cj",
+      "prompt": "[datar, membaca pelan] Gudang seratus, untuk dua anak jemuranku. Jumbo dan Hiu. Jemur berdua, jangan dijual.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_06",
+      "spk": "teri",
+      "prompt": "[kaget] Loh?! Gudang seratus... punya berdua?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_07",
+      "spk": "mak",
+      "prompt": "[pelan, sedih] Tanahnya Mak beli pakai cumi asin jemuran kalian. Wanginya... wangi kalian berdua.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_08",
+      "spk": "hiu",
+      "prompt": "[terdiam, mengendus, lalu menangis] Wangi ini... wangi kita dulu, Jumbo.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_09",
+      "spk": "cj",
+      "prompt": "[datar, menyodorkan caping] Besok subuh. Jemur bareng, Hiu.",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_10",
+      "spk": "kakap",
+      "prompt": "[panik] Terus saya... kuli siapa?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_11",
+      "spk": "mak",
+      "prompt": "[tegas] Kamu kuli Mak. Angkat tampah!",
+      "status": "fallback"
+    },
+    {
+      "id": "S2E10_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Gudang seratus akhirnya punya dua juragan... tapi di dasar amplop, masih ada satu alamat dermaga yang belum pernah mereka datangi.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

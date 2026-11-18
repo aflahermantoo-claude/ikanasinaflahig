@@ -1707,6 +1707,77 @@ function s2e10Scene(sh, t, T) {
 }
 SCENES.s2e10 = [s2e10Scene, ep3Overlay]; TITLES.s2e10 = 'Juragan Menyamar..';
 
+// ================= S3E6 — Mertua Cumi Jumbo: Utang Subuh (gaya A, sitcom deadpan) =================
+const trukLuar = (T, x = 150, y = 196, sc = 0.62) => { const glow = 0.75 + 0.25 * Math.sin(T * 5);
+  return `<path d="M${x + 28} 286 L270 220 L270 360 Z" fill="#FFF6B0" opacity="${(0.16 * glow).toFixed(2)}"/><g transform="translate(${x} ${y}) scale(${sc})">` + trukA(0, 0) + `<circle cx="206" cy="74" r="9" fill="#FFF3A0" opacity="${glow.toFixed(2)}"/><rect x="40" y="26" width="40" height="40" rx="6" fill="#F5C542" stroke="#161616" stroke-width="2"/><text x="60" y="56" text-anchor="middle" font-family="Liberation Sans" font-weight="bold" font-size="30" fill="#7A5A10">H</text></g>`; };
+const kompor = (x, y, s = 1, fire = 0, T = 0) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-60" y="0" width="120" height="26" rx="4" fill="#9AA3AD" stroke="#161616" stroke-width="2.2"/><circle cx="-30" cy="13" r="5" fill="#161616"/><circle cx="30" cy="13" r="5" fill="#161616"/><ellipse cx="0" cy="-2" rx="34" ry="6" fill="#3A3F46" stroke="#161616" stroke-width="2"/>` +
+  (fire > 0 ? [-24, -12, 0, 12, 24].map((d, k) => { const h = (12 + 5 * Math.sin(T * 14 + k)) * fire; return `<path d="M${d - 5} -4 Q${d} ${(-4 - h * 2).toFixed(1)} ${d + 5} -4 Z" fill="#4FA3F7" stroke="#1E5FA8" stroke-width="1"/>`; }).join('') : '') + `</g>`;
+function s3e6Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const lidOf = (o, d = 0.3) => blink(T) && (o.lid ?? d) < 0.9 ? 1 : (o.lid ?? d);
+  const bg = () => pagarA(T) + trukLuar(T);
+  const ground = `<rect y="400" width="270" height="80" fill="#1E1A26" stroke="#161616" stroke-width="2"/>`;
+  const hiuBig = (o, extra = '') => bg() + place(hiuA({ ...o, lid: lidOf(o, 0.4), m: mouthOf(sh, T, 'hiu', o.m || 'flat') }), -40, 160 + bob('hiu'), 1.95, { w: 140, flip: true }) + extra + ground;
+  const kkBig = (o, extra = '') => bg() + place(chefKakap({ ...o, lid: lidOf(o), m: mouthOf(sh, T, 'kakap', o.m || 'smirk') }), -30, 170 - (o.up || 0) + bob('kakap'), 1.95, { w: 140, flip: true }) + extra + ground;
+  const papaBig = (o, extra = '') => bg() + place(papa({ ...o, lid: lidOf(o), m: mouthOf(sh, T, 'cj', o.m || 'flat') }), 35, 150 + bob('cj'), 2.0) + extra + ground;
+  if (id === 'terima') {
+    const z = 1 + 0.06 * easeOut(prog(t, 0, 0.4)), laugh = Math.abs(Math.sin(T * 10)) * 2;
+    let s = bg() + place(chefKakap({ lid: lidOf({}, 0.5), px: -0.6, m: 'grin' }), 140, 236, 0.85, { w: 140, flip: true });
+    s += place(hiuA({ lid: lidOf({}, 0.6), px: 0.6, m: mouthOf(sh, T, 'hiu', 'smirk') }), -40, 180 - laugh + bob('hiu'), 1.4, { w: 140, flip: true }) + surat(150, 214, 0.6, 12) + ground;
+    return cam(z, 135, 240, s);
+  }
+  if (id === 'lari') {
+    const run = easeOut(prog(t, 0, 0.8)), hop = Math.abs(Math.sin(T * 14)) * 5 * (1 - run);
+    let s = pagarA(T) + `<rect width="270" height="480" fill="#08060A" opacity="0.2"/>`;
+    s += place(papa({ lid: lidOf({}, 0), pr: 2, px: 0.6, m: mouthOf(sh, T, 'cj', 'grit'), brow: 'angry', sweat: true }), -150 + run * 190, 170 - hop + bob('cj'), 1.7);
+    s += `<path d="M${(-20 + run * 170).toFixed(0)} 250 l-40 0 M${(-20 + run * 170).toFixed(0)} 272 l-56 0" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="${(0.7 * (1 - run)).toFixed(2)}"/>`;
+    return s + ground;
+  }
+  if (id === 'telat') return kkBig({ lid: 0.5, px: 0.5, m: 'smirk' }, surat(214, 300, 0.6, 18));
+  if (id === 'remeh') {
+    const look = t > 1.0 ? 0.9 : 0.3;
+    return bg() + place(hiuA({ lid: lidOf({}, 0.6), px: look, m: mouthOf(sh, T, 'hiu', 'smirk') }), -60, 170 + bob('hiu'), 1.6, { w: 140, flip: true }) +
+      place(TN({ blangkon: false, lid: lidOf({}, 0.2), px: -0.7, m: 'flat' }), 160, 270, 0.9, { w: 120 }) + ground;
+  }
+  if (id === 'goreng') { const laugh = Math.abs(Math.sin(T * 16)) * 3; return kkBig({ lid: laugh > 1.5 ? 0.98 : 0.5, px: 0.3, m: talking(sh, T, 'kakap') ? 'grin' : 'smirk', up: laugh }); }
+  if (id === 'karung') {
+    const open = easeOut(prog(t, 0, 0.4));
+    let s = bg() + place(TN({ blangkon: false, lid: lidOf({}, 0.2), px: 0.6, m: mouthOf(sh, T, 'teri', 'flat') }), 10, 200 + bob('teri'), 1.5, { w: 120 });
+    s += karungBuka(160, 250, 1.2, t) + (open > 0.5 ? aromaUap(t, 170, 236, 3, 1) : '');
+    return s + ground;
+  }
+  if (id === 'endus') {
+    const wow = t > 0.9, z = 1 + 0.08 * easeOut(prog(t, 0.9, 0.25)), sp = wow ? Math.min(1, (t - 0.9) * 4) : 0;
+    let s = bg() + place(hiuA({ lid: wow ? 0 : (t > 0.4 ? 0.98 : 0.6), pr: wow ? 2 : undefined, px: 0.4, m: mouthOf(sh, T, 'hiu', wow ? 'o' : 'flat'), sweat: wow }), -40, 160 + bob('hiu'), 1.95, { w: 140, flip: true });
+    s += karungBuka(176, 236, 1.0, t) + (t < 0.9 ? aromaUap(t, 196, 226, 3, -1) : '') + ground;
+    if (wow) s += star(36, 150, 8 * sp) + star(232, 170, 7 * sp);
+    return cam(z, 135, 250, s);
+  }
+  if (id === 'utang') {
+    const z = 1 + 0.05 * easeOut(prog(t, 0, sh.dur));
+    return cam(z, 135, 240, bg() + place(bapakTeri({ lid: lidOf({}, 0.55), px: 0.3, m: mouthOf(sh, T, 'bt', 'flat') }, { karung: true }), 60, 230 + bob('bt'), 1.6, { w: 120 }) + ground);
+  }
+  if (id === 'serah') {
+    const give = easeOut(prog(t, 0.8, 0.6));
+    return hiuBig({ lid: 0.5, px: 0.8, py: 0.4, m: 'frown', brow: 'sad', sweat: true }, surat(200 + give * 40, 300 - give * 10, 0.62, 10 - give * 10));
+  }
+  if (id === 'kakap') {
+    const sp = Math.min(1, t * 4), shake = Math.sin(T * 60) * 1.6;
+    return `<g transform="translate(${shake.toFixed(2)} 0)">` + bg() + place(chefKakap({ lid: 0, pr: 2, px: 0.6, m: mouthOf(sh, T, 'kakap', 'o'), brow: 'up', sweat: true }), 10, 180 + bob('kakap'), 1.6, { w: 140, flip: true }) + star(40, 170, 7 * sp) + star(236, 190, 6 * sp) + ground + `</g>`;
+  }
+  if (id === 'ambil') return papaBig({ lid: 0.55, px: 0.6, py: 0.3, m: 'flat' }, surat(214, 330, 0.7, -6));
+  if (id === 'end') {
+    const z = 1 + 0.08 * easeOut(prog(t, 0, sh.dur)), fire = easeOut(prog(t, 2.0, 0.5));
+    let s = dapurA(true) + `<rect width="270" height="480" fill="#1E5FA8" opacity="${(0.12 * fire).toFixed(2)}"/>`;
+    s += place(papa({ lid: lidOf({}, 0.6), px: 0.7, py: 0.4, m: mouthOf(sh, T, 'cj', 'flat') }), 10, 160 + bob('cj'), 1.6);
+    s += kompor(190, 318, 1.0, fire, T) + surat(196, 270, 0.55, -14 + Math.sin(T * 2) * 3);
+    return cam(z, 135, 260, s);
+  }
+  return '';
+}
+SCENES.s3e6 = [s3e6Scene, ep3Overlay]; TITLES.s3e6 = 'Mertua Cumi Jumbo..';
+
 // ---------- frame ----------
 function frameSvg(T) {
   let i = TL.shots.findIndex(s => T >= s.start && T < s.start + s.dur); if (i < 0) i = TL.shots.length - 1;

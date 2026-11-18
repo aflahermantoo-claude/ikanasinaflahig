@@ -1719,6 +1719,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Gudang seratus akhirnya punya dua juragan... tapi di dasar amplop, masih ada satu alamat dermaga yang belum pernah mereka datangi.",
       "status": "fallback"
+    },
+    {
+      "id": "S3E6_01",
+      "spk": "hiu",
+      "prompt": "[ketawa berat, puas] Separuh jemuran Jumbo... sekarang di tangan saya. Kerja bagus, Chef!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_02",
+      "spk": "cj",
+      "prompt": "[panik, berlari] Hiu! Kembalikan surat itu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_03",
+      "spk": "kakap",
+      "prompt": "[mengejek] Telat, Juragan! Separuh harta Juragan sekarang punya Juragan Hiu!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_04",
+      "spk": "hiu",
+      "prompt": "[meremehkan, melirik Teri] Ini calon menantumu? Teri nasi kecil. Bapaknya tukang jemur cumi asin keriput.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_05",
+      "spk": "kakap",
+      "prompt": "[ketawa] Bapaknya tukang jemur, anaknya tukang goreng! Hahaha!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_06",
+      "spk": "teri",
+      "prompt": "[datar, membuka karung] Juragan Hiu. Cium dulu ini.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_07",
+      "spk": "hiu",
+      "prompt": "[mengendus, kaget] Loh?! Ini... cumi asin yang dulu saya beli tiap subuh di Muara Angke!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_08",
+      "spk": "bt",
+      "prompt": "[tua, tenang, berat] Waktu itu kamu belum punya truk, Hiu. Bayarnya ngutang.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_09",
+      "spk": "hiu",
+      "prompt": "[gugup, menyerahkan surat] Teri Besar... maaf. Surat ini punya Bapak.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_10",
+      "spk": "kakap",
+      "prompt": "[panik] Loh, Juragan Hiu! Kok dikembalikan?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_11",
+      "spk": "cj",
+      "prompt": "[dingin, mengambil surat] Separuh hartaku... untuk tukang jemur.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E6_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Malam itu, Papa membawa surat itu ke dapur... dan menyalakan kompor.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

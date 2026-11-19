@@ -1328,6 +1328,93 @@ function s1e8Scene(sh, t, T) {
 }
 SCENES.s1e8 = [s1e8Scene, ep3Overlay]; TITLES.s1e8 = 'Cumi yang Terhina..';
 
+// ================= S1E9 — Cumi yang Terhina: Seratus Tampah (gaya A, sitcom deadpan) =================
+// Tokoh tambahan: gurita kecil (teman Penghuni Laut Dalam) — gurita ungu mungil, mata piring kuning, gaya sama.
+const tampahA = (x, y, s = 1, isi = 0) => `<g transform="translate(${x} ${y}) scale(${s})"><ellipse cx="0" cy="0" rx="34" ry="10" fill="#D9B26A" stroke="#161616" stroke-width="2"/><ellipse cx="0" cy="-1" rx="26" ry="6" fill="#C9A04A"/>${isi ? cumiKering(-10, -2, 0.5, -80) + cumiKering(8, -3, 0.5, -100) : ''}</g>`;
+function guritaKecil(x, y, s = 1, o = {}) {
+  const { lid = 0.3, px = 0, py = 0, T = 0, tampah = false, isi = 0, k = 0 } = o;
+  const w = Math.sin(T * 6 + k) * 3;
+  let g = [-24, -10, 6, 20].map((d, j) => `<path d="M${d} 18 q${(j % 2 ? 6 : -6) + w} 14 ${d < 0 ? -6 : 6} 26" stroke="#161616" stroke-width="10.4" fill="none" stroke-linecap="round"/><path d="M${d} 18 q${(j % 2 ? 6 : -6) + w} 14 ${d < 0 ? -6 : 6} 26" stroke="${GUR}" stroke-width="7" fill="none" stroke-linecap="round"/>`).join('');
+  g += `<path d="M-30 22 Q-34 -32 0 -34 Q34 -32 30 22 Z" fill="${GUR}" stroke="#161616" stroke-width="2.4"/>`;
+  g += [-11, 11].map(d => `<circle cx="${d}" cy="-4" r="9" fill="#FFE14D" stroke="#161616" stroke-width="2"/><circle cx="${d + px * 3}" cy="${-4 + py * 3}" r="3.4" fill="#161616"/>` + (lid > 0 ? `<path d="M${d - 9} -4 A9 9 0 0 1 ${d + 9} -4 L${d + 9} ${(-13 + 18 * lid).toFixed(1)} L${d - 9} ${(-13 + 18 * lid).toFixed(1)} Z" fill="${GUR}" stroke="#161616" stroke-width="1.6"/>` : '')).join('');
+  g += `<path d="M-5 12 L5 12" stroke="#161616" stroke-width="2.2" stroke-linecap="round"/>`;
+  if (tampah) g += tampahA(0, -44, 0.9, isi);
+  return `<g transform="translate(${x} ${y}) scale(${s})">${g}</g>`;
+}
+const awanHitam = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-60 20 Q-70 -6 -40 -10 Q-34 -38 -4 -30 Q14 -50 38 -30 Q70 -32 64 0 Q80 18 54 24 Z" fill="#3A3D48" stroke="#161616" stroke-width="2.4" stroke-linejoin="round"/></g>`;
+function s1e9Scene(sh, t, T) {
+  const id = sh.id;
+  const bob = sp => -amp(sh, T, sp) * 3 * Math.abs(Math.sin(T * 12));
+  const ground = `<rect y="402" width="270" height="78" fill="#8E5D36" stroke="#161616" stroke-width="2"/>`;
+  const pldMouth = () => talking(sh, T, 'pld') ? { m: 'o', open: 4 + amp(sh, T, 'pld') * 9 } : { m: 'flat' };
+  const barisGurita = (y, n, sc, opt = {}) => [...Array(n).keys()].map(k => guritaKecil(22 + k * (226 / (n - 1)), y + (k % 2) * 8, sc, { T, k, lid: blink(T + k * 0.3) ? 1 : 0.25, ...opt })).join('');
+  if (id === 'naik') {
+    const up = easeOut(prog(t, 0, 1.4)), shk = Math.sin(T * 50) * 2;
+    let s = dermagaA(T) + [...Array(6).keys()].map(k => guritaKecil(18 + k * 46, 380 - up * (40 + (k % 3) * 14), 0.8, { T, k, lid: 0.1, py: -0.5 })).join('');
+    s += place(KK({ lid: 0, pr: 2, px: -0.6, m: mouthOf(sh, T, 'kakap', 'o'), chain: true, sweat: true, brow: 'up' }), 120 + shk, 112 + bob('kakap'), 1.3, { w: 140 }) + tetes(T, 150, 150, 2);
+    return `<g transform="translate(${shk.toFixed(2)} 0)">${s}</g>`;
+  }
+  if (id === 'jaga') {
+    const slide = 1 - easeOut(prog(t, 0, 0.3));
+    let s = dermagaA(T) + karungA(10, 300, 'CUMI', 1.1) + karungA(186, 300, 'CUMI', 1.1) + karungA(98, 286, 'CUMI', 1.0);
+    s += place(KO({ lid: blink(T) ? 1 : 0.5, m: mouthOf(sh, T, 'ko', 'flat') }), 45 + slide * 220, 150 + bob('ko'), 1.7) + shades(45 + slide * 220, 150 + bob('ko'), 1.7);
+    return s + ground;
+  }
+  if (id === 'lempar') {
+    const laugh = Math.abs(Math.sin(T * 14)) * 2.5 * (talking(sh, T, 'kakap') ? 1 : 0);
+    let s = dermagaA(T) + place(CB({ lid: blink(T) ? 1 : 0.62, px: -0.5, m: 'flat', blush: false, brow: 'low' }), 188, 268, 0.6);
+    s += place(KK({ lid: 0.5, px: 0.8, m: mouthOf(sh, T, 'kakap', 'smirk'), chain: true }), -10, 130 - laugh + bob('kakap'), 1.55, { w: 140 });
+    return s + ground + `<path d="M150 262 l22 10 M152 276 l24 0" stroke="#161616" stroke-width="2.6" stroke-linecap="round"/>`;
+  }
+  if (id === 'bela') return dermagaA(T) + place(hiuA({ lid: 0.55, px: 0.6, m: mouthOf(sh, T, 'hiu', 'smirk') }), 10, 140 + bob('hiu'), 1.55, { w: 140 }) + ground;
+  if (id === 'tampah') {
+    let s = dermagaA(T) + place(CB({ lid: blink(T) ? 1 : 0.62, px: 0.6, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 10, 140 + bob('cb'), 1.6);
+    s += guritaKecil(208, 330, 1.3, { T, lid: blink(T + 0.5) ? 1 : 0.2, px: -0.6, tampah: true });
+    return s + ground;
+  }
+  if (id === 'belajar') {
+    let s = ujungA(T) + guritaA(135, 190, 1.05, { lid: 0.35, px: 0, py: 0.7, ...pldMouth() }) + papanA(350);
+    s += barisGurita(440, 5, 0.7, { tampah: true, py: -0.6 });
+    return s;
+  }
+  if (id === 'loh') {
+    const sp = Math.min(1, t * 4), z = 1 + 0.08 * easeOut(prog(t, 0, 0.25));
+    return cam(z, 135, 250, dermagaA(T) + place(teriChef({ lid: 0, pr: 2, px: 0.7, m: mouthOf(sh, T, 'teri', 'o'), brow: 'up', sweat: true }), 0, 150 + bob('teri'), 2.1, { w: 120 }) + ground + star(36, 150, 8 * sp) + star(236, 170, 7 * sp));
+  }
+  if (id === 'ajar') {
+    let s = dermagaA(T) + place(CB({ lid: blink(T) ? 1 : 0.62, px: 0.5, m: mouthOf(sh, T, 'cb', 'flat'), blush: false, brow: 'low' }), 2, 196 + bob('cb'), 1.05);
+    s += [0, 1, 2].map(k => guritaKecil(150 + k * 44, 436 - (k % 2) * 18, 0.75, { T, k, lid: 0.15, px: -0.7, tampah: true, isi: 1 })).join('');
+    s += [...Array(8).keys()].map(k => { const o = (T * 1.5 + k / 8) % 1; return `<circle cx="${(150 + (k * 23) % 100).toFixed(1)}" cy="${(250 + o * 70).toFixed(1)}" r="1.8" fill="#FFFFFF" stroke="#161616" stroke-width="0.6" opacity="${(1 - o).toFixed(2)}"/>`; }).join('');
+    return s + aromaUap(t, 150, 300, 2);
+  }
+  if (id === 'taruhan') {
+    const shk = t < 0.4 ? Math.sin(T * 60) * 2 : 0;
+    let s = dermagaA(T, { dusk: true }) + guritaA(135, 186, 0.85, { lid: 0.55, px: 0, py: 0.6, ...pldMouth() });
+    s += `<rect y="330" width="270" height="150" fill="#A8784A" stroke="#161616" stroke-width="2.2"/>`;
+    s += [0, 1, 2].map(r => [0, 1, 2, 3, 4].map(k => tampahA(30 + k * 52 - r * 10, 360 + r * 34, 0.7, 1)).join('')).join('');
+    return `<g transform="translate(${shk.toFixed(2)} 0)">${s}</g><rect width="270" height="480" fill="#1A0E20" opacity="0.12"/>`;
+  }
+  if (id === 'ludah') {
+    const gulp = t > 1.0 && t < 1.4 ? 4 : 0;
+    return dermagaA(T) + [0, 1, 2, 3].map(k => tampahA(30 + k * 70, 440, 0.8, 1)).join('') + place(KO({ lid: blink(T) ? 1 : 0.6, px: -0.3, m: mouthOf(sh, T, 'ko', 'frown') }), 20, 120 + gulp + bob('ko'), 2.0) + shades(20, 120 + gulp + bob('ko'), 2.0) + tetes(T, 200, 150, 2);
+  }
+  if (id === 'hujan') {
+    let s = dermagaA(T, { dusk: true }) + `<rect width="270" height="480" fill="#0A0A1A" opacity="0.35"/>` + karungA(150, 300, 'CUMI', 1.4) + karungA(190, 330, '', 1.2);
+    s += place(KK({ lid: 0.55, px: 0.7, m: mouthOf(sh, T, 'kakap', 'smirk'), chain: true }), -20, 150 + bob('kakap'), 1.45, { w: 140 });
+    s += `<g transform="translate(150 196)"><rect x="-26" y="-44" width="52" height="88" rx="8" fill="#222" stroke="#161616" stroke-width="2.4"/><rect x="-21" y="-36" width="42" height="68" rx="3" fill="#CFE3F2"/>${awanHitam(0, -10, 0.28)}${[-10, 0, 10].map(d => `<path d="M${d} 4 l-3 10" stroke="#3C8DC0" stroke-width="2.2" stroke-linecap="round"/>`).join('')}</g>`;
+    return s + `<rect y="402" width="270" height="78" fill="#6E4A2C" stroke="#161616" stroke-width="2"/>`;
+  }
+  if (id === 'end') {
+    const mv = easeOut(prog(t, 0, sh.dur)), z = 1 + 0.06 * mv;
+    let s = dermagaA(T, { dusk: true }) + `<rect width="270" height="480" fill="#0A0A1A" opacity="${(0.15 + mv * 0.4).toFixed(2)}"/>`;
+    s += [0, 1].map(r => [0, 1, 2, 3, 4].map(k => tampahA(30 + k * 52 - r * 10, 372 + r * 40, 0.7, 1)).join('')).join('');
+    s += awanHitam(330 - mv * 200, 90, 1.6) + awanHitam(420 - mv * 230, 150, 1.2) + awanHitam(380 - mv * 160, 40, 1.0);
+    return cam(z, 135, 260, s);
+  }
+  return '';
+}
+SCENES.s1e9 = [s1e9Scene, ep3Overlay]; TITLES.s1e9 = 'Cumi yang Terhina..';
+
 // ================= S2E6 — Juragan Menyamar: Truk Tengah Malam (gaya A, sitcom deadpan) =================
 const ceklis = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-26" y="-34" width="52" height="68" rx="3" fill="#F4EBDD" stroke="#161616" stroke-width="2"/><rect x="-10" y="-38" width="20" height="8" rx="2" fill="#8E5D36" stroke="#161616" stroke-width="1.4"/>${[-20, -6, 8, 22].map(d => `<path d="M-18 ${d} l4 4 l7 -8" stroke="#3FA34D" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M-2 ${d} L18 ${d}" stroke="#8C6A4A" stroke-width="1.6"/>`).join('')}</g>`;
 function kepungA(T) { // gerbang gudang seratus dikelilingi lampu truk

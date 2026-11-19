@@ -1791,6 +1791,78 @@
       "spk": "nar",
       "prompt": "[dramatis, seperti narator sinetron] Malam itu, Papa membawa surat itu ke dapur... dan menyalakan kompor.",
       "status": "fallback"
+    },
+    {
+      "id": "S1E9_01",
+      "spk": "kakap",
+      "prompt": "[menjerit panik] Guritaaa! Seratus gurita naik ke dermaga!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_02",
+      "spk": "ko",
+      "prompt": "[datar, tegas] Tenang. Semua jaga karung.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_03",
+      "spk": "kakap",
+      "prompt": "[mengejek, menunjuk] Ini gara-gara cumi kering keriput itu! Lempar saja dia ke laut!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_04",
+      "spk": "hiu",
+      "prompt": "[sinis] Betul. Cumi asin kecil begitu, buat apa dibela?",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_05",
+      "spk": "cb",
+      "prompt": "[datar] Mereka nggak bawa senjata. Mereka bawa tampah.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_06",
+      "spk": "pld",
+      "prompt": "[berat, pelan] Teman-teman saya tidak mau makan. Mereka mau belajar menjemur cumi asin.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_07",
+      "spk": "teri",
+      "prompt": "[kaget] Loh?! Seratus gurita... mau belajar jemur?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_08",
+      "spk": "cb",
+      "prompt": "[datar, sabar] Garamnya secukupnya. Jemur dua hari. Jangan kena hujan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_09",
+      "spk": "pld",
+      "prompt": "[berat, tegas] Kalau jemuran kami gagal... dermaga ini milik laut.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_10",
+      "spk": "ko",
+      "prompt": "[datar, menelan ludah] Dermaga saya... jadi taruhan.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_11",
+      "spk": "kakap",
+      "prompt": "[berbisik licik] Ramalan cuaca... besok hujan seharian. Hehehe.",
+      "status": "fallback"
+    },
+    {
+      "id": "S1E9_12",
+      "spk": "nar",
+      "prompt": "[dramatis, pelan] Dan dari arah laut, awan hitam mulai bergerak... menuju seratus tampah jemuran.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

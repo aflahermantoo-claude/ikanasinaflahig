@@ -1863,6 +1863,78 @@
       "spk": "nar",
       "prompt": "[dramatis, pelan] Dan dari arah laut, awan hitam mulai bergerak... menuju seratus tampah jemuran.",
       "status": "fallback"
+    },
+    {
+      "id": "S3E7_01",
+      "spk": "cb",
+      "prompt": "[panik, berlari] Papa! Jangan dibakar!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_02",
+      "spk": "cj",
+      "prompt": "[dingin, mendekatkan surat ke api] Minggir, Nak. Ini urusan Papa.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_03",
+      "spk": "kakap",
+      "prompt": "[mengejek, di pintu] Bakar saja, Juragan! Kertas lusuh bau cumi asin keriput!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_04",
+      "spk": "cj",
+      "prompt": "[meremehkan] Separuh hartaku untuk tukang jemur? Cumi asin kering begitu nggak ada harganya.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_05",
+      "spk": "cb",
+      "prompt": "[kaget, menunjuk] Papa, lihat! Ada tulisan muncul di balik surat!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_06",
+      "spk": "cj",
+      "prompt": "[terbata, kaget] Loh?! Tinta jeruk... ini tulisan Teri Besar!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_07",
+      "spk": "cb",
+      "prompt": "[membaca pelan] Jumbo, kalau kamu sudah kaya, gorenglah cumi asin jemuran kita untuk anak-anak kita.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_08",
+      "spk": "kakap",
+      "prompt": "[panik] Anak-anak kita?! Maksudnya... Cumi Baby sama Teri?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_09",
+      "spk": "cj",
+      "prompt": "[pelan, memasang wajan] Ambilkan karung cumi asin itu. Subuh ini, Papa yang masak.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_10",
+      "spk": "kakap",
+      "prompt": "[panik] Juragan masak buat tukang jemur?! Terus saya chef siapa?!",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_11",
+      "spk": "cb",
+      "prompt": "[pelan, ragu] Papa... di baris terakhir, masih ada satu nama.",
+      "status": "fallback"
+    },
+    {
+      "id": "S3E7_12",
+      "spk": "nar",
+      "prompt": "[dramatis, seperti narator sinetron] Nama itu... nama Mama Cumi Baby. Yang tak pernah Papa ceritakan, selama tiga puluh tahun.",
+      "status": "fallback"
     }
   ],
   "_catatan": "Dialog baru: tambahkan ke 'lines' dengan id <EP>_<NN> (mis. S2E1_01), spk, prompt (boleh tag arahan [..]), status 'belum'. Setelah dibuat: status 'ok' + session_id (ElevenLabs) atau 'fallback' (tts_fallback.py)."

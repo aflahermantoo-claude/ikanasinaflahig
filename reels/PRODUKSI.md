@@ -5,7 +5,14 @@ Tugas itu jalan beberapa kali sehari. Setiap kali jalan, tugas mengisi antrean s
 Wajib dibaca juga: `reels/sinetron-asin/ATURAN_SERI.md` (gaya, 5 babak, footer, caption GEO) dan `reels/sinetron-asin/SERI.md` (rotasi, premis, tokoh, suara).
 Disetujui Aflah 29 Okt 2026: full otomatis, tidak perlu persetujuan naskah.
 
-## 0. Aturan aktif mulai 12 Nov 2026 — dua jalur
+## 0. Aturan aktif — berlaku 20 Nov 2026 — satu jalur, 1 Reel per hari
+Lihat "ATURAN AKTIF" di `sinetron-asin/SERI.md`.
+- 1 Reel per hari, SATU jalur, tayang 19:00 WIB. Tidak ada lagi jalur pagi. meta.json episode baru wajib `"slot": "malam"` + `scheduled_at` jam 19:00 WIB.
+- Seri 3 Mertua Cumi Jumbo dan Seri 1 Cumi yang Terhina bergantian (Seri 2 tamat di Ep 10).
+- Suara HANYA ElevenLabs; suara cadangan dilarang (lihat bagian 3).
+- Urutan kerja per run (satu episode per run): (a) lanjutkan episode `draft`; (b) kalau tidak ada draft, suarakan ulang dengan ElevenLabs episode belum tayang (`scheduled`/`ready`) yang `voice`-nya bukan ElevenLabs, mulai dari `scheduled_at` paling awal, render ulang, lalu set `"voice"` diawali "ElevenLabs", `"slot": "malam"`, `scheduled_at` = tanggal kosong paling awal jam 19:00 WIB (naskah dan caption tidak diubah); (c) kalau semua sudah ElevenLabs, isi slot kosong paling awal dari hari ini s.d. hari ini + 3 dengan episode baru. Kalau semua slot terisi, berhenti tanpa pesan.
+
+### (TIDAK BERLAKU sejak 20 Nov 2026 — riwayat) Aturan 12 Nov 2026 — dua jalur
 Lihat "ATURAN AKTIF" di `sinetron-asin/SERI.md`. Ada dua jalur, masing-masing 1 slot per hari:
 - `malam` (19:00 WIB): Seri 2 Juragan Menyamar sampai Ep 10. Kalau Ep 10 sudah ada, jalur ini selesai (lapor sekali ke Aflah).
 - `pagi` (09:00 WIB): Seri 3 dan Seri 1 bergantian.
@@ -35,6 +42,8 @@ Bagian lain di bawah yang menyebut "19:00" berlaku sesuai jam jalurnya.
 - Update SERI.md: tambahkan 1 baris ringkasan episode ini di bawah serinya.
 
 ## 3. Suara
+> **Berlaku 20 Nov 2026: SUARA HANYA ELEVENLABS.** Suara cadangan (edge-tts / `tts_fallback.py` / espeak / sumber lain apa pun) DILARANG, termasuk kalau ElevenLabs limit, sibuk, kredit habis, atau ditolak. Kalau ElevenLabs ditolak / limit / kredit habis / perlu izin ulang connector: tunggu 2 menit, coba sekali lagi. Kalau masih gagal: BERHENTI — simpan progres (dialog yang sudah jadi; status `draft` untuk episode baru; episode lama dibiarkan apa adanya), commit dan push, lalu laporkan ke Aflah error persisnya dan apa yang perlu ia lakukan (isi kredit / upgrade paket ElevenLabs, atau sambungkan ulang connector). Jangan mencampur suara ElevenLabs dan cadangan dalam satu episode. Butir tentang suara cadangan di bawah ini TIDAK BERLAKU (riwayat).
+
 - Tambahkan dialog ke `_produksi/voices.json` (`lines`, `status: "belum"`). Tokoh baru ditambahkan ke `voices` dan tabel di SERI.md.
   Suara Cumi Jumbo (`cj`) belum dipilih: pilih sekali dari `creative_list_voices` (pria, Indonesia/Jawa, berat dan berwibawa), lalu simpan voice_id-nya.
 - ElevenLabs: `creative_generate_speech` dengan model `eleven_v4`, flow `vPf78XLPMQwAE6mZ7aqB`, dan **`generations_count: 1`** (hemat kredit). Buat satu dialog setiap kali, jangan paralel. Polling `creative_get_flow_run_status`, lalu unduh `content_url` ke `_produksi/vo/<ID>.mp3`. Catat `status: "ok"` + `session_id`.

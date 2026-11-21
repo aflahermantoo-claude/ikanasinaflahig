@@ -1,6 +1,15 @@
 # Seri, tokoh & rotasi — Sinetron Asin Universe
 
-## ⚠️ ATURAN AKTIF mulai 12 Nov 2026 (permintaan Aflah) — 2 Reels per hari
+## ⚠️ ATURAN AKTIF — berlaku 20 Nov 2026 (permintaan Aflah) — 1 Reel per hari, satu jalur
+Menggantikan aturan 12 Nov 2026 (2 Reels per hari, dua jalur) di bawah.
+
+- **1 Reel per hari, SATU jalur, tayang 19:00 WIB.** Tidak ada lagi jalur pagi. Semua episode baru: `"slot": "malam"`, `scheduled_at` jam 19:00 WIB, satu episode per tanggal.
+- **Seri:** Seri 3 — Mertua Cumi Jumbo ↔ Seri 1 — Cumi yang Terhina, bergantian (Seri 2 sudah tamat di Ep 10).
+- **SUARA HANYA ELEVENLABS.** Suara cadangan (edge-tts / `tts_fallback.py` / espeak / sumber lain apa pun) DILARANG dipakai, termasuk kalau ElevenLabs limit, sibuk, kredit habis, atau ditolak. Kalau ElevenLabs gagal (setelah tunggu 2 menit + coba sekali lagi): berhenti, simpan progres, lapor ke Aflah.
+- Episode yang belum tayang dan masih bersuara cadangan disuarakan ulang dengan ElevenLabs satu per satu (yang `scheduled_at` paling awal dulu), lalu dijadwalkan ulang ke tanggal kosong paling awal jam 19:00 WIB dengan `"slot": "malam"`. Naskah dan caption tidak diubah.
+- Produksi jalan setiap hari ±16:00 WIB, satu episode per run.
+
+## (TIDAK BERLAKU sejak 20 Nov 2026 — riwayat) Aturan 12 Nov 2026 — 2 Reels per hari
 Dua jalur tayang, masing-masing 1 episode per hari. Jalur ditandai `"slot"` di meta.json dan jam di `scheduled_at`.
 
 | Jalur | Jam tayang | Seri | Batas |

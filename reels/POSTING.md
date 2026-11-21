@@ -3,7 +3,12 @@
 Dokumen ini adalah sumber aturan untuk tugas terjadwal "Posting Reels @ikanasinaflah".
 Kalau aturan berubah, cukup ubah file ini — prompt tugas terjadwal membaca file ini setiap kali jalan.
 
-## Jadwal (mulai 13 Nov 2026: 2 Reels per hari)
+## Jadwal — berlaku 20 Nov 2026: 1 Reel per hari, 19:00 WIB
+- Satu slot tayang saja: **malam 19:00 WIB** (tugas "Posting Reels @ikanasinaflah", mulai 18:50). Jalur pagi 09:00 WIB sudah tidak ada; episode lama yang masih ber-`slot` `pagi` tidak diposting sampai disuarakan ulang dengan ElevenLabs dan dipindah ke `"slot": "malam"` oleh tugas produksi.
+- Maksimal **1 Reel per hari**. Kalau persiapan selesai sebelum jam tayang, tunggu (pakai Monitor dengan until-loop yang mengecek jam, jangan foreground sleep), baru posting.
+- Hanya episode yang `voice` di meta.json-nya diawali "ElevenLabs" yang dijadwalkan (suara cadangan dilarang sejak 20 Nov 2026).
+
+### (TIDAK BERLAKU sejak 20 Nov 2026 — riwayat) Jadwal 13 Nov 2026: 2 Reels per hari
 - Dua slot tayang: **pagi 09:00 WIB** (tugas "Posting Reels Pagi @ikanasinaflah", mulai 08:50) dan **malam 19:00 WIB** (tugas "Posting Reels @ikanasinaflah", mulai 18:50). Kalau persiapan selesai sebelum jam tayang, tunggu (pakai Monitor dengan until-loop yang mengecek jam, jangan foreground sleep), baru posting.
 - Tidak bentrok dengan tugas "Carousel Harian Cumiasin" (15:55 WIB, carousel) — Reel tetap diposting walau hari itu sudah ada carousel.
 - Maksimal **1 posting per slot per hari**. Kalau sudah ada episode dengan `slot` yang sama dan `posted_at` di tanggal hari ini (WIB), jangan posting lagi di slot itu. (Episode lama tanpa `slot` dianggap `malam`.)

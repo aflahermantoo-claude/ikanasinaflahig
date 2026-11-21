@@ -866,73 +866,73 @@
       "id": "S1E6_01",
       "spk": "nar",
       "prompt": "[dramatis, tegang] Dermaga, tengah hari. Juragan Hiu dan Bos Oren... saling tatap.",
-      "status": "fallback"
+      "status": "ok", "session_id": "bIwi13lGVUcwjslAsIVn"
     },
     {
       "id": "S1E6_02",
       "spk": "hiu",
       "prompt": "[berat, menantang] Oren. Yang kalah, nggak boleh beli cumi asin Mbak Cumi lagi.",
-      "status": "fallback"
+      "status": "ok", "session_id": "OaZGSwDqOEq7hxxIBRp4"
     },
     {
       "id": "S1E6_03",
       "spk": "ko",
       "prompt": "[datar, dingin] Setuju. Kamu yang kalah.",
-      "status": "fallback"
+      "status": "ok", "session_id": "BhF0vOLLk3ZEjL30IcwO"
     },
     {
       "id": "S1E6_04",
       "spk": "kakap",
       "prompt": "[tertawa mengejek, berteriak dari jauh] Hahaha! Rebutan terus! Karung terakhirnya sudah di perahu saya!",
-      "status": "fallback"
+      "status": "ok", "session_id": "piJkSdAp2scdJRA8M8kq"
     },
     {
       "id": "S1E6_05",
       "spk": "kakap",
       "prompt": "[sombong] Tanpa karung ini, Cumi Baby cuma cumi kecil yang nggak laku!",
-      "status": "fallback"
+      "status": "ok", "session_id": "RdnejGKKzmz0ZJ3nGB0x"
     },
     {
       "id": "S1E6_06",
       "spk": "cb",
       "prompt": "[datar] Oh. Itu bukan yang terakhir.",
-      "status": "fallback"
+      "status": "ok", "session_id": "sWnAvEAi0fzuNRW8ggl3"
     },
     {
       "id": "S1E6_07",
       "spk": "teri",
       "prompt": "[terengah-engah, semangat] Mbak Cumi! Jemuran tadi pagi sudah kering... lima puluh karung!",
-      "status": "fallback"
+      "status": "ok", "session_id": "pwEfx91282r05MK4h9BN"
     },
     {
       "id": "S1E6_08",
       "spk": "hiu",
       "prompt": "[kaget, terbata] Loh?! Lima puluh karung... wanginya sampai ujung dermaga!",
-      "status": "fallback"
+      "status": "ok", "session_id": "J8XTW1viEMUqSzenflMM"
     },
     {
       "id": "S1E6_09",
       "spk": "hiu",
       "prompt": "[tegas, buru-buru] Duelnya batal! Lima puluh karung itu punya saya!",
-      "status": "fallback"
+      "status": "ok", "session_id": "2NwPtpoJi0nsq33XlCqK"
     },
     {
       "id": "S1E6_10",
       "spk": "ko",
       "prompt": "[datar, sambil menarik karung] Ndak. Punya saya.",
-      "status": "fallback"
+      "status": "ok", "session_id": "FdCdyqlr074X66MZUAgq"
     },
     {
       "id": "S1E6_11",
       "spk": "kakap",
       "prompt": "[puas, lalu bingung] Sekarung cumi asin buat saya sendiri... Loh, kok perahunya goyang?",
-      "status": "fallback"
+      "status": "ok", "session_id": "4xSmePfzE0Ag7z3AYxRG"
     },
     {
       "id": "S1E6_12",
       "spk": "nar",
       "prompt": "[dramatis, pelan] Di bawah perahu Kakap... sesuatu yang jauh lebih besar dari Juragan Hiu, ikut mencium aroma cumi asin itu.",
-      "status": "fallback"
+      "status": "ok", "session_id": "OkBmECopdHvDjE0iPthu"
     },
     {
       "id": "S2E4_01",

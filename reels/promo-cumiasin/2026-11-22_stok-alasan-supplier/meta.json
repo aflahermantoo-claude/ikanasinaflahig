@@ -17,11 +17,11 @@
   "voice": "ElevenLabs eleven_v4 — Narator Maliq Nganjuk (EIcz16yo4q5hJFhNay0n), Supplier Wibowo (401JBh3qavLxL2CJfqvZ), Mas Cumi Dicky (TTzQnYDPvALqh73GZCIL)",
   "music": "ElevenLabs Music (_audio/musik_jenaka, musik_tips, musik_heroik)",
   "loudness_lufs": -14,
-  "status": "scheduled",
+  "status": "posted",
   "scheduled_at": "2026-11-22T19:00:00+07:00",
-  "posted_at": null,
-  "instagram_media_id": null,
+  "posted_at": "2026-11-22T19:00:00+07:00",
+  "instagram_media_id": "18155832019536666",
   "share_to_feed": false,
-  "posted_via": null,
+  "posted_via": "Windsor.ai create_video_post",
   "slot": "malam"
 }
